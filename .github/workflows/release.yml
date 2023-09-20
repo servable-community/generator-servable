@@ -29,7 +29,7 @@ jobs:
       uses: github/codeql-action/init@v2
       with:
         languages: ${{ matrix.language }}
-        source-root: lib
+        source-root: generators
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v2
 
@@ -37,6 +37,7 @@ jobs:
     name: Check Yarn Lock File Version 🔒
     timeout-minutes: 5
     runs-on: ubuntu-latest
+    needs: [check-code-analysis]
     steps:
       - uses: actions/checkout@v3
       - name: Check JS Lockfile
@@ -48,6 +49,7 @@ jobs:
   quality:
     name: Quality 🐳
     runs-on: ${{ matrix.os }}
+    needs: [check-code-analysis,check-lock-file-version]
     strategy:
       matrix:
         # node-version: [10.x, 12.x, 14.x, 15.x]
@@ -67,7 +69,7 @@ jobs:
     name: Publish 🚀
     runs-on: ubuntu-latest
     # if: ${{ github.ref == 'refs/heads/main' }}
-    needs: [quality,check-code-analysis]
+    needs: [quality,check-code-analysis,check-lock-file-version]
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
