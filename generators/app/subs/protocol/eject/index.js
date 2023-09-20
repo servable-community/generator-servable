@@ -40,9 +40,13 @@ export default {
 
         generator.fs.copyTpl(generator.templatePath('package.json'), `${targetPath}/package.json`, payload)
         generator.fs.copy(generator.templatePath('gitignore'), `${targetPath}/.gitignore`)
-        generator.fs.copy(generator.templatePath('.editorconfig'), `${targetPath}/.editorconfig`,)
-        generator.fs.copy(generator.templatePath('.eslintrc'), `${targetPath}/.eslintrc`,)
-        generator.fs.copy(generator.templatePath('.prettierrc'), `${targetPath}/.prettierrc`,)
+        generator.fs.copy(generator.templatePath('editorconfig'), `${targetPath}/.editorconfig`,)
+        generator.fs.copy(generator.templatePath('eslintrc'), `${targetPath}/.eslintrc`,)
+        generator.fs.copy(generator.templatePath('prettierrc'), `${targetPath}/.prettierrc`,)
+        generator.fs.copy(generator.templatePath('yarnrc'), `${targetPath}/.yarnrc`,)
+        generator.fs.copy(generator.templatePath('eslintignore'), `${targetPath}/.eslintignore`,)
+        generator.fs.copy(generator.templatePath('npmrc-pnpm'), `${targetPath}/.npmrc-pnpm`,)
+
 
 
         generator.fs.copy(sourcePath, targetPathSrc)
