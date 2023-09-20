@@ -1,0 +1,12 @@
+{
+    "generator-servable": {
+        "validateprotocol": {
+            "installDependencies": false,
+            "type": "validateprotocol",
+            "metadata": {
+                "version": "0.1.0",
+                "updatedAt": "2023-06-27T06:19:23.952Z"
+            }
+        }
+    }
+}

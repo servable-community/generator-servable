@@ -1,0 +1,134 @@
+version: "3.7"
+networks:
+  app:
+    driver: bridge
+services:
+  app-mongo:
+    image: mongo
+    restart: always
+    command: mongod --bind_ip_all
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=DATABASE_PASSWORD_TO_CHANGE
+      - MONGO_INITDB_DATABASE=app
+    ports:
+      - <%= appDatabasePort %>:27017
+    volumes:
+      - ./data/mongo:/data/db
+    networks:
+      - app
+  <%_ if (distributionType === 'distributed' ) { _%>
+  utils-mongo:
+    image: mongo:4
+    command: "--bind_ip_all --keyFile data/replica.key --replSet rs0"
+    restart: on-failure
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=DATABASE_PASSWORD_TO_CHANGE
+      - MONGO_INITDB_DATABASE=utils
+      - MONGO_REPLICA_SET_NAME=rs0
+    healthcheck:
+      test: test $$(echo "rs.initiate().ok || rs.status().ok" | mongo -u $${MONGO_INITDB_ROOT_USERNAME} -p $${MONGO_INITDB_ROOT_PASSWORD} --quiet) -eq 1
+      interval: 10s
+      start_period: 30s
+    ports:
+      - <%= appUtilsDatabasePort %>:27017
+    volumes:
+      - ./data/utils-mongo:/data
+    networks:
+      - app
+  <%_ } _%>
+  dashboard:
+    image: adoucoure/servable-dashboard:v1
+    restart: always
+    ports:
+      - <%= appDashboardPort %>:4040
+    environment:
+      PARSE_DASHBOARD_SERVER_URL: http://localhost:<%= appPort %>/<%= appEndpoint %>
+      PARSE_DASHBOARD_MASTER_KEY: <%= masterKey %>
+      PARSE_DASHBOARD_APP_ID: <%= appId %>
+      PARSE_DASHBOARD_APP_NAME: <%= appName %>
+      PARSE_DASHBOARD_USER_ID: <%= dashboardMainUsername %>
+      PARSE_DASHBOARD_USER_PASSWORD: <%= dashboardMainPassword %>
+      PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: 1
+    networks:
+      - app
+  <%_ if (configurations.includes('staging')) { _%>
+  dashboard-staging:
+    image: bitnami/parse-dashboard
+    restart: always
+    ports:
+      - 1495:4040
+    environment:
+      PARSE_DASHBOARD_PARSE_MASTER_KEY: <%= masterKey %>
+      PARSE_DASHBOARD_PARSE_HOST: localhost
+      PARSE_DASHBOARD_PARSE_PORT_NUMBER: 1397
+      PARSE_DASHBOARD_PARSE_MOUNT_PATH: /parsestaging
+      PARSE_DASHBOARD_PARSE_APP_ID: <%= appId %>
+      PARSE_DASHBOARD_PARSE_APP_NAME: <%= appName %>
+      PARSE_DASHBOARD_USERNAME: admin
+      PARSE_DASHBOARD_PASSWORD: <%= dashboardMainPassword %>
+    networks:
+      - app
+  <%_ } _%>
+  minio:
+    image: bitnami/minio:latest
+    restart: always
+    ports:
+      - <%= appS3UIPort %>:9001
+      - <%= appS3ApiPort %>:9000
+    environment:
+      MINIO_ROOT_USER: <%= minioUser %>
+      MINIO_ROOT_PASSWORD: <%= minioPassword %>
+      MINIO_DEFAULT_BUCKETS: <%= minioBucket %>
+    volumes:
+      - ./data/minio:/data
+    networks:
+      - app
+  parselivequeryserver:
+    image: adoucoure/parseserverlivequery:v1
+    restart: always
+    ports:
+      - <%= appLiveQueryServerPort %>:1392
+    environment:
+      NODE_ENV: development
+      MAX_UPLOAD_SIZE: <%= maxUploadSize %>
+      SERVABLE_APP_ID: <%= appId %>
+      SERVABLE_APP_NAME: <%= appName %>
+      SERVABLE_MASTER_KEY: <%= masterKey %>
+      SERVABLE_REST_API_KEY: <%= restApiKey %>
+      SERVABLE_JAVASCRIPT_KEY: <%= javascriptKey %>
+      SERVABLE_REDIS_LIVESERVER_DB_URI: redis://:REDIS_PWD_LS_TO_CHANGE@liveserver-redis-cache:6379
+      SERVABLE_SERVER_URL: localhost:<%= appLiveQueryServerPort %>
+      SERVABLE_VERBOSE: 1
+      SERVABLE_PORT: <%= appLiveQueryServerPort %>
+    networks:
+      - app
+  redis-cache:
+    image: docker.io/bitnami/redis:6.2
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      #- ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_PASSWORD=REDIS_PWD_TO_CHANGE
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - <%= appCachePort %>:6379
+    volumes:
+      - ./data/redis-cache:/bitnami/redis/data
+    networks:
+      - app
+  liveserver-redis-cache:
+    image: docker.io/bitnami/redis:6.2
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      #- ALLOW_EMPTY_PASSWORD=yes
+      - REDIS_PASSWORD=REDIS_PWD_LS_TO_CHANGE
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      - <%= appLiveQueryCachePort %>:6379
+    volumes:
+      - ./data/liveserver-redis-cache:/bitnami/redis/data
+    networks:
+      - app

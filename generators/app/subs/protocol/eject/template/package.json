@@ -1,0 +1,31 @@
+{
+  "name": "<%= protocolId %>",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "<%= protocolDescription %>",
+  "main": "src/index.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "<%= repositoryUrl %>"
+  },
+  "keywords": [
+    "parse",
+    "server",
+    "servable",
+    "protocol"
+  ],
+  "peerDependencies": {},
+  "dependencies": {},
+  "author": "<%= author %>",
+  "license": "ISC",
+  "bugs": {
+    "url": "<%= repositoryUrl %>/issues"
+  },
+  "homepage": "<%= repositoryUrl %>#readme"
+}
