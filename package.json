@@ -123,35 +123,9 @@
     "jest": {
         "testEnvironment": "node"
     },
-    "lint-staged": {
-        "*.js": [
-            "eslint --fix",
-            "git add"
-        ],
-        "*.json": [
-            "prettier --write",
-            "git add"
-        ]
-    },
     "_husky": {
         "hooks": {
             "pre-commit": "lint-staged"
         }
-    },
-    "eslintConfig": {
-        "extends": [
-            "xo",
-            "prettier"
-        ],
-        "env": {
-            "jest": true,
-            "node": true
-        },
-        "rules": {
-            "prettier/prettier": "error"
-        },
-        "plugins": [
-            "prettier"
-        ]
     }
 }
