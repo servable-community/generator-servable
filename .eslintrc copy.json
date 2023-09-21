@@ -12,15 +12,29 @@
     "rules": {
         "no-console": 0,
         "disallowMultipleVarDecl": 0,
-        "maximumLineLength": 0
+        "maximumLineLength": 0,
+        "indent": [
+            "error",
+            2
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
     },
-    "parser": "@babel/eslint-parser",
     "parserOptions": {
         "sourceType": "module",
         "ecmaVersion": 8,
         "ecmaFeatures": {
-            "spread": true,
-            "restParams": true,
+            "ecmaVersion": 8,
             "experimentalObjectRestSpread": true,
             "jsx": true
         }

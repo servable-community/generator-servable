@@ -40,8 +40,7 @@
         "prepublishOnly": "npm test",
         "preversion": "npm test",
         "postversion": "git push && git push --tags",
-        "pretest_": "eslint .",
-        "pretest": "echo skipping pretest",
+        "pretest": "eslint .",
         "semantic-release": "semantic-release",
         "acp": "git add . && npm run commit && git push",
         "commit": "git-cz",
@@ -90,7 +89,6 @@
         "yeoman-test": "^7.4.0",
         "yo": "^4.3.1",
         "@size-limit/preset-small-lib": "^4.10.2",
-        "@babel/eslint-parser": "^7.22.15",
         "cz-conventional-changelog": "^3.3.0",
         "eslint-config-standard": "^14.1.0",
         "eslint-config-standard-react": "^9.2.0",
@@ -125,9 +123,35 @@
     "jest": {
         "testEnvironment": "node"
     },
+    "lint-staged": {
+        "*.js": [
+            "eslint --fix",
+            "git add"
+        ],
+        "*.json": [
+            "prettier --write",
+            "git add"
+        ]
+    },
     "_husky": {
         "hooks": {
             "pre-commit": "lint-staged"
         }
+    },
+    "eslintConfig": {
+        "extends": [
+            "xo",
+            "prettier"
+        ],
+        "env": {
+            "jest": true,
+            "node": true
+        },
+        "rules": {
+            "prettier/prettier": "error"
+        },
+        "plugins": [
+            "prettier"
+        ]
     }
 }
