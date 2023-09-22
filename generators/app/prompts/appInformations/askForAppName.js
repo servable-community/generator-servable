@@ -22,7 +22,7 @@ export default async (props) => {
     value = (await generator.prompt({
         type: 'input',
         name: 'appName',
-        message: 'What\'s the app name?',
+        message: 'What is the app name?',
         default: nameFromFolder
     })).appName
 
