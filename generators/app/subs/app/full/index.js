@@ -21,7 +21,6 @@ import bootApp from "../../../actions/bootApp/index.js"
 import bootPackageManager from "../../../actions/bootPackageManager/index.js"
 // import askForBootLocalInfraDocker from "../../../prompts/transverse/askForBootLocalInfraDocker.js"
 // import askForLocalInfraDocker from "../../../prompts/localInfraDocker/index.js"
-import bootInfra from "../../../actions/bootInfra/index.js"
 
 export default {
     id: 'appfull',
@@ -47,7 +46,7 @@ export default {
     writing: async (props) => {
         await bootApp(props)
         await bootPackageManager(props)
-        await bootInfra(props)
+        // await bootInfra(props)
     },
     end: async (props) => {
         const { generator, payload } = props
