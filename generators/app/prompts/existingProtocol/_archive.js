@@ -7,7 +7,7 @@
 */
 
 import fuzzy from 'fuzzy';
-import inquirer from 'inquirer';
+// import inquirer from 'inquirer';
 import * as dotenv from 'dotenv'; // see https://github.com/motdotla/dotenv#how-do-i-use-dotenv-with-import
 dotenv.config()
 
@@ -155,8 +155,8 @@ const searchStates = (answers, input = '') => {
         setTimeout(() => {
             const results = fuzzy.filter(input, states).map((el) => el.original);
 
-            results.splice(5, 0, new inquirer.Separator());
-            results.push(new inquirer.Separator());
+            // results.splice(5, 0, new inquirer.Separator());
+            // results.push(new inquirer.Separator());
             resolve(results);
         }, Math.random() * 470 + 30);
     });

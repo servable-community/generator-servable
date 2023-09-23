@@ -75,47 +75,6 @@ Example usages:
   yo code --insiders            # Show the insiders options for the generator
 ```
 
-## Run Generator using Docker
-
-If you don't want to install nodejs or any node packages, use this method to containerize the generator.
-
-Go into your project directory.
-
-```bash
-cd <project directory>
-```
-
-Build the docker image from the docker file.
-
-```bash
-docker build -t vscode-generator-code .
-```
-
-Create a docker container with volumes.
-
-```bash
-docker run -v $(pwd):/usr/src/app vscode-generator-code
-```
-
-## Local development
-
-After making necessary changes, run `npm link` before running `yo code` to
-test the local version.
-
-You can learn more about Yeoman generator development on its
-[documentation website](https://yeoman.io/authoring/index.html).
-
-## History
-
-* 1.0.0: Generates a VS Code extension for TypeScript 2.0.3
-* 0.10.x: Generates a VS Code extension for TypeScript 1.8.10
-
-
-
-
-
-
-
 
 **Servable** is a Node JS framework built on top of Express JS and Parse Server and tailored for protocols. It provides a concise, easy to use and scalable template to get the best of Parse Server and protocols.
 

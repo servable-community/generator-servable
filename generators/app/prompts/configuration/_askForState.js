@@ -6,8 +6,8 @@
 * @param {Object} payload
 */
 
-import fuzzy from 'fuzzy'
-import inquirer from 'inquirer'
+import fuzzy from 'fuzzy';
+// import inquirer from 'inquirer'
 
 export default async (props) => {
     const { generator, payload } = props
@@ -143,8 +143,8 @@ const searchStates = (answers, input = '') => {
         setTimeout(() => {
             const results = fuzzy.filter(input, states).map((el) => el.original);
 
-            results.splice(5, 0, new inquirer.Separator());
-            results.push(new inquirer.Separator());
+            // results.splice(5, 0, new inquirer.Separator());
+            // results.push(new inquirer.Separator());
             resolve(results);
         }, Math.random() * 470 + 30);
     });
