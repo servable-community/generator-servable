@@ -1,0 +1,125 @@
+diff --git a/node_modules/inquirer-checkbox-plus-prompt/index.js b/node_modules/inquirer-checkbox-plus-prompt/index.js
+index 2d64ebd..41d2d6b 100644
+--- a/node_modules/inquirer-checkbox-plus-prompt/index.js
++++ b/node_modules/inquirer-checkbox-plus-prompt/index.js
+@@ -6,20 +6,20 @@
+ 
+ 'use strict';
+ 
+-var _ = require('lodash');
+-var chalk = require('chalk');
+-var { map, takeUntil } = require('rxjs/operators');
+-var cliCursor = require('cli-cursor');
+-var figures = require('figures');
+-var Base = require('inquirer/lib/prompts/base');
+-var Choices = require('inquirer/lib/objects/choices');
+-var observe = require('inquirer/lib/utils/events');
+-var Paginator = require('inquirer/lib/utils/paginator');
++import _ from 'lodash'
++import chalk from 'chalk'
++import { map, takeUntil } from 'rxjs/operators'
++import cliCursor from 'cli-cursor'
++import figures from 'figures'
++import Base from 'inquirer/lib/prompts/base'
++import Choices from 'inquirer/lib/objects/choices'
++import observe from 'inquirer/lib/utils/events'
++import Paginator from 'inquirer/lib/utils/paginator'
+ 
+ /**
+  * CheckboxPlusPrompt
+  */
+-class CheckboxPlusPrompt extends Base {
++export default class CheckboxPlusPrompt extends Base {
+ 
+   /**
+    * Initialize the prompt
+@@ -80,7 +80,7 @@ class CheckboxPlusPrompt extends Base {
+ 
+     this.done = callback;
+ 
+-    this.executeSource().then(function(result) {
++    this.executeSource().then(function (result) {
+ 
+       var events = observe(self.rl);
+ 
+@@ -163,7 +163,7 @@ class CheckboxPlusPrompt extends Base {
+     this.lastSourcePromise = sourcePromise;
+     this.searching = true;
+ 
+-    sourcePromise.then(function(choices) {
++    sourcePromise.then(function (choices) {
+ 
+       // Is not the last issued promise
+       if (self.lastSourcePromise !== sourcePromise) {
+@@ -177,7 +177,7 @@ class CheckboxPlusPrompt extends Base {
+       self.choices = new Choices(choices, self.answers);
+ 
+       // Foreach choice
+-      self.choices.forEach(function(choice) {
++      self.choices.forEach(function (choice) {
+ 
+         // Is the current choice included in the current checked choices
+         if (_.findIndex(self.value, _.isEqual.bind(null, choice.value)) != -1) {
+@@ -270,12 +270,12 @@ class CheckboxPlusPrompt extends Base {
+ 
+       message += '\n  ' + chalk.cyan('Searching...');
+ 
+-    // No choices
++      // No choices
+     } else if (!this.choices.length) {
+ 
+       message += '\n  ' + chalk.yellow('No results...');
+ 
+-    // Has choices
++      // Has choices
+     } else {
+ 
+       var choicesStr = this.renderChoices(this.choices, this.pointer);
+@@ -399,12 +399,12 @@ class CheckboxPlusPrompt extends Base {
+   onAllKey() {
+ 
+     var shouldBeChecked = Boolean(
+-      this.choices.find(function(choice) {
++      this.choices.find(function (choice) {
+         return choice.type !== 'separator' && !choice.checked;
+       })
+     );
+ 
+-    this.choices.forEach(function(choice) {
++    this.choices.forEach(function (choice) {
+       if (choice.type !== 'separator') {
+         choice.checked = shouldBeChecked;
+       }
+@@ -420,7 +420,7 @@ class CheckboxPlusPrompt extends Base {
+    */
+   onInverseKey() {
+ 
+-    this.choices.forEach(function(choice) {
++    this.choices.forEach(function (choice) {
+       if (choice.type !== 'separator') {
+         choice.checked = !choice.checked;
+       }
+@@ -458,7 +458,7 @@ class CheckboxPlusPrompt extends Base {
+     _.remove(this.value, _.isEqual.bind(null, choice.value));
+ 
+     // Remove the checkedChoices with the value of the current choice
+-    _.remove(this.checkedChoices, function(checkedChoice) {
++    _.remove(this.checkedChoices, function (checkedChoice) {
+       return _.isEqual(choice.value, checkedChoice.value);
+     });
+ 
+@@ -499,7 +499,7 @@ class CheckboxPlusPrompt extends Base {
+     var separatorOffset = 0;
+ 
+     // Foreach choice
+-    choices.forEach(function(choice, index) {
++    choices.forEach(function (choice, index) {
+ 
+       // Is a separator
+       if (choice.type === 'separator') {
+@@ -544,5 +544,3 @@ class CheckboxPlusPrompt extends Base {
+   }
+ 
+ }
+-
+-module.exports = CheckboxPlusPrompt;
