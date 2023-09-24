@@ -54,7 +54,7 @@
         "commit": "git-cz",
         "size": "size-limit",
         "analyze": "size-limit --why",
-        "postinstall__": "patch-package"
+        "postinstall": "patch-package"
     },
     "dependencies": {
         "bluebird": "^3.7.2",
@@ -63,9 +63,10 @@
         "dotenv": "^16.0.1",
         "fuzzy": "^0.1.3",
         "get-port": "^6.1.2",
-        "inquirer-autocomplete-prompt": "^2",
+        "inquirer-autocomplete-prompt": "^3",
         "inquirer-file-tree-selection-prompt": "^2.0.5",
         "inquirer-parse-json-file": "^1.3.0",
+        "inquirer-checkbox-plus-prompt": "^1.4.2",
         "inspirational-quotes": "^2.0.1",
         "servable-engine": "^1.2.9",
         "underscore": "1.13.6",
