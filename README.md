@@ -14,23 +14,33 @@
 
 We have written a Yeoman generator to help get you started. We plan to add templates for most extension/customization types into this.
 
-## Install yeoman
+## Install
 
+### Install yeoman
 ```bash
 npm install -g yo
 ```
-
-## Install the Generator
-
-Install Yeoman and the VS Code Extension generator:
+or
 
 ```bash
-npm install -g yo generator-servable
+yarn global add yo
 ```
 
-## Run Yo Code
+### Install the Generator
 
-The Yeoman generator will walk you through the steps required to create your customization or extension prompting for the required information.
+```bash
+npm install -g generator-servable
+```
+or
+
+```bash
+yarn global add generator-servable
+```
+
+## Usage
+
+### Run yo servable
+The Yeoman generator will walk you through the steps required to create your app or protocol prompting for the required information.
 
 To launch the generator simply type:
 
@@ -40,16 +50,15 @@ yo servable
 
 ![The command generator](/static/img/s1.png)
 
-## Generator Output
+### Generator Output
 
 These templates will:
 
 * Create a base folder structure
 * Template out a rough `package.json`
-* Import any assets required for your extension e.g. tmBundles or the VS Code Library
-* For Extensions: Set-up `launch.json` for running your extension and attaching to a process
+* Import any assets required for your app
 
-## Command line
+### Command line
 
 ```
 Usage:
