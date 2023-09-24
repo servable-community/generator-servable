@@ -74,7 +74,8 @@
         "update-notifier": "^6.0.2",
         "which": "^3.0.0",
         "yeoman-generator": "^5.9.0",
-        "yosay": "^2.0.2"
+        "yosay": "^2.0.2",
+        "patch-package": "^8.0.0"
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.22.15",
@@ -107,8 +108,7 @@
         "yeoman-assert": "^3.1.1",
         "yeoman-environment": "^3.19.3",
         "yeoman-test": "^7.4.0",
-        "yo": "^4.3.1",
-        "patch-package": "^8.0.0"
+        "yo": "^4.3.1"
     },
     "size-limit": [
         {
