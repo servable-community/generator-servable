@@ -1,4 +1,4 @@
-# Servable CLI - yo servable
+# Servable Generator
 
 > [!WARNING]
 > Servable is still experimental and its api may change in the future.
@@ -13,6 +13,12 @@
 
 
 We have written a Yeoman generator to help get you started. We plan to add templates for most extension/customization types into this.
+
+## Install yeoman
+
+```bash
+npm install -g yo
+```
 
 ## Install the Generator
 
