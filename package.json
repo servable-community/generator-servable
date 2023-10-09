@@ -7,9 +7,9 @@
         "default": "./generators/app/index.js"
     },
     "author": {
-        "name": "Aboubacar Doucoure",
-        "email": "yelounak@gmail.com",
-        "url": "https://github.com/yelounak"
+        "name": "Servable Community",
+        "email": "servableapp@gmail.com",
+        "url": "https://github.com/servable-community"
     },
     "keywords": [
         "node",
@@ -22,10 +22,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/yelounak/generator-servable.git"
+        "url": "https://github.com/servable-community/generator-servable.git"
     },
     "bugs": {
-        "url": "https://github.com/yelounak/generator-servable/issues"
+        "url": "https://github.com/servable-community/generator-servable/issues"
     },
     "main": "./generators/app/index.js",
     "homepage": "https://servable.app",

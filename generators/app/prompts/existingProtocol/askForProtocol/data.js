@@ -6,22 +6,22 @@ export default [
         "description": "Adds pageing capacity to a Servable app",
         "packages": [
             {
-                "id": "@yelounak/pageable-parse-server",
+                "id": "@servable-community/pageable-parse-server",
                 "description": "",
                 "type": "main",
                 "components": ["server"],
-                "url": "https://github.com/yelounak/pageable-parse-server.git"
+                "url": "https://github.com/servable-community/pageable-parse-server.git"
             },
             {
-                "id": "@yelounak/pageable-parse-classes",
+                "id": "@servable-community/pageable-parse-classes",
                 "description": "",
                 "type": "classes",
                 "components": ["server"]
             },
         ],
         "author": {
-            "name": "Aboubacar Doucoure",
-            "email": "yelounak@gmail.com",
+            "name": "Servable Community",
+            "email": "servableapp@gmail.com",
             "url": "https://anak.io/doucoure"
         },
         "keywords": [
@@ -32,10 +32,10 @@ export default [
         ],
         "repository": {
             "type": "git",
-            "url": "https://github.com/yelounak/generator-servable.git"
+            "url": "https://github.com/servable-community/generator-servable.git"
         },
         "bugs": {
-            "url": "https://github.com/yelounak/generator-servable/issues"
+            "url": "https://github.com/servable-community/generator-servable/issues"
         },
         "main": "./generators/app/index.js",
         "homepage": "http://servable.app",
@@ -50,7 +50,7 @@ export default [
                 "name": "pageable",
                 "slug": "pg",
                 // module: {
-                //     '@yelounak/publishable-parse-server': '*'
+                //     '@servable-community/publishable-parse-server': '*'
                 // },
                 // version: '*',
                 "params": {
@@ -86,16 +86,16 @@ export default [
         "description": "Adds email capacity to a Servable app",
         "packages": [
             {
-                "id": "@yelounak/emailable",
+                "id": "@servable-community/emailable",
                 "description": "",
                 "type": "main",
                 "components": ["server"],
-                "url": "https://github.com/yelounak/emailable-parse-server.git"
+                "url": "https://github.com/servable-community/emailable-parse-server.git"
             }
         ],
         "author": {
-            "name": "Aboubacar Doucoure",
-            "email": "yelounak@gmail.com",
+            "name": "Servable Community",
+            "email": "servableapp@gmail.com",
             "url": "https://anak.io/doucoure"
         },
         "keywords": [
@@ -106,10 +106,10 @@ export default [
         ],
         "repository": {
             "type": "git",
-            "url": "https://github.com/yelounak/generator-servable.git"
+            "url": "https://github.com/servable-community/generator-servable.git"
         },
         "bugs": {
-            "url": "https://github.com/yelounak/generator-servable/issues"
+            "url": "https://github.com/servable-community/generator-servable/issues"
         },
         "main": "./generators/app/index.js",
         "homepage": "http://servable.app",
@@ -117,7 +117,7 @@ export default [
         "engines": {
             "node": ">=14.15.0"
         },
-        "email": "yelounak@gmail.com",
+        "email": "servableapp@gmail.com",
         "icon": "https://cdn3d.iconscout.com/3d/free/preview/free-toffee-4356774-3618919.png?f=avif&h=1400",
         "declaration": {
             "template": {
@@ -207,13 +207,13 @@ export default [
         "name": "Slugable",
         "packages": [
             {
-                "id": "@yelounak/slugable",
+                "id": "@servable-community/slugable",
                 "description": "",
                 "type": "main"
             }
         ],
-        "author": "Aboubacar Doucoure",
-        "email": "yelounak@gmail.com",
+        "author": "Servable Community",
+        "email": "servableapp@gmail.com",
         "description": "Adds slug capacity to a Servable app",
         "icon": "https://cdn3d.iconscout.com/3d/free/preview/free-toffee-4356774-3618919.png?f=avif&h=1400",
     }

@@ -22,7 +22,7 @@
     },
     "type": "module",
     "dependencies": {
-        "servable-engine": "^1.1.9"
+        "servable-engine": "^1.2.12"
     },
     "scripts": {
         "start": "node --require=dotenv/config --es-module-specifier-resolution=node --experimental-specifier-resolution=node index.js",

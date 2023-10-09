@@ -3,11 +3,11 @@
 > [!WARNING]
 > Servable is still experimental and its api may change in the future.
 
-![logo](/static/img/polar-bear-4.png)
+![logo](/static/img/icon.png)
 
 [![npm Package](https://img.shields.io/npm/v/generator-servable.svg?style=flat-square)](https://www.npmjs.org/package/generator-servable)
 [![NPM Downloads](https://img.shields.io/npm/dm/generator-servable.svg)](https://npmjs.org/package/generator-servable)
-[![Build Status](https://github.com/yelounak/generator-servable/actions/workflows/release.yml/badge.svg)](https://github.com/yelounak/generator-servable/actions/tests.yml)
+[![Build Status](https://github.com/servable-community/generator-servable/actions/workflows/release.yml/badge.svg)](https://github.com/servable-community/generator-servable/actions/tests.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -144,7 +144,7 @@ Servable comes bundled with Parse Server that sets up a working set of tables th
 
 ## License
 
-MIT © [yelounak](https://github.com/yelounak)
+MIT © [servable-community](https://github.com/servable-community)
 
 
 

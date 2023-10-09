@@ -1,5 +1,5 @@
 FROM node:lts-alpine3.12
-LABEL Maintainer="yelounak@gmail.com"
+LABEL Maintainer="servableapp@gmail.com"
 
 # Installing GIT
 RUN apk update && apk add git

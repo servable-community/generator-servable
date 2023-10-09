@@ -1,6 +1,6 @@
 # Contribution guide
 
-![logo](/img/polar-bear-4.png)
+![logo](/img/icon.png)
 
  Contributing to Servable
 
