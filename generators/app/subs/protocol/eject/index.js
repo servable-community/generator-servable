@@ -10,12 +10,15 @@ import checkFileExists from "../../../lib/checkFileExists.js"
 import bootGit from "../../../actions/bootGit/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
 import askForGeneric from "../../../prompts/utils/askForGeneric.js"
+import askForGit from "../../../prompts/transverse/askForGit.js"
+import askForPackageManager from "../../../prompts/packageManager/index.js"
+import bootPackageManager from "../../../actions/bootPackageManager/index.js"
 
 export default {
     id: 'ejectprotocol',
     path: 'protocol/eject',
     aliases: ['ejectprotocol',],
-    name: 'Eject a protocol ⏏️',
+    name: 'Eject a local protocol ⏏️',
     version: '0.1.0',
     prompting: async (props) => {
         const { generator, payload } = props
@@ -34,8 +37,8 @@ export default {
         payload.repositoryUrl = `https://github.com/${payload.githubUsername}/${payload.completedProtocolId}`
 
         await askForFolder(props)
-        // await packageManager(props)
-        // await askForGit(props)
+        await askForPackageManager(props)
+        await askForGit(props)
     },
     writing: async (props) => {
         const { generator, payload, updateDestination, updateSource } = props
@@ -57,10 +60,10 @@ export default {
         generator.fs.copy(generator.templatePath('editorconfig'), `${targetPath}/.editorconfig`,)
         generator.fs.copy(generator.templatePath('eslintrc'), `${targetPath}/.eslintrc`,)
         generator.fs.copy(generator.templatePath('prettierrc'), `${targetPath}/.prettierrc`,)
-        generator.fs.copy(generator.templatePath('yarnrc'), `${targetPath}/.yarnrc`,)
+        // generator.fs.copy(generator.templatePath('yarnrc'), `${targetPath}/.yarnrc`,)
         generator.fs.copy(generator.templatePath('eslintignore'), `${targetPath}/.eslintignore`,)
         generator.fs.copy(generator.templatePath('github/workflows/release.yml'), `${targetPath}/.github/workflows/release.yml`,)
-        generator.fs.copy(generator.templatePath('npmrc-pnpm'), `${targetPath}/.npmrc-pnpm`,)
+        // generator.fs.copy(generator.templatePath('npmrc-pnpm'), `${targetPath}/.npmrc-pnpm`,)
         generator.fs.copy(generator.templatePath('releaserc'), `${targetPath}/.releaserc`,)
         generator.fs.copy(generator.templatePath('LICENSE'), `${targetPath}/LICENSE`,)
         generator.fs.copy(generator.templatePath('jest.config.json'), `${targetPath}/jest.config.json`,)
@@ -78,14 +81,16 @@ export default {
         // generator.fs.copy(generator.templatePath('.eslintrc'), generator.destinationPath(`.eslintrc`),)
         // generator.fs.copy(generator.templatePath('.prettierrc'), generator.destinationPath(`.prettierrc`),)
 
+
         await updatePackageForEjectedProtocol(props)
         await removeEjectedProtocol(props)
 
-        // await bootPackageManager({
-        //     ...props,
-        //     installDependencies: false,
-        //     targetPathFinder: v => `${targetPath} / ${v}`
-        // })
+        await bootGit(props)
+        await bootPackageManager({
+            ...props,
+            installDependencies: false,
+            targetPathFinder: v => `${targetPath}/${v}`
+        })
     },
     end: async (props) => {
         const { generator, payload } = props
