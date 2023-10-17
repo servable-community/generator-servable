@@ -72,10 +72,10 @@ Argument (optional):
 
 Options:
   -h,   --help                  # Print the generator's options and usage
-  -i,   --insiders              # Show the insiders options for the generator
+  -t,   --generatorType         # Genrator type (app, protocolNew, etc)
   -q,   --quick                 # Quick mode, skip all optional prompts and use defaults
   -o,   --open                  # Open the generated extension in Visual Studio Code
-  -O,   --openInInsiders        # Open the generated extension in Visual Studio Code Insiders
+  -p,   --pkgManager            # Package manager to use if the generated project / code uses it. Choices are: npm, yarn, and pnpm
   -t,   --generatorType         # ts, js, colortheme, language, snippets, keymap...
         --appId           # Id of the extension
         --appDescription  # Description of the extension
@@ -84,10 +84,8 @@ Options:
         --gitInit               # Initialize a git repo
 
 Example usages:
-  yo code                       # Create an extension in a folder with the extension's name.
-  yo code . -O                  # Create an extension in current folder and open with code-insiders
-  yo code Hello -t=ts -q        # Create an TypeScript extension in './Hello', skip prompts, use defaults.
-  yo code --insiders            # Show the insiders options for the generator
+  yo servable                   # Launch the root servable prompt screen
+  yo servable . -a              # Generate a Servable app at the current folder
 ```
 
 
