@@ -1,8 +1,10 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import { validateAppId } from "../../validator.js"
+import validateAppId from "../../lib/validateAppId.js"
+
+
 
 /**
  * Ask for extension id ("name" in package.json)

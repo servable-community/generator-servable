@@ -1,6 +1,8 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
+
+import valdiateNonEmpty from "../../lib/valdiateNonEmpty.js"
 
 /**
  * Ask for extension id ("name" in package.json)
@@ -30,6 +32,6 @@ export default async (props) => {
         name: 'masterKey',
         message: 'What\'s the master key?',
         default: value || '',
-        validate: validator.validateNonEmpty
+        validate: valdiateNonEmpty
     })).masterKey
 }

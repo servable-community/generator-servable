@@ -1,5 +1,5 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 import askForGeneric from "./askForGeneric.js"
 import getPortOrRandom from "../../lib/ports/getPortOrRandom.js"

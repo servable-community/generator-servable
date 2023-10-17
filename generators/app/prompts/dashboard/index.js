@@ -1,9 +1,9 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
 import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
-import { validateNumber } from "../../validator.js"
+import validateNumber from "../../lib/validateNumber.js"
 import askForGeneric from "../utils/askForGeneric.js"
 import askForGenericPort from "../utils/askForGenericPort.js"
 

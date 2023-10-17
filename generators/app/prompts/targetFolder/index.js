@@ -1,5 +1,5 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 // import getServablePackage from "./lib/getServablePackage.js"
 import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"

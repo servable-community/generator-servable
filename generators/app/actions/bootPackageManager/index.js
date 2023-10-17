@@ -1,5 +1,5 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
 import existsAsync from "../../prompts/targetClass/lib/existsAsync.js"

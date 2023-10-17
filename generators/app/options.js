@@ -1,5 +1,5 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
 import extensionGenerators from "./subs/index.js"
@@ -44,6 +44,11 @@ export default {
         type: String,
         alias: 'd',
         description: 'Description of the extension  '
+    },
+    'appEndpoint': {
+        type: String,
+        alias: 'e',
+        description: 'App endpoint?'
     },
     'gitInit': {
         type: Boolean,

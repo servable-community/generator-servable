@@ -1,5 +1,5 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 import chalk from "chalk"
 import isFolderClass from "./lib/isFolderClass.js"

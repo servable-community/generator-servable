@@ -46,6 +46,17 @@
                 "servable",
                 "-t",
                 "app",
+                // "-n",
+                // "My super app"
+            ],
+            "runtimeArgs": [
+                "--require=dotenv/config",
+                "--nolazy",
+                "--expose-gc",
+                "--experimental-modules",
+                "--es-module-specifier-resolution=node",
+                "--experimental-specifier-resolution=node"
+                //"--unhandled-rejections=strict"
             ],
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",

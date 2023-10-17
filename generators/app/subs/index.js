@@ -1,5 +1,5 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
 // import localInfra from "./infrastructure/local/docker/index.js"
@@ -12,7 +12,7 @@ import forkProtocol from "./protocol/fork/index.js"
 // import overrideProtocol from "./protocol/override/index.js"
 // import validateProtocol from "./protocol/validate/index.js"
 
-// import printSchema from "./schema/print/index.js"
+import printSchema from "./schema/print/index.js"
 import injectProtocol from "./protocol/inject/index.js"
 export default [
     generateApp,
@@ -29,5 +29,5 @@ export default [
 
     // overrideProtocol,
     // submitProtocol,
-    // printSchema
+    printSchema
 ]

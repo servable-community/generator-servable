@@ -1,12 +1,12 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
 
 import askForDistributionType from "./askForDistributionType.js"
 import askForGenericPort from "../utils/askForGenericPort.js"
-import { validateNumber } from "../../validator.js"
 import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
+import validateNumber from "../../lib/validateNumber.js"
 
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props

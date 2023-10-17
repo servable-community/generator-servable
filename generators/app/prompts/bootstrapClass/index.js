@@ -1,15 +1,17 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
 
 export default async (props) => {
     const { generator, payload } = props
     let value = generator.options['bootstrapClass']
+
     if (typeof value === 'boolean') {
         payload.addClassClass = Boolean(value)
         return
     }
+
     if (generator.options['quick']) {
         payload.addClassClass = true
         return

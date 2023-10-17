@@ -20,13 +20,13 @@ yarn add <%= protocolId %>
 ### Shared library
 [<%= protocolId %>-shared](<%= repositoryUrl %>-shared)
 ```bash
-yarn add <%= protocolId %>-shared
+yarn add <%= completedProtocolId %>-shared
 ```
 
 ### React library
 [<%= protocolId %>-react](<%= repositoryUrl %>-react)
 ```bash
-yarn add <%= protocolId %>-react
+yarn add <%= completedProtocolId %>-react
 ```
 
 ## Protocol
@@ -35,10 +35,10 @@ yarn add <%= protocolId %>-react
 ```json
  {
     "id": "<%= protocolId %>",
-    "name": "publishable",
-    "slug": "#TODO",
+    "name": "<%= protocolId %>",
+    "slug": "<%= protocolId %>",
     "module": {
-        "<%= protocolId %>": "*"
+        "<%= completedProtocolId %>": "*"
     },
     "version": "*",
     "params": {
@@ -63,8 +63,8 @@ TODO
 **Indexes**
 ```json
 {
-    "_publishableStatus": {
-        "publishableStatus": 1
+    "_myIndex": {
+        "protocolField": 1
     }
 }
 ```
@@ -72,7 +72,7 @@ TODO
 **Fields**
 ```json
 {
-    "publishableStatus": {
+    "protocolField": {
         "type": "String"
     }
 }

@@ -1,7 +1,9 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
-import { validateNonEmpty } from "../../validator.js"
+
+import valdiateNonEmpty from "../../lib/valdiateNonEmpty.js"
+
 
 export default async ({
     generator,
@@ -11,7 +13,7 @@ export default async ({
         name = 'N/A',
         message = 'N/A',
         type = 'input',
-        validator = validateNonEmpty,
+        validator = valdiateNonEmpty,
         defaultValue = '' } }) => {
     const options = (await import("../../options.js")).default
     let _message = message

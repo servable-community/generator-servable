@@ -1,5 +1,5 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 import projectUpdated from "../../../../actions/projectUpdated/index.js"
 import bootInfra from "../../../../actions/bootInfra/index.js"

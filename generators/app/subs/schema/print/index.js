@@ -1,5 +1,5 @@
 /*---------------------------------------------------------
- * Copyright (C) Anak. All rights reserved.
+ * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
 
@@ -11,7 +11,7 @@ export default {
     id: 'printschema',
     path: 'schema/print',
     aliases: ['schema'],
-    name: 'Print schema 👀',
+    name: 'App → Print schema 👀',
     version: '0.1.0',
     prompting: async (props) => {
         const { generator, payload } = props
