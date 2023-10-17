@@ -9,6 +9,7 @@ import removeEjectedProtocol from "../../../actions/removeEjectedProtocol/index.
 import checkFileExists from "../../../lib/checkFileExists.js"
 import bootGit from "../../../actions/bootGit/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
+import askForGeneric from "../../../prompts/utils/askForGeneric.js"
 
 export default {
     id: 'ejectprotocol',
@@ -20,6 +21,18 @@ export default {
         const { generator, payload } = props
 
         await targetProtocol({ ...props, includeAppProtocol: false })
+        await askForGeneric({
+            ...props, options: {
+                ...props.options,
+                name: 'githubUsername',
+                message: 'What is your Github username?',
+                defaultValue: 'servable-community'
+            }
+        })
+        payload.protocolId = payload.targetProtocol
+        payload.completedProtocolId = payload.protocolId.indexOf('servable-') === 0 ? `${payload.protocolId}` : `servable-${payload.protocolId}`
+        payload.repositoryUrl = `https://github.com/${payload.githubUsername}/${payload.completedProtocolId}`
+
         await askForFolder(props)
         // await packageManager(props)
         // await askForGit(props)
@@ -27,9 +40,9 @@ export default {
     writing: async (props) => {
         const { generator, payload, updateDestination, updateSource } = props
         const sourcePath = payload.targetProtocolAbsolute
-        payload.protocolId = payload.targetProtocol
+        // payload.protocolId = payload.targetProtocol
         payload.protocolDescription = ''
-        payload.repositoryUrl = ''
+        // payload.repositoryUrl = ''
         payload.author = ''
 
         const targetPath = `${payload.targetFolder}/${payload.protocolId}`
@@ -40,13 +53,19 @@ export default {
 
         generator.fs.copyTpl(generator.templatePath('package.json'), `${targetPath}/package.json`, payload)
         generator.fs.copy(generator.templatePath('gitignore'), `${targetPath}/.gitignore`)
+        generator.fs.copy(generator.templatePath('npmignore'), `${targetPath}/.npmignore`)
         generator.fs.copy(generator.templatePath('editorconfig'), `${targetPath}/.editorconfig`,)
         generator.fs.copy(generator.templatePath('eslintrc'), `${targetPath}/.eslintrc`,)
         generator.fs.copy(generator.templatePath('prettierrc'), `${targetPath}/.prettierrc`,)
         generator.fs.copy(generator.templatePath('yarnrc'), `${targetPath}/.yarnrc`,)
         generator.fs.copy(generator.templatePath('eslintignore'), `${targetPath}/.eslintignore`,)
+        generator.fs.copy(generator.templatePath('github/workflows/release.yml'), `${targetPath}/.github/workflows/release.yml`,)
         generator.fs.copy(generator.templatePath('npmrc-pnpm'), `${targetPath}/.npmrc-pnpm`,)
-
+        generator.fs.copy(generator.templatePath('releaserc'), `${targetPath}/.releaserc`,)
+        generator.fs.copy(generator.templatePath('LICENSE'), `${targetPath}/LICENSE`,)
+        generator.fs.copy(generator.templatePath('jest.config.json'), `${targetPath}/jest.config.json`,)
+        generator.fs.copy(generator.templatePath('static/img/icon.png'), `${targetPath}/static/img/icon.png`,)
+        generator.fs.copyTpl(generator.templatePath('README.md'), `${targetPath}/README.md`, payload)
 
 
         generator.fs.copy(sourcePath, targetPathSrc)

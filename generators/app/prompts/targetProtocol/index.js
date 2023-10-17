@@ -9,6 +9,7 @@ import targetApp from "../targetApp/index.js"
 import path from "path"
 import isFolderProtocolSync from "./lib/isFolderProtocolSync.js"
 import askForGeneric from "../utils/askForGeneric.js"
+import capitalizeFirstLetter from "../../lib/capitalizeFirstLetter.js"
 
 export default async (props) => {
     const { generator, payload,
@@ -44,7 +45,7 @@ export default async (props) => {
     drawSectionHeader({
         generator,
         title: `PROTOCOL CHOICE 🚀`,
-        subTitle: `Choose the protocol you want to add a class to.`
+        subTitle: `Choose a protocol`
     })
 
     if (includeAppProtocol) {
@@ -70,7 +71,7 @@ export default async (props) => {
     const res = (await generator.prompt({
         type: "file-tree-selection",
         name: "target",
-        message: "Choose the custom protocol to add the class to",
+        message: "Choose a local protocol",
         onlyShowDir: true,
         root: `${payload.desiredWriteDestinationPathAbsolute}/lib/protocols`,
         onlyShowValid: true,
@@ -88,4 +89,5 @@ export default async (props) => {
     // this.destinationRoot(folderPath)
     payload.targetProtocolAbsolute = res
     payload.targetProtocol = payload.targetProtocolAbsolute.split(path.sep).pop()
+    payload.protocolName = capitalizeFirstLetter(payload.targetProtocol)
 }
