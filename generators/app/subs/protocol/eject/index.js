@@ -18,7 +18,7 @@ export default {
     id: 'ejectprotocol',
     path: 'protocol/eject',
     aliases: ['ejectprotocol',],
-    name: 'Eject a local protocol ⏏️',
+    name: 'Protocol → Local → Eject ↳',
     version: '0.1.0',
     prompting: async (props) => {
         const { generator, payload } = props

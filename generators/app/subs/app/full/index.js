@@ -26,7 +26,7 @@ export default {
     id: 'appfull',
     path: 'app/full',
     aliases: ['app', 'full'],
-    name: 'Create an app 🚀',
+    name: 'App → New 🚀',
     version: '0.1.0',
     prompting: async (props) => {
         await askForAppInfos(props)

@@ -13,7 +13,7 @@ export default {
     id: 'forkprotocol',
     path: 'protocol/fork',
     aliases: ['protocol'],
-    name: 'Fork a community protocol 🚦',
+    name: 'Protocol → Community → Fork ↱',
     version: '0.1.0',
     prompting: async (props) => {
         const { generator, payload } = props

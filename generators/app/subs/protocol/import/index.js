@@ -12,7 +12,7 @@ export default {
     id: 'addprotocol',
     path: 'protocol/add',
     aliases: ['protocol'],
-    name: 'Add a community protocol 😇',
+    name: 'Protocol → Community → Import ↓',
     version: '0.1.0',
     prompting: async (props) => {
         const { generator, payload } = props

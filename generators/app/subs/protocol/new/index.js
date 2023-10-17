@@ -10,7 +10,7 @@ export default {
     id: 'newprotocol',
     path: 'protocol/new',
     aliases: ['protocol'],
-    name: 'Create a new protocol 🐇',
+    name: 'Protocol → Local > New ✨',
     version: '0.1.0',
     prompting: async (props) => {
         const { generator, payload } = props

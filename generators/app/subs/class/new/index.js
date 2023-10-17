@@ -13,7 +13,7 @@ export default {
     id: 'class',
     path: 'class/new',
     aliases: ['class',],
-    name: 'Create a new class 🦊',
+    name: 'Class → New ✨',
     prompting: async (props) => {
         const { generator, payload } = props
 
