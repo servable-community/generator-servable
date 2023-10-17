@@ -9,7 +9,7 @@ export default async (props) => {
     generator.log('Your project ' + payload.appName + ' has been created!')
     generator.log('')
 
-    generator.log('For more information, also visit http://servable.app and follow us @servable.')
+    generator.log('For more information, also visit http://servablecommunity.com and follow us @servable.')
     generator.log('\r\n')
 
 }

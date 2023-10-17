@@ -60,7 +60,7 @@ export default {
         drawEnd({
             generator,
             title: `Your project ${payload.appName} has been created!`,
-            subTitle: `For more information, also visit https://servable.app and follow us @servable.`
+            subTitle: `For more information, also visit https://servablecommunity.com and follow us @servable.`
         })
 
         await openProject(props)

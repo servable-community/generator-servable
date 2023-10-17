@@ -28,7 +28,7 @@
         "url": "https://github.com/servable-community/generator-servable/issues"
     },
     "main": "./generators/app/index.js",
-    "homepage": "https://servable.app",
+    "homepage": "https://servablecommunity.com",
     "license": "MIT",
     "engines": {
         "node": ">=14.15.0"

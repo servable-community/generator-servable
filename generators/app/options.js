@@ -43,7 +43,7 @@ export default {
     'appDescription': {
         type: String,
         alias: 'd',
-        description: 'Description of the extension  '
+        description: 'Description of the servable app'
     },
     'appEndpoint': {
         type: String,
@@ -54,11 +54,6 @@ export default {
         type: Boolean,
         alias: 'g',
         description: `Initialize a git repository`
-    },
-    'launchDocker': {
-        type: Boolean,
-        alias: 'l',
-        description: `Launch Docker after installation?`
     },
     'distributionType': {
         type: String,

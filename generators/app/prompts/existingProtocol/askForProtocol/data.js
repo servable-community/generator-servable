@@ -38,7 +38,7 @@ export default [
             "url": "https://github.com/servable-community/generator-servable/issues"
         },
         "main": "./generators/app/index.js",
-        "homepage": "http://servable.app",
+        "homepage": "http://servablecommunity.com",
         "license": "MIT",
         "engines": {
             "node": ">=14.15.0"
@@ -112,7 +112,7 @@ export default [
             "url": "https://github.com/servable-community/generator-servable/issues"
         },
         "main": "./generators/app/index.js",
-        "homepage": "http://servable.app",
+        "homepage": "http://servablecommunity.com",
         "license": "MIT",
         "engines": {
             "node": ">=14.15.0"
