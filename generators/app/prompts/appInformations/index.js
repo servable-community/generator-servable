@@ -2,7 +2,6 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import askForAppDescription from "./askForAppDescription.js"
 import askForAppName from "./askForAppName.js"
 import askForAppId from "./askForAppId.js"
 import askForGeneric from "../utils/askForGeneric.js"
@@ -25,21 +24,24 @@ export default async (props) => {
 
     await askForAppName(props)
     await askForAppId(props)
-    await askForAppDescription(props)
+
+    await askForGeneric({
+        ...props, options: {
+            ...props.options,
+            name: 'appDescription'
+        }
+    })
+
     await askForGeneric({
         ...props, options: {
             ...props.options,
             name: 'masterKey',
-            message: 'Master key?',
-            defaultValue: 'MASTER_KEY_TO_CHANGE'
         }
     })
     await askForGeneric({
         ...props, options: {
             ...props.options,
             name: 'javascriptKey',
-            message: 'Javascript key?',
-            defaultValue: 'JAVASCRIPT_KEY_TO_CHANGE'
         }
     })
     // await askForGeneric({
@@ -55,7 +57,6 @@ export default async (props) => {
             ...props.options,
             type: 'number',
             name: 'appPort',
-            message: 'App port?',
             port: { value: 1337 },
             validator: validateNumber
         }
@@ -64,8 +65,6 @@ export default async (props) => {
         ...props, options: {
             ...props.options,
             name: 'appEndpoint',
-            message: 'App endpoint?',
-            defaultValue: 'parse'
         }
     })
 

@@ -2,21 +2,25 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
-import askForLicense from "../transverse/askForLicense.js"
+import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
-    const { generator, payload, options: { force = false } = {} } = props
-
-    if (!force && payload.asks.license) {
-        return
-    }
-    drawSectionHeader({
-        generator,
-        title: `APP INFORMATIONS 🚀`,
-        subTitle: `Servable required general informations.`
+    return askForGeneric({
+        ...props,
+        options: {
+            ...props.options,
+            type: "list",
+            name: "license",
+            choices: [
+                "Apache 2.0",
+                "MIT",
+                "Mozilla Public License 2.0",
+                "BSD 2-Clause (FreeBSD) License",
+                "BSD 3-Clause (FreeBSD) License",
+                "Internet Systems Consortium (ISC) License",
+                "GNU AGPL 3.0",
+                // (new inquirer.Separator()),
+            ],
+        }
     })
-
-    await askForLicense(props)
-    payload.asks.license = true
 }

@@ -5,6 +5,8 @@
  * */
 
 import path from "path";
+import randomName from "../../lib/randomName.js";
+import askForGeneric from "../utils/askForGeneric.js";
 
 export default async (props) => {
     const { generator, payload } = props
@@ -13,18 +15,16 @@ export default async (props) => {
         payload.appName = value;
         return
     }
-    const nameFromFolder = generator.options['destination'] ? path.basename(generator.destinationPath()) : '';
-    if (generator.options['quick'] && nameFromFolder) {
-        payload.appName = nameFromFolder;
-        return
+    let defaultValue = generator.options['destination'] ? path.basename(generator.destinationPath()) : '';
+    if (!defaultValue) {
+        defaultValue = randomName()
     }
 
-    value = (await generator.prompt({
-        type: 'input',
-        name: 'appName',
-        message: 'What is the app name?',
-        default: nameFromFolder
-    })).appName
-
-    payload.appName = value
+    await askForGeneric({
+        ...props, options: {
+            ...props.options,
+            name: 'appName',
+            defaultValue
+        }
+    })
 }

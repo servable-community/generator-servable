@@ -5,11 +5,6 @@
 import extensionGenerators from "./subs/index.js"
 
 export default {
-    'help': {
-        type: Boolean,
-        alias: 'h',
-        description: `Print the generator's options and usage`
-    },
     'quick': {
         type: Boolean,
         alias: 'q',
@@ -28,7 +23,14 @@ export default {
     'masterKey': {
         type: String,
         alias: 'm',
+        quickValue: 'MASTER_KEY_TO_CHANGE',
         description: 'What\'s the master key?'
+    },
+    'javascriptKey': {
+        type: String,
+        alias: 'j',
+        quickValue: 'JAVASCRIPT_KEY_TO_CHANGE',
+        description: 'What\'s the javascript key?'
     },
     'pkgManager': {
         type: String,
@@ -38,21 +40,25 @@ export default {
     'appName': {
         type: String,
         alias: 'n',
-        description: 'Display name of the extension'
+        quickValue: 'No name',
+        description: 'What is the app name?'
     },
     'appId': {
         type: String,
         alias: 'i',
-        description: 'Id of the extension'
+        quickValue: 'no-name',
+        description: 'What\'s the app ID?'
     },
     'appDescription': {
         type: String,
         alias: 'd',
+        quickValue: 'A servable app',
         description: 'Description of the servable app'
     },
     'appEndpoint': {
         type: String,
         alias: 'e',
+        quickValue: 'parse',
         description: 'App endpoint?'
     },
     'gitInit': {
@@ -83,6 +89,7 @@ export default {
     },
     'license': {
         type: String,
+        quickValue: 'standalone',
         description: `License`
     },
     'target': {
@@ -99,7 +106,12 @@ export default {
     },
     'appDatabasePort': {
         type: Number,
-        description: `Use a Servable Dashboard? (recommended)`
+        description: `App database port`
+    },
+    'appPort': {
+        type: Number,
+        quickValue: 1337,
+        description: `App port`
     },
     'databaseType': {
         type: String,

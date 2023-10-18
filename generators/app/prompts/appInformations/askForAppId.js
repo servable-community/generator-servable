@@ -3,12 +3,7 @@
  *--------------------------------------------------------*/
 
 import validateAppId from "../../lib/validateAppId.js"
-
-
-
-/**
- * Ask for extension id ("name" in package.json)
- * */
+import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
     const { generator, payload } = props
@@ -18,21 +13,17 @@ export default async (props) => {
         return
     }
 
-    value = payload.appId
-    if (!value && payload.appName) {
-        value = payload.appName.toLowerCase().replace(/[^a-z0-9]/g, '-')
+    let defaultValue = null
+    if (payload.appName) {
+        defaultValue = payload.appName.toLowerCase().replace(/[^a-z0-9]/g, '-')
     }
 
-    if (value && generator.options['quick']) {
-        payload.appId = value
-        return
-    }
-
-    payload.appId = (await generator.prompt({
-        type: 'input',
-        name: 'appId',
-        message: 'What\'s the app ID?',
-        default: value || '',
-        validate: validateAppId
-    })).appId
+    await askForGeneric({
+        ...props, options: {
+            ...props.options,
+            name: 'appId',
+            defaultValue,
+            validator: validateAppId
+        }
+    })
 }

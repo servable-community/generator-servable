@@ -12,7 +12,7 @@ export default async (props) => {
         return
     }
     if (generator.options['quick']) {
-        payload.description = ''
+        payload.description = 'A servable app'
         return
     }
     payload.appDescription = (await generator.prompt({
