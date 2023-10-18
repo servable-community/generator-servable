@@ -7,7 +7,7 @@ import askForProtocol from "./askForProtocol/index.js"
 
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
-    if (!force && payload.asks.existingProtocol) {
+    if (!force && payload.promptGroupsPassed.existingProtocol) {
         return
     }
 
@@ -18,5 +18,5 @@ export default async (props) => {
     })
 
     await askForProtocol(props)
-    payload.asks.existingProtocol = true
+    payload.promptGroupsPassed.existingProtocol = true
 }

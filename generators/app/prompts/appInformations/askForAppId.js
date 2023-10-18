@@ -6,12 +6,7 @@ import validateAppId from "../../lib/validateAppId.js"
 import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
-    const { generator, payload } = props
-    let value = generator.options['appId']
-    if (value) {
-        payload.appId = value
-        return
-    }
+    const { payload } = props
 
     let defaultValue = null
     if (payload.appName) {

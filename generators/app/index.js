@@ -30,7 +30,7 @@ export default class extends Generator {
             this.option(key, options[key])
         })
 
-        this.payload = { asks: {} }
+        this.payload = { promptGroupsPassed: {} }
         this.payload.installDependencies = false
         this.currentGenerator = undefined
         this.abort = false
@@ -133,7 +133,7 @@ export default class extends Generator {
         const gkey = this.payload.type
         let struct = this.config.get(gkey) ? this.config.get(gkey) : {}
         Object.keys(this.payload).forEach(key => {
-            if (key === 'asks') {
+            if (key === 'promptGroupsPassed') {
                 return
             }
             struct[key] = this.payload[key]
@@ -158,7 +158,7 @@ export default class extends Generator {
     //     const key = this.payload.type
     //     // let struct = this.config.get(key) ? this.config.get(key) : {}
     //     Object.keys(this.payload).forEach(key => {
-    //         if (key === 'asks') {
+    //         if (key === 'promptGroupsPassed') {
     //             return
     //         }
     //         this.config.set(key, this.payload[key])

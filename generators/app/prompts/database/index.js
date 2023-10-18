@@ -11,7 +11,7 @@ import validateNumber from "../../lib/validateNumber.js"
 
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
-    if (!force && payload.asks.database) {
+    if (!force && payload.promptGroupsPassed.database) {
         return
     }
 
@@ -34,5 +34,5 @@ export default async (props) => {
     })
 
     payload.databaseURI = `mongodb://root:DATABASE_PASSWORD_TO_CHANGE@localhost:${payload.appDatabasePort}/app?authSource=admin&readPreference=primary&ssl=false`
-    payload.asks.database = true
+    payload.promptGroupsPassed.database = true
 }

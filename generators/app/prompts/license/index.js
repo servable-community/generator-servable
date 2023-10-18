@@ -5,7 +5,13 @@
 import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
-    return askForGeneric({
+    const { generator, payload, options: { force = false } = {} } = props
+
+    if (!force && payload.promptGroupsPassed.license) {
+        return
+    }
+
+    await askForGeneric({
         ...props,
         options: {
             ...props.options,
@@ -23,4 +29,5 @@ export default async (props) => {
             ],
         }
     })
+    props.payload.promptGroupsPassed.license = true
 }

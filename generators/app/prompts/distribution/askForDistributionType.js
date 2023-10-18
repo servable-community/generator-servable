@@ -8,21 +8,21 @@
 
 export default async (props) => {
     const { generator, payload } = props
-    let value = generator.options['distributionType']
+    let value = generator.options['appDistributionType']
     if (['standalone', 'distributed'].includes(value)) {
-        payload.distributionType = value
+        payload.appDistributionType = value
         return
     }
 
-    payload.distributionType = 'standalone'
+    payload.appDistributionType = 'standalone'
 
     if (generator.options['quick']) {
         return
     }
 
-    payload.distributionType = (await generator.prompt({
+    payload.appDistributionType = (await generator.prompt({
         type: 'list',
-        name: 'distributionType',
+        name: 'appDistributionType',
         message: 'Which distribution to use?',
         choices: [{
             name: 'Standalone',
@@ -32,5 +32,5 @@ export default async (props) => {
             name: 'Distributed (requires a separate replicated mongo database deployment)',
             value: 'distributed',
         },]
-    })).distributionType
+    })).appDistributionType
 }

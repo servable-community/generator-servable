@@ -10,21 +10,21 @@ export default async (props) => {
     const { generator, payload } = props
 
 
-    let value = generator.options['configurations']
+    let value = generator.options['appConfigurations']
     if (value && value.length) {
-        payload.configurations = value
+        payload.appConfigurations = value
         return
     }
 
-    payload.configurations = ['production']
+    payload.appConfigurations = ['production']
 
     if (generator.options['quick']) {
         return
     }
 
-    payload.configurations = (await generator.prompt({
+    payload.appConfigurations = (await generator.prompt({
         type: 'list',
-        name: 'configurations',
+        name: 'appConfigurations',
         message: 'Which configurations to use?',
         choices: [
             {
@@ -37,6 +37,6 @@ export default async (props) => {
             },
             // (new inquirer.Separator())
         ]
-    })).configurations
+    })).appConfigurations
 
 }

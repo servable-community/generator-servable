@@ -11,7 +11,7 @@ import valdiateNonEmpty from "../../lib/valdiateNonEmpty.js"
 
 export default async (props) => {
     const { generator, payload } = props
-    let value = generator.options['masterKey']
+    let value = generator.options['appMasterKey']
     if (value) {
         payload.appId = value
         return
@@ -29,9 +29,9 @@ export default async (props) => {
 
     payload.appId = (await generator.prompt({
         type: 'input',
-        name: 'masterKey',
+        name: 'appMasterKey',
         message: 'What\'s the master key?',
         default: value || '',
         validate: valdiateNonEmpty
-    })).masterKey
+    })).appMasterKey
 }

@@ -8,9 +8,9 @@ SERVER_PORT=<%= appPort %>
 
 SERVABLE_APP_ID=<%= appId %>
 SERVABLE_APP_NAME=<%= appName %>
-SERVABLE_MASTER_KEY=<%= masterKey %>
+SERVABLE_MASTER_KEY=<%= appMasterKey %>
 SERVABLE_REST_API_KEY=<%= restApiKey %>
-SERVABLE_JAVASCRIPT_KEY=<%= javascriptKey %>
+SERVABLE_JAVASCRIPT_KEY=<%= appJavascriptKey %>
 
 SERVABLE_DATABASE_URI=<%- databaseURI %>
 SERVABLE_UTILS_DATABASE_URI=<%- utilsDatabaseURI %>

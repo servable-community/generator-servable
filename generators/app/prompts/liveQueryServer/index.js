@@ -12,7 +12,7 @@ import validateNumber from "../../lib/validateNumber.js"
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
 
-    if (!force && payload.asks.liveQueryServer) {
+    if (!force && payload.promptGroupsPassed.liveQueryServer) {
         return
     }
 
@@ -66,5 +66,5 @@ export default async (props) => {
     // payload.appLiveQueryServerPort = 1392
     // payload.appLiveQueryCachePort = 6380
 
-    payload.asks.liveQueryServer = true
+    payload.promptGroupsPassed.liveQueryServer = true
 }

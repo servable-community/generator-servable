@@ -12,7 +12,7 @@ import validateNumber from "../../lib/validateNumber.js"
 
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
-    if (!force && payload.asks.appInformations) {
+    if (!force && payload.promptGroupsPassed.appInformations) {
         return
     }
 
@@ -35,13 +35,13 @@ export default async (props) => {
     await askForGeneric({
         ...props, options: {
             ...props.options,
-            name: 'masterKey',
+            name: 'appMasterKey',
         }
     })
     await askForGeneric({
         ...props, options: {
             ...props.options,
-            name: 'javascriptKey',
+            name: 'appJavascriptKey',
         }
     })
     // await askForGeneric({
@@ -73,5 +73,5 @@ export default async (props) => {
     payload.authorEmail = ""
     payload.authorUrl = ""
     payload.restApiKey = 'REST_API_KEY_TO_CHANGE'
-    payload.asks.appInformations = true
+    payload.promptGroupsPassed.appInformations = true
 }

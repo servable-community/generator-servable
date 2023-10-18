@@ -9,7 +9,7 @@ import askForGenericPort from "../utils/askForGenericPort.js"
 
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
-    if (!force && payload.asks.localMinio) {
+    if (!force && payload.promptGroupsPassed.localMinio) {
         return
     }
 
@@ -96,5 +96,5 @@ export default async (props) => {
     // payload.appS3ApiPort = 9000
     // payload.appS3UIPort = 9001
 
-    payload.asks.localMinio = true
+    payload.promptGroupsPassed.localMinio = true
 }

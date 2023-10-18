@@ -10,7 +10,7 @@ import validateNumber from "../../lib/validateNumber.js"
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
 
-    if (!force && payload.asks.appCache) {
+    if (!force && payload.promptGroupsPassed.appCache) {
         return
     }
 
@@ -25,17 +25,17 @@ export default async (props) => {
             ...props, options: {
                 ...props.options,
                 type: 'confirm',
-                name: 'useAppCache',
+                name: 'appUseCache',
                 message: 'Use app cache?',
                 defaultValue: true
             }
         })
     }
     else {
-        payload.useAppCache = true
+        payload.appUseCache = true
     }
 
-    if (!payload.useAppCache) {
+    if (!payload.appUseCache) {
         return
     }
 
@@ -51,5 +51,5 @@ export default async (props) => {
         }
     })
 
-    payload.asks.appCache = true
+    payload.promptGroupsPassed.appCache = true
 }

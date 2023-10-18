@@ -9,7 +9,7 @@ import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
-    if (!force && payload.asks.packageManager) {
+    if (!force && payload.promptGroupsPassed.packageManager) {
         return
     }
 
@@ -20,5 +20,5 @@ export default async (props) => {
     })
 
     await askForPackageManager(props)
-    payload.asks.packageManager = true
+    payload.promptGroupsPassed.packageManager = true
 }

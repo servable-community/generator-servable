@@ -10,7 +10,7 @@ import askForGenericPort from "../utils/askForGenericPort.js"
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
 
-    if (!force && payload.asks.dashboard) {
+    if (!force && payload.promptGroupsPassed.dashboard) {
         return
     }
 
@@ -25,17 +25,17 @@ export default async (props) => {
             ...props, options: {
                 ...props.options,
                 type: 'confirm',
-                name: 'useDashboard',
+                name: 'appUseDashboard',
                 message: 'Use a Servable Dashboard? (recommended)',
                 defaultValue: true
             }
         })
     }
     else {
-        payload.useDashboard = true
+        payload.appUseDashboard = true
     }
 
-    if (!payload.useDashboard) {
+    if (!payload.appUseDashboard) {
         return
     }
 
@@ -69,5 +69,5 @@ export default async (props) => {
 
     // payload.appDashboardPort = 4040
 
-    payload.asks.dashboard = true
+    payload.promptGroupsPassed.dashboard = true
 }

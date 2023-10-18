@@ -20,121 +20,127 @@ export default {
         alias: 't',
         description: extensionGenerators.filter(a => a.id).slice(0, 6).map(e => e.aliases[0]).join(', ') + '...'
     },
-    'masterKey': {
+    'appMasterKey': {
         type: String,
         alias: 'm',
-        quickValue: 'MASTER_KEY_TO_CHANGE',
-        description: 'What\'s the master key?'
+        default: 'MASTER_KEY_TO_CHANGE',
+        description: 'App master key'
     },
-    'javascriptKey': {
+    'appJavascriptKey': {
         type: String,
         alias: 'j',
-        quickValue: 'JAVASCRIPT_KEY_TO_CHANGE',
-        description: 'What\'s the javascript key?'
-    },
-    'pkgManager': {
-        type: String,
-        alias: 'p',
-        description: `Which package manager to use? 'npm', 'yarn' or 'pnpm'`
+        default: 'JAVASCRIPT_KEY_TO_CHANGE',
+        description: 'App javascript key'
     },
     'appName': {
         type: String,
         alias: 'n',
-        quickValue: 'No name',
-        description: 'What is the app name?'
+        default: 'No name',
+        description: 'App name'
     },
     'appId': {
         type: String,
         alias: 'i',
-        quickValue: 'no-name',
-        description: 'What\'s the app ID?'
+        default: 'no-name',
+        description: 'App ID'
     },
     'appDescription': {
         type: String,
         alias: 'd',
-        quickValue: 'A servable app',
-        description: 'Description of the servable app'
+        default: 'A servable app',
+        description: 'App description'
     },
     'appEndpoint': {
         type: String,
         alias: 'e',
-        quickValue: 'parse',
-        description: 'App endpoint?'
+        default: 'parse',
+        description: 'App endpoint'
+    },
+    'appDistributionType': {
+        type: String,
+        alias: 'd',
+        description: `App distribution type`
+    },
+    'appUseCache': {
+        type: Boolean,
+        default: true,
+        description: `Use app cache`
+    },
+    'appUseDashboard': {
+        type: Boolean,
+        default: true,
+        description: `Use a Servable Dashboard (recommended)`
+    },
+    'appCachePort': {
+        type: String,
+        description: `App cache port`
+    },
+    'appConfigurations': {
+        type: String,
+        description: `App configuration`
+    },
+    'appDatabasePort': {
+        type: Number,
+        default: 27019,
+        description: `App database port`
+    },
+    'appPort': {
+        type: Number,
+        default: 1337,
+        description: `App port`
+    },
+    'appDatabaseType': {
+        type: String,
+        description: `App database type`
+    },
+    'appUtilsDatabasePort': {
+        type: Number,
+        description: `App utils database port`
+    },
+    'appLiveQueryCachePort': {
+        type: Number,
+        description: `Livequery cache port`
     },
     'gitInit': {
         type: Boolean,
         alias: 'g',
+        default: true,
         description: `Initialize a git repository`
     },
-    'distributionType': {
+    'pkgManager': {
         type: String,
-        alias: 'd',
-        description: `Distribution type`
-    },
-    'useAppCache': {
-        type: Boolean,
-        description: `Use app cache`
-    },
-    'useDashboard': {
-        type: Boolean,
-        description: `Use a Servable Dashboard? (recommended)`
+        alias: 'p',
+        default: 'yarn',
+        description: `Package manager ('npm', 'yarn' or 'pnpm')`
     },
     'bootstrapClass': {
         type: Boolean,
         description: `Bootstrap class`
     },
-    'appCachePort': {
-        type: String,
-        description: `App cache port?`
-    },
     'license': {
         type: String,
-        quickValue: 'standalone',
+        default: 'standalone',
         description: `License`
     },
     'target': {
         type: String,
-        description: `target`
+        description: `Target`
     },
     'className': {
         type: String,
         description: `className`
     },
-    'configurations': {
-        type: String,
-        description: `Which configurations to use?`
-    },
-    'appDatabasePort': {
-        type: Number,
-        description: `App database port`
-    },
-    'appPort': {
-        type: Number,
-        quickValue: 1337,
-        description: `App port`
-    },
-    'databaseType': {
-        type: String,
-        description: `Which type of database to use?`
-    },
-    'appUtilsDatabasePort': {
-        type: Number,
-        description: `App utils database port?`
-    },
-    'appLiveQueryCachePort': {
-        type: Number,
-        description: `Livequery cache port?`
-    },
     'useLocalS3': {
         type: Boolean,
-        description: `Use a local bucket storage? (recommended)`
+        default: true,
+        description: `Use a local bucket storage (recommended)`
     },
     'useAppProtocol': {
         type: Boolean,
-        description: `Add class to app protocol?`
+        description: `Add class to app protocol`
     },
     'targetProtocol': {
         type: String,
-        description: `Target protocol?`
+        description: `Target protocol`
     },
 }

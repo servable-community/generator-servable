@@ -15,7 +15,7 @@ export default async (props) => {
     // generator.fs.copyTpl(generator.templatePath('.system/CHANGELOG.md'), generator.destinationPath('.system/CHANGELOG.md'), payload)
     generator.fs.copy(generator.templatePath('lib/app/system/docker/gitignore'), generator.destinationPath('lib/app/system/docker/.gitignore'));
 
-    switch (payload.distributionType) {
+    switch (payload.appDistributionType) {
         case 'distributed': {
             // if (!generator.fs.exists(this.destinationPath('${generator.destinationPath()}/.system/data/utils-mongo/replica.key'))) {
             generator.spawnCommand('bash', ['-c', `openssl rand -base64 741 > ${generator.destinationPath()}/lib/app/system/docker/data/utils-mongo/replica.key`])

@@ -8,21 +8,21 @@
 
 export default async (props) => {
     const { generator, payload } = props
-    let value = generator.options['databaseType']
+    let value = generator.options['appDatabaseType']
     if (value && value.length) {
-        payload.databaseType = value
+        payload.appDatabaseType = value
         return
     }
 
-    payload.databaseType = ['production']
+    payload.appDatabaseType = ['production']
 
     if (generator.options['quick']) {
         return
     }
 
-    payload.configurations = (await generator.prompt({
+    payload.appDatabaseType = (await generator.prompt({
         type: 'list',
-        name: 'databaseType',
+        name: 'appDatabaseType',
         message: 'Which type of database to use?',
         choices: [{
             name: 'Mongo DB (required for standalone distribution)',
@@ -32,5 +32,5 @@ export default async (props) => {
             value: 'postGresQL',
             checked: true,
         },]
-    })).databaseType
+    })).appDatabaseType
 }

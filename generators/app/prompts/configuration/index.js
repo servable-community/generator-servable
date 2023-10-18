@@ -9,7 +9,7 @@ import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
-    if (!force && payload.asks.configuration) {
+    if (!force && payload.promptGroupsPassed.configuration) {
         return
     }
 
@@ -21,5 +21,5 @@ export default async (props) => {
 
     // await askForState(props)
     await askForConfigurations(props)
-    payload.asks.configuration = true
+    payload.promptGroupsPassed.configuration = true
 }

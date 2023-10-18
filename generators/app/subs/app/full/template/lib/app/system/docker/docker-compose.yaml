@@ -17,7 +17,7 @@ services:
       - ./data/mongo:/data/db
     networks:
       - app
-  <%_ if (distributionType === 'distributed' ) { _%>
+  <%_ if (appDistributionType === 'distributed' ) { _%>
   utils-mongo:
     image: mongo:4
     command: "--bind_ip_all --keyFile data/replica.key --replSet rs0"
@@ -47,7 +47,7 @@ services:
       - <%= appDashboardPort %>:4040
     environment:
       PARSE_DASHBOARD_SERVER_URL: http://localhost:<%= appPort %>/<%= appEndpoint %>
-      PARSE_DASHBOARD_MASTER_KEY: <%= masterKey %>
+      PARSE_DASHBOARD_MASTER_KEY: <%= appMasterKey %>
       PARSE_DASHBOARD_APP_ID: <%= appId %>
       PARSE_DASHBOARD_APP_NAME: <%= appName %>
       PARSE_DASHBOARD_USER_ID: <%= dashboardMainUsername %>
@@ -55,14 +55,14 @@ services:
       PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: 1
     networks:
       - app
-  <%_ if (configurations.includes('staging')) { _%>
+  <%_ if (appConfigurations.includes('staging')) { _%>
   dashboard-staging:
     image: bitnami/parse-dashboard
     restart: always
     ports:
       - 1495:4040
     environment:
-      PARSE_DASHBOARD_PARSE_MASTER_KEY: <%= masterKey %>
+      PARSE_DASHBOARD_PARSE_MASTER_KEY: <%= appMasterKey %>
       PARSE_DASHBOARD_PARSE_HOST: localhost
       PARSE_DASHBOARD_PARSE_PORT_NUMBER: 1397
       PARSE_DASHBOARD_PARSE_MOUNT_PATH: /parsestaging
@@ -97,9 +97,9 @@ services:
       MAX_UPLOAD_SIZE: <%= maxUploadSize %>
       SERVABLE_APP_ID: <%= appId %>
       SERVABLE_APP_NAME: <%= appName %>
-      SERVABLE_MASTER_KEY: <%= masterKey %>
+      SERVABLE_MASTER_KEY: <%= appMasterKey %>
       SERVABLE_REST_API_KEY: <%= restApiKey %>
-      SERVABLE_JAVASCRIPT_KEY: <%= javascriptKey %>
+      SERVABLE_JAVASCRIPT_KEY: <%= appJavascriptKey %>
       SERVABLE_REDIS_LIVESERVER_DB_URI: redis://:REDIS_PWD_LS_TO_CHANGE@liveserver-redis-cache:6379
       SERVABLE_SERVER_URL: localhost:<%= appLiveQueryServerPort %>
       SERVABLE_VERBOSE: 1

@@ -21,7 +21,7 @@ export default async (props) => {
     // await askForGeneric({
     //     ...props, options: {
     //         ...props.options,
-    //         name: 'javascriptKey',
+    //         name: 'appJavascriptKey',
     //         message: 'Javascript key?',
     //         defaultValue: 'JAVASCRIPT_KEY_TO_CHANGE'
     //     }

@@ -10,7 +10,7 @@ import validateNumber from "../../lib/validateNumber.js"
 
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
-    if (!force && payload.asks.distribution) {
+    if (!force && payload.promptGroupsPassed.distribution) {
         return
     }
 
@@ -21,11 +21,11 @@ export default async (props) => {
     })
 
     await askForDistributionType(props)
-    switch (payload.distributionType) {
+    switch (payload.appDistributionType) {
         default: {
             payload.utilsDatabaseURI =
                 `mongodb://root:DATABASE_PASSWORD_TO_CHANGE@localhost:${payload.appDatabasePort}/utils?authSource=admin&readPreference=primary&ssl=false`
-            payload.asks.distribution = true
+            payload.promptGroupsPassed.distribution = true
             return
         }
         case 'distributed': break
@@ -43,5 +43,5 @@ export default async (props) => {
     })
 
     payload.utilsDatabaseURI = `mongodb://root:DATABASE_PASSWORD_TO_CHANGE@localhost:${payload.appUtilsDatabasePort}/utils?replicaSet=rs0&authSource=admin&readPreference=primary&ssl=false&directConnection=true`
-    payload.asks.distribution = true
+    payload.promptGroupsPassed.distribution = true
 }

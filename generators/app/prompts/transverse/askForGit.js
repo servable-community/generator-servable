@@ -5,7 +5,7 @@
  * */
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
-    if (!force && payload.asks.gitInit) {
+    if (!force && payload.promptGroupsPassed.gitInit) {
         return
     }
 
@@ -25,5 +25,5 @@ export default async (props) => {
         default: true
     })).gitInit
 
-    payload.asks.gitInit = true
+    payload.promptGroupsPassed.gitInit = true
 }

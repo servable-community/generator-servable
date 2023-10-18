@@ -5,24 +5,20 @@
 import validateNonEmpty from "../../lib/valdiateNonEmpty.js"
 
 
-export default async ({
-    generator,
-    payload,
-    options: {
-        force = false,
-        name = 'N/A',
-        message = 'N/A',
-        type = 'input',
-        validator = validateNonEmpty,
-        defaultValue = '' } }) => {
-
-    if (!force && payload.asks[name]) {
-        return
-    }
+export default async (props) => {
+    const {
+        generator,
+        payload,
+        options: {
+            name,
+            message,
+            type = 'input',
+            validator = validateNonEmpty,
+            defaultValue } } = props
 
     const options = (await import("../../options.js")).default
     let _message = message
-    let _quickValue = null
+    let _defaultValue = defaultValue
     let _type = type
     const isQuick = generator.options['quick']
     if (name) {
@@ -30,32 +26,35 @@ export default async ({
         if (option) {
             _message = _message ? _message : option.description
             _type = option.type
-            _quickValue = option.quickValue
+            _defaultValue = (_defaultValue === null || _defaultValue === undefined)
+                ? option.default
+                : _defaultValue
         }
     }
 
-    const value = generator.options[name]
-    if (value) {
-        payload[name] = value
+    // const value = generator.options[name]
+    const value = payload[name]
+    if (!(value === null || value === undefined)) {
         return
     }
 
-    if (isQuick && value) {
+    if (isQuick && !(value === null || value === undefined)) {
         return
     }
 
-    if (isQuick && !value && (_quickValue || defaultValue)) {
-        payload[name] = defaultValue ? defaultValue : _quickValue
+    if (isQuick && !(_defaultValue === null || _defaultValue === undefined)) {
+        payload[name] = _defaultValue
         return
     }
 
     payload[name] = (await generator.prompt({
+        ...props.options,
         type,
         name,
         message: _message,
-        default: value ? value : defaultValue,
+        default: value ? value : _defaultValue,
         validate: validator
     }))[name]
 
-    payload.asks[name] = true
+
 }

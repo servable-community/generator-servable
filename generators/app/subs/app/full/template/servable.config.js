@@ -1,7 +1,7 @@
 export default {
     id: "<%= appId %>",
     name: "<%= appName %>",
-    configurations: [<% if(configurations.includes('staging')) { %>
+    configurations: [<% if(appConfigurations.includes('staging')) { %>
     {
         key: 'staging',
         enabled: true,
@@ -17,7 +17,7 @@ export default {
         //     }
         // },
     },<% } %>
-<% if (configurations.includes('production')) { %> {
+<% if (appConfigurations.includes('production')) { %> {
     key: 'production',
     enabled: true,
     params: {},
