@@ -44,8 +44,9 @@
             "args": [
                 "run",
                 "servable",
-                "-t",
-                "app",
+                "-h",
+                // "-t",
+                // "app",
                 // "-n",
                 // "My super app"
             ],

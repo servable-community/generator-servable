@@ -5,6 +5,11 @@
 import extensionGenerators from "./subs/index.js"
 
 export default {
+    'help': {
+        type: Boolean,
+        alias: 'h',
+        description: `Print the generator's options and usage`
+    },
     'quick': {
         type: Boolean,
         alias: 'q',
