@@ -63,7 +63,7 @@ export default async (props) => {
     await targetProtocol(props)
     drawSectionHeader({
         generator,
-        title: `CLASS CHOICE 🚀`,
+        title: `Class choice 🚀`,
         subTitle: `Choose the class.`
     })
 

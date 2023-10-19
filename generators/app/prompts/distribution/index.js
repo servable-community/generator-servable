@@ -16,7 +16,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `DISTRIBUTION ⠕`,
+        title: `Distribution ⠕`,
         subTitle: `Servable can use an arbiter.`
     })
 

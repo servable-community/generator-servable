@@ -36,7 +36,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `APP CHOICE 🚀`,
+        title: `App choice 🚀`,
         subTitle: `Choose the app you want to add a protocol to.`
     })
 

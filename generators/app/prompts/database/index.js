@@ -17,7 +17,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `APP DATABASE 💿`,
+        title: `App database 💿`,
         subTitle: `Servable handles both mongodb and PostGreSQL databases.`
     })
 

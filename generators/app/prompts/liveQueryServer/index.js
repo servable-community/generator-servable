@@ -18,7 +18,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `LIVE QUERY SERVER ⚡️`,
+        title: `Live query server ⚡️`,
         subTitle: `A distinct live query server can drastically improve the app's performance for live queries.`
     })
 

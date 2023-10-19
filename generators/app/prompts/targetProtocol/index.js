@@ -44,7 +44,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `PROTOCOL CHOICE 🚀`,
+        title: `Protocol choice 🚀`,
         subTitle: `Choose a protocol`
     })
 

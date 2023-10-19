@@ -13,7 +13,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `FIND A PROTOCOL ⚙`,
+        title: `Find a protocol ⚙`,
         subTitle: `Servable can be used in a staging or production configurations, or both at the same time.`
     })
 

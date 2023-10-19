@@ -15,7 +15,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `BUCKET STORAGE 📂`,
+        title: `Bucket storage 📂`,
         subTitle: `Servable uses a bucket storage for files.`
     })
 

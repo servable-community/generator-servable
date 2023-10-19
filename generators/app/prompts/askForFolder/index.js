@@ -10,7 +10,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `CHOOSE FOLDER 🚀`,
+        title: `Target folder 🚀`,
         subTitle: `Choose the folder in your filesystem.`
     })
 

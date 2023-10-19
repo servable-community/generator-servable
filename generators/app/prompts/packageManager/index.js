@@ -3,8 +3,8 @@
  *--------------------------------------------------------*/
 
 
-import askForPackageManager from "./askForPackageManager.js"
 import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
+import askForGeneric from "../utils/askForGeneric.js"
 
 
 export default async (props) => {
@@ -15,10 +15,28 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `PACKAGE MANAGER 🧳`,
+        title: `Package manager 🧳`,
         subTitle: `Package manager for the project.`
     })
 
-    await askForPackageManager(props)
+    await askForGeneric({
+        ...props,
+        options: {
+            type: 'list',
+            name: 'pkgManager',
+
+            choices: [{
+                name: 'npm',
+                value: 'npm'
+            }, {
+                name: 'yarn',
+                value: 'yarn'
+            }, {
+                name: 'pnpm',
+                value: 'pnpm'
+            }]
+        }
+    })
+
     payload.promptGroupsPassed.packageManager = true
 }

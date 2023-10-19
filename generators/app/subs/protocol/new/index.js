@@ -9,7 +9,7 @@ import openProject from "../../../actions/openProject/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
 
 import askForFolder from "../../../prompts/askForFolder/index.js"
-import askForPackageManager from "../../../prompts/packageManager/askForPackageManager.js"
+import askForPackageManager from "../../../prompts/packageManager/index.js"
 import askForGit from "../../../prompts/transverse/askForGit.js"
 import askForGithubRepository from "../../../prompts/transverse/askForGithubRepository.js"
 import askForLicense from "../../../prompts/transverse/askForLicense.js"

@@ -15,7 +15,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `CONFIGURATIONS ⚙`,
+        title: `Configurations ⚙`,
         subTitle: `Servable can be used in a staging or production configurations, or both at the same time.`
     })
 

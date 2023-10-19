@@ -16,7 +16,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `APP REDIS CACHE 🚀`,
+        title: `App redis cache 🚀`,
         subTitle: `Servable can launch with a dedicated cache server in REDIS.`
     })
 

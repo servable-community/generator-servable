@@ -18,7 +18,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `APP INFORMATIONS 🚀`,
+        title: `App informations 🚀`,
         subTitle: `Servable required general informations.`
     })
 

@@ -11,7 +11,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `CLASS INFORMATIONS 🚀`,
+        title: `Class informations 🚀`,
         subTitle: `Servable required class informations.`
     })
 

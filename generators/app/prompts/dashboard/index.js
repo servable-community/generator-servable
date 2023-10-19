@@ -16,7 +16,7 @@ export default async (props) => {
 
     drawSectionHeader({
         generator,
-        title: `SERVABLE DASHBOARD 🚀`,
+        title: `Servable dashboard 🚀`,
         subTitle: `Servable dashboard helps you visualize and edit the app's data and configuration.`
     })
 
