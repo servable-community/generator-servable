@@ -3,10 +3,10 @@
  *--------------------------------------------------------*/
 
 
-import askForDistributionType from "./askForDistributionType.js"
 import askForGenericPort from "../utils/askForGenericPort.js"
 import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 import validateNumber from "../../lib/validateNumber.js"
+import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
@@ -20,7 +20,22 @@ export default async (props) => {
         subTitle: `Servable can use an arbiter.`
     })
 
-    await askForDistributionType(props)
+    await askForGeneric({
+        ...props,
+        options: {
+            type: 'list',
+            name: 'appDistributionType',
+            choices: [{
+                name: 'Standalone',
+                value: 'standalone',
+                checked: true,
+            }, {
+                name: 'Distributed (requires a separate replicated mongo database deployment)',
+                value: 'distributed',
+            },]
+        }
+    })
+
     switch (payload.appDistributionType) {
         default: {
             payload.utilsDatabaseURI =

@@ -59,6 +59,7 @@ export default {
     'appDistributionType': {
         type: String,
         alias: 'd',
+        default: 'standalone',
         description: `App distribution type`
     },
     'appUseCache': {
@@ -106,6 +107,7 @@ export default {
     },
     'appDatabaseType': {
         type: String,
+        default: 'mongodb',
         description: `App database type`
     },
     'appUtilsDatabasePort': {

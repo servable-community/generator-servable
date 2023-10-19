@@ -7,11 +7,12 @@ import bootPackageManager from "../../../actions/bootPackageManager/index.js"
 import copyProtocolShell from "../../../actions/copyProtocolShell/index.js"
 import openProject from "../../../actions/openProject/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
-import askForLicense from "../../../prompts/appInformations/askForLicense.js"
+
 import askForFolder from "../../../prompts/askForFolder/index.js"
 import askForPackageManager from "../../../prompts/packageManager/askForPackageManager.js"
 import askForGit from "../../../prompts/transverse/askForGit.js"
 import askForGithubRepository from "../../../prompts/transverse/askForGithubRepository.js"
+import askForLicense from "../../../prompts/transverse/askForLicense.js"
 import askForProtocolId from "../../../prompts/transverse/askForProtocolId.js"
 import askForGeneric from "../../../prompts/utils/askForGeneric.js"
 

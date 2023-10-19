@@ -55,6 +55,4 @@ export default async (props) => {
         default: value ? value : _defaultValue,
         validate: validator
     }))[name]
-
-
 }
