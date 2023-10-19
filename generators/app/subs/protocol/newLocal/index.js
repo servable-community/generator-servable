@@ -4,6 +4,7 @@
 
 import drawEnd from "../../../lib/draw/drawEnd.js"
 import targetApp from "../../../prompts/targetApp/index.js"
+import askForProtocolId from "../../../prompts/transverse/askForProtocolId.js"
 import askForGeneric from "../../../prompts/utils/askForGeneric.js"
 
 export default {
@@ -18,20 +19,11 @@ export default {
         // await askForAppId(props)
         await targetApp(props)
 
+        await askForProtocolId(props)
         await askForGeneric({
             ...props, options: {
                 ...props.options,
-                type: 'input',
-                name: 'protocolId',
-                message: 'Unique protocol Id'
-            }
-        })
-        await askForGeneric({
-            ...props, options: {
-                ...props.options,
-                type: 'input',
                 name: 'protocolDescription',
-                message: 'Description'
             }
         })
     },

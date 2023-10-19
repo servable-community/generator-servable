@@ -67,39 +67,49 @@ Usage:
 Generates Servable components.
 
 Options:
-  -h,   --help                   # Print the generator's options and usage
-        --skip-cache             # Do not remember prompt answers                              Default: false
-        --skip-install           # Do not automatically install dependencies                   Default: false
-        --force-install          # Fail on install dependencies error                          Default: false
-        --ask-answered           # Show prompts for already configured options                 Default: false
-  -q,   --quick                  # Quick mode, skip all optional prompts and use defaults
-  -o,   --open                   # Open the generated project in Visual Studio Code
-  -t,   --generatorType          # app, class, protocol, ejectprotocol, protocol, protocol...
-  -m,   --appMasterKey           # App master key                                              Default: MASTER_KEY_TO_CHANGE
-  -j,   --appJavascriptKey       # App javascript key                                          Default: JAVASCRIPT_KEY_TO_CHANGE
-  -n,   --appName                # App name                                                    Default: No name
-  -i,   --appId                  # App ID                                                      Default: no-name
-  -d,   --appDescription         # App description                                             Default: A servable app
-  -e,   --appEndpoint            # App endpoint                                                Default: parse
-  -d,   --appDistributionType    # App distribution type
-        --appUseCache            # Use app cache                                               Default: true
-        --appUseDashboard        # Use a Servable Dashboard (recommended)                      Default: true
-        --appCachePort           # App cache port
-        --appConfigurations      # App configuration
-        --appDatabasePort        # App database port                                           Default: 27019
-        --appPort                # App port                                                    Default: 1337
-        --appDatabaseType        # App database type
-        --appUtilsDatabasePort   # App utils database port
-        --appLiveQueryCachePort  # Livequery cache port
-  -g,   --gitInit                # Initialize a git repository                                 Default: true
-  -p,   --pkgManager             # Package manager ('npm', 'yarn' or 'pnpm')                   Default: yarn
-        --bootstrapClass         # Bootstrap class
-        --license                # License                                                     Default: standalone
-        --target                 # Target
-        --className              # className
-        --appUseLocalS3             # Use a local bucket storage (recommended)                    Default: true
-        --useAppProtocol         # Add class to app protocol
-        --targetProtocol         # Target protocol
+  -h,   --help                      # Print the generator's options and usage
+        --skip-cache                # Do not remember prompt answers                                 Default: false
+        --skip-install              # Do not automatically install dependencies                      Default: false
+        --force-install             # Fail on install dependencies error                             Default: false
+        --ask-answered              # Show prompts for already configured options                    Default: false
+  -q,   --quick                     # Quick mode, skip all optional prompts and use defaults
+  -o,   --open                      # Open the generated project in Visual Studio Code
+  -t,   --generatorType             # app, class, newprotocol, ejectprotocol, protocol, protocol...
+  -m,   --appMasterKey              # App master key                                                 Default: MASTER_KEY_TO_CHANGE
+  -j,   --appJavascriptKey          # App javascript key                                             Default: JAVASCRIPT_KEY_TO_CHANGE
+  -n,   --appName                   # App name                                                       Default: No name
+  -i,   --appId                     # App ID                                                         Default: no-name
+  -d,   --appDescription            # App description                                                Default: A servable app
+  -e,   --appEndpoint               # App endpoint                                                   Default: parse
+  -d,   --appDistributionType       # App distribution type
+        --appUseCache               # Use app cache                                                  Default: true
+        --appUseDashboard           # Use a Servable Dashboard (recommended)                         Default: true
+        --appDashboardMainPassword  # Dashboard password                                             Default: PASSWORD_TO_CHANGE
+        --appDashboardPort          # Dashboard port                                                 Default: 4040
+        --appDashboardMainUsername  # Dashboard username                                             Default: admin
+        --appCachePort              # App cache port
+        --appConfigurations         # App configuration
+        --appDatabasePort           # App database port                                              Default: 27019
+        --appPort                   # App port                                                       Default: 1337
+        --appDatabaseType           # App database type
+        --appUtilsDatabasePort      # App utils database port
+        --appLiveQueryCachePort     # Livequery cache port
+        --appUseLocalS3             # Use a local bucket storage (recommended)                       Default: true
+        --appMinioUser              # Minio username                                                 Default: MINIO_USERNAME_TO_CHANGE
+        --appMinioPassword          # Minio password                                                 Default: MINIO_PASSWORD_TO_CHANGE
+        --appMinioEndpoint          # Minio endpoint                                                 Default: http://localhost:9000
+        --appMinioBucket            # Minio bucket                                                   Default: primary
+        --appS3ApiPort              # S3 App port                                                    Default: 9000
+        --appS3UIPort               # S3 App UI port                                                 Default: 9001
+  -g,   --gitInit                   # Initialize a git repository                                    Default: true
+  -p,   --pkgManager                # Package manager ('npm', 'yarn' or 'pnpm')                      Default: yarn
+        --bootstrapClass            # Bootstrap class
+        --license                   # License                                                        Default: standalone
+        --target                    # Target
+        --className                 # className
+        --useAppProtocol            # Add class to app protocol
+        --targetProtocol            # Target protocol
+        --githubUsername            # Github username                                                Default: servable-community
 
 Arguments:
   destination  #

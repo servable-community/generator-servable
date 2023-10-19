@@ -53,7 +53,7 @@ export default {
     'appEndpoint': {
         type: String,
         alias: 'e',
-        default: 'parse',
+        default: 'servable',
         description: 'App endpoint'
     },
     'appDistributionType': {
@@ -193,5 +193,23 @@ export default {
         type: String,
         default: 'servable-community',
         description: 'Github username'
+    },
+    'protocolName': {
+        type: String,
+        alias: 'n',
+        default: 'No name',
+        description: 'Protocol name'
+    },
+    'protocolId': {
+        type: String,
+        alias: 'i',
+        default: 'no-name',
+        description: 'Protocol ID'
+    },
+    'protocolDescription': {
+        type: String,
+        alias: 'd',
+        default: 'A servable app',
+        description: 'Protocol description'
     },
 }

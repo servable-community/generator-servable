@@ -1,12 +1,33 @@
 {
-    "generator-servable": {
-        "validateprotocol": {
-            "installDependencies": false,
-            "type": "validateprotocol",
-            "metadata": {
-                "version": "0.1.0",
-                "updatedAt": "2023-06-27T06:19:23.952Z"
-            }
-        }
+  "generator-servable": {
+    "validateprotocol": {
+      "installDependencies": false,
+      "type": "validateprotocol",
+      "metadata": {
+        "version": "0.1.0",
+        "updatedAt": "2023-06-27T06:19:23.952Z"
+      }
+    },
+    "newprotocol": {
+      "installDependencies": false,
+      "type": "newprotocol",
+      "protocolName": "Passage",
+      "protocolId": "passage",
+      "completedProtocolId": "servable-passage",
+      "protocolDescription": "A servable app",
+      "targetFolder": "/Users/anak/YourouNak/development/servable/_lab",
+      "githubUsername": "servable-community",
+      "repositoryUrl": "https://github.com/servable-community/servable-passage",
+      "license": "standalone",
+      "pkgManager": "yarn",
+      "gitInit": true,
+      "author": "",
+      "protocolTargetFolder": "/Users/anak/YourouNak/development/servable/_lab/passage",
+      "doubleDestination": "/Users/anak/YourouNak/development/servable/_lab/passage",
+      "metadata": {
+        "version": "0.1.0",
+        "updatedAt": "2023-10-19T16:03:16.398Z"
+      }
     }
+  }
 }

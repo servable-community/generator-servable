@@ -6,7 +6,7 @@
 import generateApp from "./app/new/index.js"
 import generateClass from "./class/new/index.js"
 import generateProtocolLocal from "./protocol/newLocal/index.js"
-// import generateProtocol from "./protocol/new/index.js"
+import generateProtocol from "./protocol/new/index.js"
 import ejectProtocol from "./protocol/eject/index.js"
 import addProtocol from "./protocol/import/index.js"
 import forkProtocol from "./protocol/fork/index.js"
@@ -21,7 +21,7 @@ export default [
     // (new inquirer.Separator()),
     generateClass,
     // (new inquirer.Separator()),
-    // generateProtocol,
+    generateProtocol,
     generateProtocolLocal,
     ejectProtocol,
     injectProtocol,

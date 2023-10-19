@@ -2,16 +2,13 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import checkFileExists from "../../lib/checkFileExists.js"
 
 export default async (props) => {
 
     const { generator, payload, } = props
-    const sourcePath = payload.targetProtocolAbsolute
-    // payload.protocolId = payload.targetProtocol
-    payload.protocolDescription = ''
-    // payload.repositoryUrl = ''
-    payload.author = ''
+
+    payload.protocolDescription = payload.protocolDescription ? payload.protocolDescription : ''
+    payload.author = payload.author ? payload.author : ''
 
     const targetPath = `${payload.targetFolder}/${payload.protocolId}`
 
@@ -34,11 +31,6 @@ export default async (props) => {
     generator.fs.copy(generator.templatePath('jest.config.json'), `${targetPath}/jest.config.json`,)
     generator.fs.copy(generator.templatePath('static/img/icon.png'), `${targetPath}/static/img/icon.png`,)
     generator.fs.copyTpl(generator.templatePath('README.md'), `${targetPath}/README.md`, payload)
-
-    if (await checkFileExists(`${sourcePath}/.yo-rc.json`)) {
-        generator.fs.copy(`${sourcePath}/.yo-rc.json`, `${targetPath} /.prettierrc`,)
-    }
-
 
 
 }

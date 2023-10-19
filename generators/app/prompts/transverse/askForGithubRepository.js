@@ -1,19 +1,22 @@
 /*---------------------------------------------------------
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
-
+/**
+ * */
 
 import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
-    const { generator, payload } = props
+    const { payload, repositoryName } = props
+
     await askForGeneric({
         ...props, options: {
             ...props.options,
-            type: 'confirm',
-            name: 'launchDocker',
-            message: 'Launch Docker after installation?',
-            defaultValue: false
+            name: 'githubUsername',
         }
     })
+
+    const _repositoryName = repositoryName ? repositoryName : payload.completedProtocolId
+
+    payload.repositoryUrl = `https://github.com/${payload.githubUsername}/${_repositoryName}`
 }

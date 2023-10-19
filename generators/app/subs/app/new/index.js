@@ -40,13 +40,10 @@ export default {
         await askForConfiguration(props)
         await askForPackageManager(props)
         await askForGit(props)
-        // await askForBootLocalInfraDocker(props)
-        // await askForLocalInfraDocker(props)
     },
     writing: async (props) => {
         await bootApp(props)
         await bootPackageManager(props)
-        // await bootInfra(props)
     },
     end: async (props) => {
         const { generator, payload } = props

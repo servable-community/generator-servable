@@ -1,6 +1,5 @@
 node_modules
 coverage
-_archive/generators/chart
 
 # Ignore OS generated files #
 .DS_Store*
