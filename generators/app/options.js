@@ -71,6 +71,21 @@ export default {
         default: true,
         description: `Use a Servable Dashboard (recommended)`
     },
+    'appDashboardMainPassword': {
+        type: String,
+        default: 'PASSWORD_TO_CHANGE',
+        description: `Dashboard password`
+    },
+    'appDashboardPort': {
+        type: Number,
+        default: '4040',
+        description: `Dashboard port`
+    },
+    'appDashboardMainUsername': {
+        type: String,
+        default: 'admin',
+        description: `Dashboard username`
+    },
     'appCachePort': {
         type: String,
         description: `App cache port`
@@ -101,6 +116,41 @@ export default {
         type: Number,
         description: `Livequery cache port`
     },
+    'appUseLocalS3': {
+        type: Boolean,
+        default: true,
+        description: `Use a local bucket storage (recommended)`
+    },
+    'appMinioUser': {
+        type: String,
+        default: 'MINIO_USERNAME_TO_CHANGE',
+        description: `Minio username`
+    },
+    'appMinioPassword': {
+        type: String,
+        default: 'MINIO_PASSWORD_TO_CHANGE',
+        description: `Minio password`
+    },
+    'appMinioEndpoint': {
+        type: String,
+        default: 'http://localhost:9000',
+        description: `Minio endpoint`
+    },
+    'appMinioBucket': {
+        type: String,
+        default: 'primary',
+        description: `Minio bucket`
+    },
+    'appS3ApiPort': {
+        type: Number,
+        default: 9000,
+        description: `S3 App port`
+    },
+    'appS3UIPort': {
+        type: Number,
+        default: 9001,
+        description: `S3 App UI port`
+    },
     'gitInit': {
         type: Boolean,
         alias: 'g',
@@ -130,11 +180,7 @@ export default {
         type: String,
         description: `className`
     },
-    'useLocalS3': {
-        type: Boolean,
-        default: true,
-        description: `Use a local bucket storage (recommended)`
-    },
+
     'useAppProtocol': {
         type: Boolean,
         description: `Add class to app protocol`
@@ -142,5 +188,10 @@ export default {
     'targetProtocol': {
         type: String,
         description: `Target protocol`
+    },
+    'githubUsername': {
+        type: String,
+        default: 'servable-community',
+        description: 'Github username'
     },
 }

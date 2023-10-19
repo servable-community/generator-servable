@@ -25,7 +25,7 @@ import bootPackageManager from "../../../actions/bootPackageManager/index.js"
 export default {
     id: 'appfull',
     path: 'app/full',
-    aliases: ['app', 'full'],
+    aliases: ['appnew', 'new', 'newapp'],
     name: 'App → New 🚀',
     version: '0.1.0',
     prompting: async (props) => {

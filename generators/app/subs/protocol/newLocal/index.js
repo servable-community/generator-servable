@@ -2,16 +2,15 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import openProject from "../../../actions/openProject/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
 import targetApp from "../../../prompts/targetApp/index.js"
 import askForGeneric from "../../../prompts/utils/askForGeneric.js"
 
 export default {
     id: 'newprotocol',
-    path: 'protocol/new',
-    aliases: ['protocol'],
-    name: 'Protocol → New 🚀 #TODO',
+    path: 'protocol/newLocal',
+    aliases: ['newprotocol'],
+    name: 'Protocol → Local → New ✨',
     version: '0.1.0',
     prompting: async (props) => {
         const { generator, payload } = props
@@ -54,6 +53,6 @@ export default {
             title: "Protocol created successfully",
             subTitle: `Il n'y a pas de hasard. Il n'y a que des rendez-vous. Paul Éluard`
         })
-        await openProject(props)
+        // await openProject(props)
     }
 }

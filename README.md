@@ -62,29 +62,53 @@ These templates will:
 
 ```
 Usage:
-  yo servable [<destination>] [options]
+  yo servable:app [<destination>] [options]
 
-Argument (optional):
-  The destination to create the extension in, absolute or relative to the current working
-  directory. Use '.' for the current folder.
-  If not provided, defaults to a folder in the current working directory with the extension
-  display name.
+Generates Servable components.
 
 Options:
-  -h,   --help                  # Print the generator's options and usage
-  -t,   --generatorType         # Genrator type (app, protocolNew, etc)
-  -q,   --quick                 # Quick mode, skip all optional prompts and use defaults
-  -o,   --open                  # Open the generated extension in Visual Studio Code
-  -p,   --pkgManager            # Package manager to use if the generated project / code uses it. Choices are: npm, yarn, and pnpm
-  -t,   --generatorType         # ts, js, colortheme, language, snippets, keymap...
-        --appId           # Id of the extension
-        --appDescription  # Description of the extension
-        --pkgManager            # 'npm', 'yarn' or 'pnpm'
-        --webpack               # Bundle the extension with webpack
-        --gitInit               # Initialize a git repo
+  -h,   --help                   # Print the generator's options and usage
+        --skip-cache             # Do not remember prompt answers                              Default: false
+        --skip-install           # Do not automatically install dependencies                   Default: false
+        --force-install          # Fail on install dependencies error                          Default: false
+        --ask-answered           # Show prompts for already configured options                 Default: false
+  -q,   --quick                  # Quick mode, skip all optional prompts and use defaults
+  -o,   --open                   # Open the generated project in Visual Studio Code
+  -t,   --generatorType          # app, class, protocol, ejectprotocol, protocol, protocol...
+  -m,   --appMasterKey           # App master key                                              Default: MASTER_KEY_TO_CHANGE
+  -j,   --appJavascriptKey       # App javascript key                                          Default: JAVASCRIPT_KEY_TO_CHANGE
+  -n,   --appName                # App name                                                    Default: No name
+  -i,   --appId                  # App ID                                                      Default: no-name
+  -d,   --appDescription         # App description                                             Default: A servable app
+  -e,   --appEndpoint            # App endpoint                                                Default: parse
+  -d,   --appDistributionType    # App distribution type
+        --appUseCache            # Use app cache                                               Default: true
+        --appUseDashboard        # Use a Servable Dashboard (recommended)                      Default: true
+        --appCachePort           # App cache port
+        --appConfigurations      # App configuration
+        --appDatabasePort        # App database port                                           Default: 27019
+        --appPort                # App port                                                    Default: 1337
+        --appDatabaseType        # App database type
+        --appUtilsDatabasePort   # App utils database port
+        --appLiveQueryCachePort  # Livequery cache port
+  -g,   --gitInit                # Initialize a git repository                                 Default: true
+  -p,   --pkgManager             # Package manager ('npm', 'yarn' or 'pnpm')                   Default: yarn
+        --bootstrapClass         # Bootstrap class
+        --license                # License                                                     Default: standalone
+        --target                 # Target
+        --className              # className
+        --appUseLocalS3             # Use a local bucket storage (recommended)                    Default: true
+        --useAppProtocol         # Add class to app protocol
+        --targetProtocol         # Target protocol
+
+Arguments:
+  destination  #
+    The folder to create the extension in, absolute or relative to the current working directory.
+    Use '.' for the current folder. If not provided, defaults to a folder with the extension display name.
+    Type: String  Required: false
 
 Example usages:
-  yo servable                   # Launch the root servable prompt screen
+  yo servable                       # Launch the servable yeoman prompt.
   yo servable . -a              # Generate a Servable app at the current folder
 ```
 

@@ -13,7 +13,7 @@ export default {
     id: 'class',
     path: 'class/new',
     aliases: ['class',],
-    name: 'Class → New ✨',
+    name: 'Class → Local → New ✨',
     prompting: async (props) => {
         const { generator, payload } = props
 

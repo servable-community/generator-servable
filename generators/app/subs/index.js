@@ -3,8 +3,9 @@
  *--------------------------------------------------------*/
 
 // import localInfra from "./infrastructure/local/docker/index.js"
-import generateApp from "./app/full/index.js"
+import generateApp from "./app/new/index.js"
 import generateClass from "./class/new/index.js"
+import generateProtocolLocal from "./protocol/newLocal/index.js"
 import generateProtocol from "./protocol/new/index.js"
 import ejectProtocol from "./protocol/eject/index.js"
 import addProtocol from "./protocol/import/index.js"
@@ -21,6 +22,7 @@ export default [
     generateClass,
     // (new inquirer.Separator()),
     generateProtocol,
+    generateProtocolLocal,
     ejectProtocol,
     injectProtocol,
     // validateProtocol,

@@ -13,6 +13,7 @@ import askForGeneric from "../../../prompts/utils/askForGeneric.js"
 import askForGit from "../../../prompts/transverse/askForGit.js"
 import askForPackageManager from "../../../prompts/packageManager/index.js"
 import bootPackageManager from "../../../actions/bootPackageManager/index.js"
+import openProject from "../../../actions/openProject/index.js"
 
 export default {
     id: 'ejectprotocol',
@@ -28,8 +29,6 @@ export default {
             ...props, options: {
                 ...props.options,
                 name: 'githubUsername',
-                message: 'What is your Github username?',
-                defaultValue: 'servable-community'
             }
         })
         payload.protocolId = payload.targetProtocol
@@ -103,6 +102,6 @@ export default {
             subTitle: `Il n'y a pas de hasard. Il n'y a que des rendez - vous.Paul Éluard`
         })
 
-        // await openProject(props)
+        await openProject(props)
     }
 }

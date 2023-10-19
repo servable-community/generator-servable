@@ -25,9 +25,7 @@ export default async (props) => {
             ...props, options: {
                 ...props.options,
                 type: 'confirm',
-                name: 'appUseDashboard',
-                message: 'Use a Servable Dashboard? (recommended)',
-                defaultValue: true
+                name: 'appUseDashboard'
             }
         })
     }
@@ -42,17 +40,13 @@ export default async (props) => {
     await askForGeneric({
         ...props, options: {
             ...props.options,
-            name: 'dashboardMainPassword',
-            message: 'Dashboard password?',
-            defaultValue: 'PASSWORD_TO_CHANGE'
+            name: 'appDashboardMainPassword'
         }
     })
     await askForGeneric({
         ...props, options: {
             ...props.options,
-            name: 'dashboardMainUsername',
-            message: '👩‍💻 Dashboard username?',
-            defaultValue: 'admin'
+            name: 'appDashboardMainUsername'
         }
     })
 
@@ -61,7 +55,6 @@ export default async (props) => {
             ...props.options,
             type: 'number',
             name: 'appDashboardPort',
-            message: 'Dashboard port?',
             port: { value: 4040, },
             validator: validateNumber,
         }

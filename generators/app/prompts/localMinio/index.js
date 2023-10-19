@@ -24,50 +24,40 @@ export default async (props) => {
             ...props, options: {
                 ...props.options,
                 type: 'confirm',
-                name: 'useLocalS3',
-                message: 'Use a local bucket storage? (recommended)',
-                defaultValue: true
+                name: 'appUseLocalS3',
             }
         })
     }
     else {
-        payload.useLocalS3 = true
+        payload.appUseLocalS3 = true
     }
 
-    if (!payload.useLocalS3) {
+    if (!payload.appUseLocalS3) {
         return
     }
 
     await askForGeneric({
         ...props, options: {
             ...props.options,
-            name: 'minioUser',
-            message: 'Minio username?',
-            defaultValue: 'MINIO_USERNAME_TO_CHANGE'
+            name: 'appMinioUser',
         }
     })
     await askForGeneric({
         ...props, options: {
             ...props.options,
-            name: 'minioPassword',
-            message: 'Minio password?',
-            defaultValue: 'MINIO_PASSWORD_TO_CHANGE'
+            name: 'appMinioPassword',
         }
     })
     await askForGeneric({
         ...props, options: {
             ...props.options,
-            name: 'minioEndpoint',
-            message: 'Minio endpoint?',
-            defaultValue: 'http://localhost:9000'
+            name: 'appMinioEndpoint',
         }
     })
     await askForGeneric({
         ...props, options: {
             ...props.options,
-            name: 'minioBucket',
-            message: 'Minio bucket?',
-            defaultValue: 'primary'
+            name: 'appMinioBucket',
         }
     })
 
@@ -76,7 +66,6 @@ export default async (props) => {
             ...props.options,
             type: 'number',
             name: 'appS3ApiPort',
-            message: 'S3 App port?',
             port: { value: 9000, },
             validator: validateNumber,
         }
@@ -87,7 +76,6 @@ export default async (props) => {
             ...props.options,
             type: 'number',
             name: 'appS3UIPort',
-            message: 'S3 App UI port?',
             port: { value: 9001, },
             validator: validateNumber,
         }

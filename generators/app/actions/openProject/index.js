@@ -2,6 +2,8 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
+import which from "which"
+
 export default async (props) => {
     const { generator, payload, } = props
 
@@ -13,6 +15,8 @@ export default async (props) => {
         generator.log('')
         return
     }
+
+    const [codeStableLocation] = await Promise.all([which('code').catch(() => undefined), which('code-insiders').catch(() => undefined)])
 
     const choices = []
     choices.push({

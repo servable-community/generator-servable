@@ -1,0 +1,6 @@
+{
+    "type": "protocol",
+    "id": "<%= protocolId %>",
+    "description": "<%= protocolDescription %>",
+    "version": "1.0.0"
+}

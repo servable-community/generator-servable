@@ -50,8 +50,8 @@ services:
       PARSE_DASHBOARD_MASTER_KEY: <%= appMasterKey %>
       PARSE_DASHBOARD_APP_ID: <%= appId %>
       PARSE_DASHBOARD_APP_NAME: <%= appName %>
-      PARSE_DASHBOARD_USER_ID: <%= dashboardMainUsername %>
-      PARSE_DASHBOARD_USER_PASSWORD: <%= dashboardMainPassword %>
+      PARSE_DASHBOARD_USER_ID: <%= appDashboardMainUsername %>
+      PARSE_DASHBOARD_USER_PASSWORD: <%= appDashboardMainPassword %>
       PARSE_DASHBOARD_ALLOW_INSECURE_HTTP: 1
     networks:
       - app
@@ -69,7 +69,7 @@ services:
       PARSE_DASHBOARD_PARSE_APP_ID: <%= appId %>
       PARSE_DASHBOARD_PARSE_APP_NAME: <%= appName %>
       PARSE_DASHBOARD_USERNAME: admin
-      PARSE_DASHBOARD_PASSWORD: <%= dashboardMainPassword %>
+      PARSE_DASHBOARD_PASSWORD: <%= appDashboardMainPassword %>
     networks:
       - app
   <%_ } _%>
@@ -80,9 +80,9 @@ services:
       - <%= appS3UIPort %>:9001
       - <%= appS3ApiPort %>:9000
     environment:
-      MINIO_ROOT_USER: <%= minioUser %>
-      MINIO_ROOT_PASSWORD: <%= minioPassword %>
-      MINIO_DEFAULT_BUCKETS: <%= minioBucket %>
+      MINIO_ROOT_USER: <%= appMinioUser %>
+      MINIO_ROOT_PASSWORD: <%= appMinioPassword %>
+      MINIO_DEFAULT_BUCKETS: <%= appMinioBucket %>
     volumes:
       - ./data/minio:/data
     networks:
