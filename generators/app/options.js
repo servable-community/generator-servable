@@ -58,7 +58,6 @@ export default {
     },
     'appDistributionType': {
         type: String,
-        alias: 'd',
         default: 'standalone',
         description: `App distribution type`
     },
@@ -198,20 +197,17 @@ export default {
     },
     'protocolName': {
         type: String,
-        alias: 'n',
         default: 'No name',
         description: 'Protocol name'
     },
     'protocolId': {
         type: String,
-        alias: 'i',
         default: 'no-name',
         description: 'Protocol ID'
     },
     'protocolDescription': {
         type: String,
-        alias: 'd',
-        default: 'A servable app',
+        default: 'A servable protocol',
         description: 'Protocol description'
     },
 }

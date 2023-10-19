@@ -4,7 +4,7 @@
 /**
  * */
 
-import buildCompleteProtocolID from "../../lib/buildCompleteProtocolID"
+import buildCompleteProtocolID from "../../lib/buildCompleteProtocolID.js"
 import askForGeneric from "../utils/askForGeneric"
 
 
