@@ -23,9 +23,9 @@ import bootPackageManager from "../../../actions/bootPackageManager/index.js"
 // import askForLocalInfraDocker from "../../../prompts/localInfraDocker/index.js"
 
 export default {
-    id: 'appfull',
-    path: 'app/full',
-    aliases: ['appnew', 'new', 'newapp'],
+    id: 'appnew',
+    path: 'app/new',
+    aliases: ['app', 'appnew', 'new', 'newapp'],
     name: 'App → New 🚀',
     version: '0.1.0',
     prompting: async (props) => {
