@@ -20,7 +20,7 @@ export default async (props) => {
     let value = generator.options['targetClass']
     if (value) {
         payload.targetClass = value
-        payload.targetClassAbsolute = null
+        payload.targetClassPath = null
         return
     }
 
@@ -31,15 +31,14 @@ export default async (props) => {
     const originalDestinationPath = generator.originalDestinationPath
 
     if (await isFolderClass(originalDestinationPath)) {
-        payload.targetClassAbsolute = originalDestinationPath
-        payload.targetClass = payload.targetClassAbsolute.split(path.sep).pop()
+        payload.targetClassPath = originalDestinationPath
+        payload.targetClass = payload.targetClassPath.split(path.sep).pop()
 
         // const config = await getServablePackage(originalDestinationPath)
         // payload.desiredWriteDestinationPath = ''
         generator.log(chalk.italic(`→ The class will be added to the protocol in the current folder.\n`))
         return
     }
-
 
     if (includeProtocolAsAClass) {
         await askForGeneric({
@@ -54,7 +53,7 @@ export default async (props) => {
         })
 
         if (payload.forProtocols) {
-            payload.targetClassAbsolute = `${payload.desiredWriteDestinationPathAbsolute}/lib/app`
+            payload.targetClassPath = `${payload.desiredWriteDestinationPathAbsolute}/lib/app`
             payload.targetClass = payload.targetProtocolAbsolute.split(path.sep).pop()
             return
         }
@@ -67,25 +66,28 @@ export default async (props) => {
         subTitle: `Choose the class.`
     })
 
-    const res = (await generator.prompt({
-        type: "file-tree-selection",
-        name: "target",
-        message: "Choose the class to add a protocol to",
-        onlyShowDir: true,
-        root: `${payload.targetProtocolAbsolute}/classes`,
-        onlyShowValid: true,
-        hideRoot: true,
-        // validate: (name,) => {
-        //     if (!name || !name.length) {
-        //         return false
-        //     }
-        //     // return true
-        //     return isFolderClassSync(name)
-        // },
-    })).target
+    await askForGeneric({
+        ...props, options: {
+            ...props.options,
+            type: "file-tree-selection",
+            name: "targetClassPath",
+            message: "Choose the class to add a protocol to",
+            onlyShowDir: true,
+            root: `${payload.targetProtocolAbsolute}/classes`,
+            onlyShowValid: true,
+            hideRoot: true,
+            // validate: (name,) => {
+            //     if (!name || !name.length) {
+            //         return false
+            //     }
+            //     // return true
+            //     return isFolderClassSync(name)
+            // },
+        }
+    })
 
     // const folderPath = path.resolve(generator.destinationPath(), destination)
     // this.destinationRoot(folderPath)
-    payload.targetClassAbsolute = res
+
     payload.targetClass = payload.targetProtocolAbsolute.split(path.sep).pop()
 }

@@ -4,20 +4,12 @@
 /**
  * */
 
-export default async (props) => {
-    const { generator, payload } = props
-    let value = generator.options['pkgManager']
-    if (value === 'npm' || value === 'yarn' || value === 'pnpm') {
-        payload.pkgManager = value
-        return
-    }
+import askForGeneric from "../utils/askForGeneric.js";
 
-    payload.pkgManager = 'npm'
-    if (generator.options['quick']) {
-        return
-    }
 
-    payload.pkgManager = (await generator.prompt({
+export default async (props) => askForGeneric({
+    ...props, options: {
+        ...props.options,
         type: 'list',
         name: 'pkgManager',
         message: 'Which package manager to use?',
@@ -32,5 +24,5 @@ export default async (props) => {
             name: 'pnpm',
             value: 'pnpm'
         }]
-    })).pkgManager
-}
+    }
+})

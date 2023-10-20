@@ -93,6 +93,7 @@ export default {
     },
     'appConfigurations': {
         type: String,
+        default: 'production',
         description: `App configuration`
     },
     'appDatabasePort': {
@@ -215,5 +216,9 @@ export default {
         type: String,
         default: 'A servable protocol',
         description: 'Protocol description'
+    },
+    'targetClassPath': {
+        type: String,
+        description: 'The path of the class to add a protocol to'
     },
 }

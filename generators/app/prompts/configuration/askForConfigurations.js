@@ -6,26 +6,13 @@
 * @param {Object} payload
 */
 
-export default async (props) => {
-    const { generator, payload } = props
+import askForGeneric from '../utils/askForGeneric.js'
 
-
-    let value = generator.options['appConfigurations']
-    if (value && value.length) {
-        payload.appConfigurations = value
-        return
-    }
-
-    payload.appConfigurations = ['production']
-
-    if (generator.options['quick']) {
-        return
-    }
-
-    payload.appConfigurations = (await generator.prompt({
+export default async (props) => askForGeneric({
+    ...props, options: {
+        ...props.options,
         type: 'list',
         name: 'appConfigurations',
-        message: 'Which configurations to use?',
         choices: [
             {
                 name: 'Production (mandatory)',
@@ -37,6 +24,5 @@ export default async (props) => {
             },
             // (new inquirer.Separator())
         ]
-    })).appConfigurations
-
-}
+    }
+})

@@ -11,7 +11,7 @@ import Bluebird from "bluebird"
 export default async (props) => {
     const { generator, payload, } = props
 
-    let existingProtocols = await getClassProtocols(payload.targetClassAbsolute)
+    let existingProtocols = await getClassProtocols(payload.targetClassPath)
     if (!existingProtocols) {
         existingProtocols = []
     }
@@ -54,7 +54,7 @@ export default async (props) => {
 
     await updateClassProtocols({
         ...props,
-        folder: payload.targetClassAbsolute,
+        folder: payload.targetClassPath,
         generator,
         items: existingProtocols,
         isTemplate

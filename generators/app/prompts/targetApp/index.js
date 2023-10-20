@@ -7,6 +7,7 @@ import isFolderServableAppSync from "./lib/isFolderServableAppSync.js"
 import getServablePackage from "./lib/getServablePackage.js"
 import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
 import path from "path"
+import askForGeneric from "../utils/askForGeneric.js"
 
 export default async (props) => {
     const { generator, payload, } = props
@@ -40,50 +41,52 @@ export default async (props) => {
         subTitle: `Choose the app you want to add a protocol to.`
     })
 
-    const res = (await generator.prompt({
-        type: "file-tree-selection",
-        name: "target",
-        message: "Choose a servable app",
-        onlyShowDir: true,
-        root: originalDestinationPath,
-        onlyShowValid: true,
-        hideRoot: true,
-        // onlyShowValid: true,
-        // validate: name => {
-        //     return (name && name.length && !['.'].includes(name[0]))
-        // }
-        validate: (name,) => {
-            if (!name || !name.length) {
-                return false
+    await askForGeneric({
+        ...props, options: {
+            ...props.options,
+            type: "file-tree-selection",
+            name: "desiredWriteDestinationPathAbsolute",
+            message: "Choose a servable app",
+            onlyShowDir: true,
+            root: originalDestinationPath,
+            onlyShowValid: true,
+            hideRoot: true,
+            // onlyShowValid: true,
+            // validate: name => {
+            //     return (name && name.length && !['.'].includes(name[0]))
+            // }
+            validate: (name,) => {
+                if (!name || !name.length) {
+                    return false
+                }
+                // return name[0] === '.'
+
+                // generator.log(name)
+                const isServable = isFolderServableAppSync(name)
+                // generator.log(name)
+                return isServable
+
+                const _name = name.split(path.sep).pop()
+                const exclusions = ['node_modules', '.git', '.github', '.vscode', '__tests__']
+                if (exclusions.includes(_name.toLowerCase())) {
+                    return false
+                }
+
+                return (_name && _name.length && !['.'].includes(_name[0]))
+            },
+            transformer: (name,) => {
+                if (!name || !name.length) {
+                    return name
+                }
+
+                const _name = name.split(path.sep).pop()
+                //const isServable = (_name && _name.length && !['.'].includes(_name[0]))
+                const isServable = isFolderServableAppSync(name)
+                return isServable ? `${_name} (Servable project) ` : `${_name} ('N/A')`
             }
-            // return name[0] === '.'
-
-            // generator.log(name)
-            const isServable = isFolderServableAppSync(name)
-            // generator.log(name)
-            return isServable
-
-            const _name = name.split(path.sep).pop()
-            const exclusions = ['node_modules', '.git', '.github', '.vscode', '__tests__']
-            if (exclusions.includes(_name.toLowerCase())) {
-                return false
-            }
-
-            return (_name && _name.length && !['.'].includes(_name[0]))
-        },
-        transformer: (name,) => {
-            if (!name || !name.length) {
-                return name
-            }
-
-            const _name = name.split(path.sep).pop()
-            //const isServable = (_name && _name.length && !['.'].includes(_name[0]))
-            const isServable = isFolderServableAppSync(name)
-            return isServable ? `${_name} (Servable project) ` : `${_name} ('N/A')`
         }
-    })).target
+    })
 
-    payload.desiredWriteDestinationPathAbsolute = res
     payload.desiredWriteDestinationPath = payload.desiredWriteDestinationPathAbsolute.split(path.sep).pop()
 
 }
