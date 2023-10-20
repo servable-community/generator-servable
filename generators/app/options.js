@@ -170,10 +170,6 @@ export default {
         default: 'standalone',
         description: `License`
     },
-    'target': {
-        type: String,
-        description: `Target`
-    },
     'className': {
         type: String,
         description: 'Class name',
