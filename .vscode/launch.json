@@ -17,6 +17,7 @@
             "args": [
                 "run",
                 "servable",
+                "/Users/anak/YourouNak/development/servable/_lab/lambda10",
             ],
             "runtimeArgs": [
                 "--require=dotenv/config",

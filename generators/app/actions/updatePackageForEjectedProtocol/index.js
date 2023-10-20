@@ -8,7 +8,7 @@ export default async (props) => {
     const { generator, payload, } = props
 
     const projectFolder = payload.desiredWriteDestinationPathAbsolute
-    const targetFolder = payload.protocolTargetFolder
+    const protocolTargetFolder = payload.protocolTargetFolder
     const protocolId = payload.targetProtocol
 
     const packageJson = await projectPackageJson(projectFolder)
@@ -18,7 +18,7 @@ export default async (props) => {
 
     packageJson.dependencies = {
         ...(packageJson.dependencies ? packageJson.dependencies : {}),
-        [protocolId]: `file:${targetFolder}`
+        [protocolId]: `file:${protocolTargetFolder}`
     }
 
     const packageJsonPath = `${projectFolder}/package.json`

@@ -23,9 +23,6 @@ export default {
     name: 'Protocol → New 🚀',
     version: '0.1.0',
     prompting: async (props) => {
-        const { generator, payload } = props
-
-        // await targetApp(props)
         await askForGeneric({
             ...props, options: {
                 ...props.options,
