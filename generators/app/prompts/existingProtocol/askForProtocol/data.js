@@ -216,5 +216,35 @@ export default [
         "email": "servableapp@gmail.com",
         "description": "Adds slug capacity to a Servable app",
         "icon": "https://cdn3d.iconscout.com/3d/free/preview/free-toffee-4356774-3618919.png?f=avif&h=1400",
+    },
+    {
+        "id": "reviewable",
+        "name": "Reviewable",
+        "packages": [
+            {
+                "id": "servable-reviewable",
+                "description": "",
+                "type": "main"
+            }
+        ],
+        "author": "Servable Community",
+        "email": "servableapp@gmail.com",
+        "description": "Adds review capacity to a Servable app",
+        "icon": "https://cdn3d.iconscout.com/3d/free/preview/free-toffee-4356774-3618919.png?f=avif&h=1400",
+    },
+    {
+        "id": "publishable",
+        "name": "Publishable",
+        "packages": [
+            {
+                "id": "servable-publishable",
+                "description": "",
+                "type": "main"
+            }
+        ],
+        "author": "Servable Community",
+        "email": "servableapp@gmail.com",
+        "description": "Adds review capacity to a Servable app",
+        "icon": "https://cdn3d.iconscout.com/3d/free/preview/free-toffee-4356774-3618919.png?f=avif&h=1400",
     }
 ]

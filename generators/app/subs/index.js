@@ -14,7 +14,7 @@ import forkProtocol from "./protocol/fork/index.js"
 // import validateProtocol from "./protocol/validate/index.js"
 
 import printSchema from "./schema/print/index.js"
-import injectProtocol from "./protocol/inject/index.js"
+// import injectProtocol from "./protocol/inject/index.js"
 export default [
     generateApp,
     // localInfra,
@@ -24,7 +24,7 @@ export default [
     generateProtocol,
     generateProtocolLocal,
     ejectProtocol,
-    injectProtocol,
+    // injectProtocol,
     // validateProtocol,
     addProtocol,
     forkProtocol,
