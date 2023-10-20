@@ -3,6 +3,7 @@
  *--------------------------------------------------------*/
 
 import which from "which"
+import askForGeneric from "../../prompts/utils/askForGeneric"
 
 export default async (props) => {
     const { generator, payload, } = props
@@ -16,7 +17,10 @@ export default async (props) => {
         return
     }
 
-    const [codeStableLocation] = await Promise.all([which('code').catch(() => undefined), which('code-insiders').catch(() => undefined)])
+    const codeStableLocation = await which('code').catch(() => undefined)
+    if (!codeStableLocation) {
+        return
+    }
 
     const choices = []
     choices.push({
@@ -27,11 +31,14 @@ export default async (props) => {
         name: "Skip",
         value: 'skip'
     })
-    const answer = await generator.prompt({
-        type: "list",
-        name: "openWith",
-        message: "Do you want to open the new folder with Visual Studio Code?",
-        choices
+    const answer = await askForGeneric({
+        ...props, options: {
+            ...props.options,
+            type: "list",
+            name: "openWith",
+            // message: "Do you want to open the new folder with Visual Studio Code?",
+            choices
+        }
     })
 
     if (answer && answer.openWith && answer.openWith !== 'skip') {

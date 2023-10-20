@@ -88,27 +88,6 @@ export default async (props) => {
         }
     })
 
-
-    // const res = (await generator.prompt({
-    //     type: "file-tree-selection",
-    //     name: "target",
-    //     message: "Choose a local protocol",
-    //     onlyShowDir: true,
-    //     root: `${payload.desiredWriteDestinationPathAbsolute}/lib/protocols`,
-    //     onlyShowValid: true,
-    //     hideRoot: true,
-    //     validate: (name,) => {
-    //         if (!name || !name.length) {
-    //             return false
-    //         }
-    //         // return true
-    //         return isFolderProtocolSync(name)
-    //     },
-    // })).target
-
-    // const folderPath = path.resolve(generator.destinationPath(), destination)
-    // this.destinationRoot(folderPath)
-    // payload.targetProtocolAbsolute = res
     payload.targetProtocol = payload.targetProtocolAbsolute.split(path.sep).pop()
     payload.protocolName = capitalizeFirstLetter(payload.targetProtocol)
 }

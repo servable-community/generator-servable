@@ -39,12 +39,47 @@
             //
             "type": "node",
             "request": "launch",
-            "name": "Create app",
+            "name": "Create app quick",
             "program": "${workspaceFolder}/node_modules/yeoman-environment/cli/index.js",
             "args": [
                 "run",
                 "servable",
                 // "-q",
+                "-t",
+                "app",
+                // "-n",
+                // "My super app"
+            ],
+            "runtimeArgs": [
+                "--require=dotenv/config",
+                "--nolazy",
+                "--expose-gc",
+                "--experimental-modules",
+                "--es-module-specifier-resolution=node",
+                "--experimental-specifier-resolution=node"
+                //"--unhandled-rejections=strict"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
+            // make sure to have this generator npm-linked:
+            // $ git clone https://github.com/Anak/vscode-generator-code
+            // $ cd vscode-generator-code
+            // $ npm link
+            //
+            "type": "node",
+            "request": "launch",
+            "name": "Create app quick destination path",
+            "program": "${workspaceFolder}/node_modules/yeoman-environment/cli/index.js",
+            "args": [
+                "run",
+                "servable",
+                "/Users/anak/YourouNak/development/servable/_lab/lambda5",
+                "-n",
+                "Lambda",
+                "-q",
                 "-t",
                 "app",
                 // "-n",

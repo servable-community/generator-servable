@@ -13,6 +13,7 @@ export default {
     'open': {
         type: Boolean,
         alias: 'o',
+        default: 'skip',
         description: 'Open the generated project in Visual Studio Code'
     },
     'generatorType': {
