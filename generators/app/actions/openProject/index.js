@@ -3,7 +3,7 @@
  *--------------------------------------------------------*/
 
 import which from "which"
-import askForGeneric from "../../prompts/utils/askForGeneric"
+import askForGeneric from "../../prompts/utils/askForGeneric.js"
 
 export default async (props) => {
     const { generator, payload, } = props

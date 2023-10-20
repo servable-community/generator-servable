@@ -1,0 +1,17 @@
+{
+  "generator-servable": {
+    "newlocalprotocol": {
+      "installDependencies": false,
+      "type": "newlocalprotocol",
+      "desiredWriteDestinationPathAbsolute": "/Users/anak/YourouNak/development/servable/core/generator/Reason",
+      "desiredWriteDestinationPath": "Reason",
+      "protocolId": "reasonable",
+      "completedProtocolId": "servable-reasonable",
+      "protocolDescription": "A servable protocol",
+      "metadata": {
+        "version": "0.1.0",
+        "updatedAt": "2023-10-20T14:21:19.053Z"
+      }
+    }
+  }
+}
