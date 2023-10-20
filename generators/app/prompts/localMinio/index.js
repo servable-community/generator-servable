@@ -67,7 +67,7 @@ export default async (props) => {
             type: 'number',
             name: 'appS3ApiPort',
             port: { value: 9000, },
-            validator: validateNumber,
+            validate: validateNumber,
         }
     })
 
@@ -77,7 +77,7 @@ export default async (props) => {
             type: 'number',
             name: 'appS3UIPort',
             port: { value: 9001, },
-            validator: validateNumber,
+            validate: validateNumber,
         }
     })
 

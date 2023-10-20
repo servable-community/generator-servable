@@ -48,7 +48,7 @@ export default async (props) => {
             name: 'appLiveQueryServerPort',
             message: 'Livequery cache port?',
             port: { value: 1392, },
-            validator: validateNumber,
+            validate: validateNumber,
         }
     })
 
@@ -59,7 +59,7 @@ export default async (props) => {
             name: 'appLiveQueryCachePort',
             message: 'Livequery cache port?',
             port: { value: 6380, },
-            validator: validateNumber,
+            validate: validateNumber,
         }
     })
 

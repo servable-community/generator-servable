@@ -58,7 +58,7 @@ export default async (props) => {
             type: 'number',
             name: 'appPort',
             port: { value: 1337 },
-            validator: validateNumber
+            validate: validateNumber
         }
     })
     await askForGeneric({

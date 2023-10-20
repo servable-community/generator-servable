@@ -5,7 +5,7 @@
  * */
 
 import buildCompleteProtocolID from "../../lib/buildCompleteProtocolID.js"
-import askForGeneric from "../utils/askForGeneric"
+import askForGeneric from "../utils/askForGeneric.js"
 
 
 export default async (props) => {

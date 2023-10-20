@@ -103,7 +103,6 @@ Options:
         --appS3UIPort               # S3 App UI port                                                 Default: 9001
   -g,   --gitInit                   # Initialize a git repository                                    Default: true
   -p,   --pkgManager                # Package manager ('npm', 'yarn' or 'pnpm')                      Default: yarn
-        --bootstrapClass            # Bootstrap class
         --license                   # License                                                        Default: standalone
         --target                    # Target
         --className                 # className

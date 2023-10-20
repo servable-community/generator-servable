@@ -12,7 +12,7 @@ import askForFolder from "../../../prompts/askForFolder/index.js"
 import askForPackageManager from "../../../prompts/packageManager/index.js"
 import askForGit from "../../../prompts/transverse/askForGit.js"
 import askForGithubRepository from "../../../prompts/transverse/askForGithubRepository.js"
-import askForLicense from "../../../prompts/transverse/askForLicense.js"
+import askForLicense from "../../../prompts/license/index.js"
 import askForProtocolId from "../../../prompts/transverse/askForProtocolId.js"
 import askForGeneric from "../../../prompts/utils/askForGeneric.js"
 

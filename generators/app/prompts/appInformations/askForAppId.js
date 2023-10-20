@@ -18,7 +18,7 @@ export default async (props) => {
             ...props.options,
             name: 'appId',
             defaultValue,
-            validator: validateAppId
+            validate: validateAppId
         }
     })
 }

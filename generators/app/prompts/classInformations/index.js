@@ -2,12 +2,15 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import askForClassName from "./askForClassName.js"
 import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
-import protocolClassesRaw from "./lib/protocolClassesRaw.js"
+import path from "path"
+import chalk from "chalk"
+import capitalizeFirstLetter from "../../lib/capitalizeFirstLetter.js"
+import askForGeneric from "../utils/askForGeneric.js"
+import protocolSchemaOwnClasses from "./lib/protocolSchemaOwnClasses.js"
 
 export default async (props) => {
-    const { generator, payload, options: { force = false } = {} } = props
+    const { generator, payload, options = {} } = props
 
     drawSectionHeader({
         generator,
@@ -15,15 +18,34 @@ export default async (props) => {
         subTitle: `Servable required class informations.`
     })
 
-    const classes = await protocolClassesRaw(payload.targetProtocolAbsolute)
-    await askForClassName({ ...props, classes })
+    const ownClasses = await protocolSchemaOwnClasses(payload.targetProtocolAbsolute)
 
-    // await askForGeneric({
-    //     ...props, options: {
-    //         ...props.options,
-    //         name: 'appJavascriptKey',
-    //         message: 'Javascript key?',
-    //         defaultValue: 'JAVASCRIPT_KEY_TO_CHANGE'
-    //     }
-    // })
+    const nameFromFolder = generator.options['destination'] ? path.basename(generator.destinationPath()) : ''
+
+    await askForGeneric({
+        ...props, options: {
+            ...options,
+            type: 'input',
+            name: 'className',
+            default: nameFromFolder,
+            validate: (name,) => {
+                const classNames = ownClasses.map(c => c.className.toLowerCase())
+                if (classNames.includes(name.toLowerCase())) {
+                    generator.log(chalk.red(chalk.italic(`\n${name} class is already present.`)))
+                    return false
+                }
+                return true
+            },
+            transformer: (name,) => {
+                if (!name) {
+                    return name
+                }
+
+                return capitalizeFirstLetter(name)
+            }
+        }
+    })
+
+    payload.className = capitalizeFirstLetter(payload.className)
+    payload.classDescription = ''
 }

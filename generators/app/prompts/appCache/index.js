@@ -46,7 +46,7 @@ export default async (props) => {
             name: 'appCachePort',
             message: 'App cache port?',
             port: { value: 6379, },
-            validator: validateNumber,
+            validate: validateNumber,
             // when: payload.useLiveQueryServer
         }
     })

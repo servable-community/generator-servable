@@ -22,7 +22,7 @@ export default [
         "author": {
             "name": "Servable Community",
             "email": "servableapp@gmail.com",
-            "url": "https://anak.io/doucoure"
+            "url": "https://servablecommunity.com/"
         },
         "keywords": [
             "node",
@@ -69,7 +69,7 @@ export default [
                         "name": "API Key",
                         "message": "API Key",
                         "default": "",
-                        "validator": {
+                        "validate": {
                             "type": "",
                             "params": {}
                         }
@@ -86,17 +86,17 @@ export default [
         "description": "Adds email capacity to a Servable app",
         "packages": [
             {
-                "id": "@servable-community/emailable",
+                "id": "@servable-community/servable-emailable",
                 "description": "",
                 "type": "main",
                 "components": ["server"],
-                "url": "https://github.com/servable-community/emailable-parse-server.git"
+                "url": "https://github.com/servable-community/servable-emailable.git"
             }
         ],
         "author": {
             "name": "Servable Community",
             "email": "servableapp@gmail.com",
-            "url": "https://anak.io/doucoure"
+            "url": "https://servablecommunity.com/"
         },
         "keywords": [
             "node",
@@ -145,7 +145,7 @@ export default [
                         "name": "API Key",
                         "message": "API Key",
                         "default": "",
-                        "validator": {
+                        "validate": {
                             "type": "",
                             "params": {}
                         }
@@ -157,7 +157,7 @@ export default [
                         "type": "input",
                         "message": "Front Web Url",
                         "default": "",
-                        "validator": {
+                        "validate": {
                             "type": "",
                             "params": {}
                         }
@@ -169,7 +169,7 @@ export default [
                         "type": "input",
                         "message": "Restrict send",
                         "default": "",
-                        "validator": {
+                        "validate": {
                             "type": "",
                             "params": {}
                         }
@@ -181,7 +181,7 @@ export default [
                         "type": "input",
                         "message": "Restrict to",
                         "default": "",
-                        "validator": {
+                        "validate": {
                             "type": "",
                             "params": {}
                         }
@@ -193,7 +193,7 @@ export default [
                         "type": "input",
                         "message": "Restrict to Regex",
                         "default": "",
-                        "validator": {
+                        "validate": {
                             "type": "",
                             "params": {}
                         }

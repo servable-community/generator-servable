@@ -16,9 +16,9 @@ export default async props => {
             // name,
             message,
             defaultValue,
-            validator } } = parameter
+            validate } } = parameter
 
-    if (validator) {
+    if (validate) {
 
     }
 

@@ -4,10 +4,10 @@
 
 import updateProtocolClasses from "../../../actions/updateProtocolClasses/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
-import addClassClass from "../../../prompts/bootstrapClass/index.js"
 import classInformations from "../../../prompts/classInformations/index.js"
 import protocolSchemaVersion from "../../../prompts/classInformations/lib/protocolSchemaVersion.js"
 import targetProtocol from "../../../prompts/targetProtocol/index.js"
+import askForGeneric from "../../../prompts/utils/askForGeneric.js"
 
 export default {
     id: 'class',
@@ -18,13 +18,20 @@ export default {
         const { generator, payload } = props
 
         await targetProtocol(props)
-        await addClassClass(props)
         await classInformations(props)
-        await updateProtocolClasses(props)
+        await askForGeneric({
+            ...props, options: {
+                ...props.options,
+                type: 'confirm',
+                name: 'classBootstrapFiles',
+
+            }
+        })
     },
     writing: async (props) => {
         const { generator, payload } = props
-        if (payload.addClassClass) {
+        await updateProtocolClasses(props)
+        if (payload.classBootstrapFiles) {
             const targetPath = `${payload.targetProtocolAbsolute}/classes/${payload.className.toLowerCase()}`
             generator.fs.copy(generator.templatePath('**/*'), generator.destinationPath(targetPath))
             generator.fs.copyTpl(generator.templatePath('class/index.js'), generator.destinationPath(`${targetPath}/class/index.js`), payload)
@@ -33,8 +40,8 @@ export default {
         }
 
         const version = await protocolSchemaVersion(payload.targetProtocolAbsolute)
-        const targetSchemaPath = `${payload.targetProtocolAbsolute}/schema/${version}/classes.json`
-        generator.fs.writeJSON(generator.destinationPath(targetSchemaPath), payload.classClasses)
+        const targetSchemaPath = `${payload.targetProtocolAbsolute}/schema/${version}/index.json`
+        generator.fs.writeJSON(generator.destinationPath(targetSchemaPath), payload.targetSchema)
     },
     end: async (props) => {
         const { generator, payload } = props

@@ -56,7 +56,7 @@ export default async (props) => {
             type: 'number',
             name: 'appDashboardPort',
             port: { value: 4040, },
-            validator: validateNumber,
+            validate: validateNumber,
         }
     })
 

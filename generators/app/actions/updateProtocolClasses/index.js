@@ -2,58 +2,20 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import protocolClassesRaw from "../../prompts/classInformations/lib/protocolClassesRaw.js"
+import ownClass from "../../lib/templates/schema/ownClass.js"
+import protocolSchemaOwnClasses from "../../prompts/classInformations/lib/protocolSchemaOwnClasses.js"
+import protocolSchemaRaw from "../../prompts/classInformations/lib/protocolSchemaRaw.js"
 
 export default async (props) => {
-    const { generator, payload, } = props
+    const { payload, } = props
 
-    const targetClass = {
-        className: payload.className,
-        fields: {
-        },
-        classLevelPermissions: {
-            find: {
-                requiresAuthentication: true
-            },
-            count: {
-                requiresAuthentication: true
-            },
-            get: {
-                requiresAuthentication: true
-            },
-            create: {
-                "*": true
-            },
-            update: {
-                requiresAuthentication: true
-            },
-            delete: {
-                requiresAuthentication: true
-            },
-            addField: {
-                "*": true
-            },
-            protectedFields: {
-                "*": []
-            }
-        },
-        indexes: {
-            _id_: {
-                _id: 1
-            }
-        }
-    }
+    const targetClass = ownClass({ className: payload.className })
 
-    let classes = await protocolClassesRaw(payload.targetProtocolAbsolute) || []
-    if (!classes || !classes.length) {
-        classes = []
-    }
+    const schema = await protocolSchemaRaw(payload.targetProtocolAbsolute)
+    const ownClasses = await protocolSchemaOwnClasses(payload.targetProtocolAbsolute) || []
+    const classesWithoutTargetClass = ownClasses.filter(a => a.className !== targetClass.className)
+    classesWithoutTargetClass.push(targetClass)
+    schema.own.classes = classesWithoutTargetClass
 
-    const classesWithoutTarget = classes.filter(a => a.className !== targetClass.className)
-    classesWithoutTarget.push(targetClass)
-    payload.classClasses = classesWithoutTarget
-}
-
-const w = async (props) => {
-
+    payload.targetSchema = schema
 }

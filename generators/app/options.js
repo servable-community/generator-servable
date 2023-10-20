@@ -164,10 +164,6 @@ export default {
         default: 'yarn',
         description: `Package manager ('npm', 'yarn' or 'pnpm')`
     },
-    'bootstrapClass': {
-        type: Boolean,
-        description: `Bootstrap class`
-    },
     'license': {
         type: String,
         default: 'standalone',
@@ -179,16 +175,29 @@ export default {
     },
     'className': {
         type: String,
-        description: `className`
+        description: 'Class name',
     },
-
+    'classDescription': {
+        type: String,
+        default: 'Class description',
+        description: 'Class description',
+    },
+    'classBootstrapFiles': {
+        type: String,
+        default: true,
+        description: 'Bootstrap class files',
+    },
     'useAppProtocol': {
         type: Boolean,
         description: `Add class to app protocol`
     },
+    'targetProtocolAbsolute': {
+        type: String,
+        description: `Absolute path to target protocol`
+    },
     'targetProtocol': {
         type: String,
-        description: `Target protocol`
+        description: `Name of the target protocol`
     },
     'githubUsername': {
         type: String,

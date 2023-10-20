@@ -13,7 +13,7 @@ export default async (props) => {
             name,
             message,
             type = 'input',
-            validator = validateNonEmpty,
+            validate = validateNonEmpty,
             defaultValue } } = props
 
     const options = (await import("../../options.js")).default
@@ -53,6 +53,8 @@ export default async (props) => {
         name,
         message: _message,
         default: value ? value : _defaultValue,
-        validate: validator
+        validate
     }))[name]
+
+    return payload[name]
 }

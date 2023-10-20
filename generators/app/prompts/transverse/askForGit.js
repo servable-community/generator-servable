@@ -1,6 +1,9 @@
 /*---------------------------------------------------------
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
+
+import askForGeneric from "../utils/askForGeneric.js"
+
 /**
  * */
 export default async (props) => {
@@ -9,21 +12,14 @@ export default async (props) => {
         return
     }
 
-    let gitInit = generator.options['gitInit']
-    if (typeof gitInit === 'boolean') {
-        payload.gitInit = Boolean(gitInit)
-        return
-    }
-    if (generator.options['quick']) {
-        payload.gitInit = true
-        return
-    }
-    payload.gitInit = (await generator.prompt({
-        type: 'confirm',
-        name: 'gitInit',
-        message: 'Initialize a git repository?',
-        default: true
-    })).gitInit
+    await askForGeneric({
+        ...props,
+        options: {
+            ...props.options,
+            type: "confirm",
+            name: "gitInit",
+        }
+    })
 
     payload.promptGroupsPassed.gitInit = true
 }

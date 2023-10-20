@@ -45,7 +45,7 @@ export default async (props) => {
             name: 'appDatabasePort',
             message: 'App database port?',
             port: { value: 27017, },
-            validator: validateNumber
+            validate: validateNumber
         }
     })
 

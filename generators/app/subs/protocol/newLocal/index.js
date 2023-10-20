@@ -8,9 +8,9 @@ import askForProtocolId from "../../../prompts/transverse/askForProtocolId.js"
 import askForGeneric from "../../../prompts/utils/askForGeneric.js"
 
 export default {
-    id: 'newprotocol',
+    id: 'newlocalprotocol',
     path: 'protocol/newLocal',
-    aliases: ['newprotocol'],
+    aliases: ['newlocalprotocol'],
     name: 'Protocol → Local → New ✨',
     version: '0.1.0',
     prompting: async (props) => {
