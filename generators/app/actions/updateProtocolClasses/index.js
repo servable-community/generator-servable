@@ -11,8 +11,8 @@ export default async (props) => {
 
     const targetClass = ownClass({ className: payload.className })
 
-    const schema = await protocolSchemaRaw(payload.targetProtocolAbsolute)
-    const ownClasses = await protocolSchemaOwnClasses(payload.targetProtocolAbsolute) || []
+    const schema = await protocolSchemaRaw(payload.targetProtocolPath)
+    const ownClasses = await protocolSchemaOwnClasses(payload.targetProtocolPath) || []
     const classesWithoutTargetClass = ownClasses.filter(a => a.className !== targetClass.className)
     classesWithoutTargetClass.push(targetClass)
     schema.own.classes = classesWithoutTargetClass

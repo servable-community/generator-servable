@@ -20,7 +20,7 @@ export default async (props) => {
     let value = generator.options['targetProtocol']
     if (value) {
         payload.targetProtocol = value
-        payload.targetProtocolAbsolute = null
+        payload.targetProtocolPath = null
         return
     }
 
@@ -31,8 +31,8 @@ export default async (props) => {
     const originalDestinationPath = generator.originalDestinationPath
 
     if (await isFolderProtocol(originalDestinationPath)) {
-        payload.targetProtocolAbsolute = originalDestinationPath
-        payload.targetProtocol = payload.targetProtocolAbsolute.split(path.sep).pop()
+        payload.targetProtocolPath = originalDestinationPath
+        payload.targetProtocol = payload.targetProtocolPath.split(path.sep).pop()
 
         // const config = await getServablePackage(originalDestinationPath)
         // payload.desiredWriteDestinationPath = ''
@@ -61,8 +61,8 @@ export default async (props) => {
         })
 
         if (payload.useAppProtocol) {
-            payload.targetProtocolAbsolute = `${payload.desiredWriteDestinationPathAbsolute}/lib/app`
-            payload.targetProtocol = payload.targetProtocolAbsolute.split(path.sep).pop()
+            payload.targetProtocolPath = `${payload.desiredWriteDestinationPathAbsolute}/lib/app`
+            payload.targetProtocol = payload.targetProtocolPath.split(path.sep).pop()
             return
         }
 
@@ -72,7 +72,7 @@ export default async (props) => {
         ...props, options: {
             ...props.options,
             type: "file-tree-selection",
-            name: "targetProtocolAbsolute",
+            name: "targetProtocolPath",
             // message: "Choose a local protocol",
             onlyShowDir: true,
             root: `${payload.desiredWriteDestinationPathAbsolute}/lib/protocols`,
@@ -88,6 +88,6 @@ export default async (props) => {
         }
     })
 
-    payload.targetProtocol = payload.targetProtocolAbsolute.split(path.sep).pop()
+    payload.targetProtocol = payload.targetProtocolPath.split(path.sep).pop()
     payload.protocolName = capitalizeFirstLetter(payload.targetProtocol)
 }

@@ -48,7 +48,7 @@ export default {
 
     writing: async (props) => {
         const { generator, payload, } = props
-        // const sourcePath = payload.targetProtocolAbsolute
+        // const sourcePath = payload.targetProtocolPath
         const targetPath = `${payload.targetFolder}/${payload.protocolId}`
         // const targetPathSrc = `${targetPath}/src`
 

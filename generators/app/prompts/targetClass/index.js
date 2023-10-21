@@ -54,7 +54,7 @@ export default async (props) => {
 
         if (payload.forProtocols) {
             payload.targetClassPath = `${payload.desiredWriteDestinationPathAbsolute}/lib/app`
-            payload.targetClass = payload.targetProtocolAbsolute.split(path.sep).pop()
+            payload.targetClass = payload.targetProtocolPath.split(path.sep).pop()
             return
         }
     }
@@ -73,7 +73,7 @@ export default async (props) => {
             name: "targetClassPath",
             message: "Choose the class to add a protocol to",
             onlyShowDir: true,
-            root: `${payload.targetProtocolAbsolute}/classes`,
+            root: `${payload.targetProtocolPath}/classes`,
             onlyShowValid: true,
             hideRoot: true,
             // validate: (name,) => {
@@ -89,5 +89,5 @@ export default async (props) => {
     // const folderPath = path.resolve(generator.destinationPath(), destination)
     // this.destinationRoot(folderPath)
 
-    payload.targetClass = payload.targetProtocolAbsolute.split(path.sep).pop()
+    payload.targetClass = payload.targetProtocolPath.split(path.sep).pop()
 }

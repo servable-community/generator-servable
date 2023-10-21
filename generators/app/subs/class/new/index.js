@@ -32,15 +32,15 @@ export default {
         const { generator, payload } = props
         await updateProtocolClasses(props)
         if (payload.classBootstrapFiles) {
-            const targetPath = `${payload.targetProtocolAbsolute}/classes/${payload.className.toLowerCase()}`
+            const targetPath = `${payload.targetProtocolPath}/classes/${payload.className.toLowerCase()}`
             generator.fs.copy(generator.templatePath('**/*'), generator.destinationPath(targetPath))
             generator.fs.copyTpl(generator.templatePath('class/index.js'), generator.destinationPath(`${targetPath}/class/index.js`), payload)
             generator.fs.copyTpl(generator.templatePath('manifest.json'), generator.destinationPath(`${targetPath}/manifest.json`), payload)
             generator.fs.copyTpl(generator.templatePath('README.md'), generator.destinationPath(`${targetPath}/README.md`), payload)
         }
 
-        const version = await protocolSchemaVersion(payload.targetProtocolAbsolute)
-        const targetSchemaPath = `${payload.targetProtocolAbsolute}/schema/${version}/index.json`
+        const version = await protocolSchemaVersion(payload.targetProtocolPath)
+        const targetSchemaPath = `${payload.targetProtocolPath}/schema/${version}/index.json`
         generator.fs.writeJSON(generator.destinationPath(targetSchemaPath), payload.targetSchema)
     },
     end: async (props) => {

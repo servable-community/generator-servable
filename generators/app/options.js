@@ -189,7 +189,7 @@ export default {
         type: Boolean,
         description: `Add class to app protocol`
     },
-    'targetProtocolAbsolute': {
+    'targetProtocolPath': {
         type: String,
         description: `Absolute path to target protocol`
     },

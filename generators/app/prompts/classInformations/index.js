@@ -18,7 +18,7 @@ export default async (props) => {
         subTitle: `Servable required class informations.`
     })
 
-    const ownClasses = await protocolSchemaOwnClasses(payload.targetProtocolAbsolute)
+    const ownClasses = await protocolSchemaOwnClasses(payload.targetProtocolPath)
 
     const nameFromFolder = generator.options['destination'] ? path.basename(generator.destinationPath()) : ''
 
