@@ -16,7 +16,9 @@ export default async (props) => {
         existingProtocols = []
     }
 
-    const { id, declaration, } = payload.existingProtocol
+    const { id, packages, } = payload.existingProtocol
+    const mainPackage = packages.filter(a => a.type === "main")[0]
+    const { usage } = mainPackage
 
     let protocol = {
         id,
@@ -26,8 +28,8 @@ export default async (props) => {
         }
     }
 
-    if (declaration && declaration.template && declaration.template.params) {
-        const { params, slug, name, id } = declaration.template
+    if (usage && usage.template && usage.template.params) {
+        const { params, slug, name, id } = usage.template
         protocol = {
             ...protocol,
             name,
@@ -38,9 +40,9 @@ export default async (props) => {
     }
 
     let isTemplate = false
-    if (declaration && declaration.parameters && declaration.parameters.length) {
+    if (usage && usage.parameters && usage.parameters.length) {
         await Bluebird.Promise.mapSeries(
-            declaration.parameters,
+            usage.parameters,
             async parameter => askForTemplateParameter({
                 ...props,
                 parameter,

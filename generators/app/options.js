@@ -221,4 +221,53 @@ export default {
         type: String,
         description: 'The path of the class to add a protocol to'
     },
+    'communityProtocolIdToImport': {
+        type: String,
+        description: 'Community protocol ID to import'
+    },
+    'protocolHowTo': {
+        type: String,
+        description: 'Protocol how to'
+    },
+    'protocolDefaultSlug': {
+        type: String,
+        description: 'Protocol default slug'
+    },
+    'protocolServableEngineVersion': {
+        type: String,
+        default: 'latest',
+        description: 'Protocol default servable engine'
+    },
+    'protocolIconUrl': {
+        type: String,
+        description: 'Protocol icon url'
+    },
+    'protocolHomepageUrl': {
+        type: String,
+        description: 'Protocol homepage url'
+    },
+    'protocolTemplateParameters': {
+        type: String,
+        description: 'Protocol template parameters'
+    },
+    'protocolTemplateParametersDefinition': {
+        type: String,
+        description: 'Protocol template parameters definition'
+    },
+    'authorName': {
+        type: String,
+        description: 'Author name'
+    },
+    'authorEmail': {
+        type: String,
+        description: 'Author email'
+    },
+    'authorUrl': {
+        type: String,
+        description: 'Author homepage url'
+    },
+    'authorGithubUrl': {
+        type: String,
+        description: 'Author github'
+    },
 }

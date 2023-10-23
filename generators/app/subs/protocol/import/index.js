@@ -5,7 +5,7 @@
 import updateClassForEjectedProtocol from "../../../actions/updateClassForEjectedProtocol/index.js"
 import updatePackageForAddedProtocol from "../../../actions/updatePackageForAddedProtocol/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
-import existingProtocol from "../../../prompts/existingProtocol/index.js"
+import getCommunityProtocol from "../../../prompts/getCommunityProtocol/index.js"
 import targetClass from "../../../prompts/targetClass/index.js"
 
 export default {
@@ -15,9 +15,8 @@ export default {
     name: 'Protocol → Community → Import ↓',
     version: '0.1.0',
     prompting: async (props) => {
-        const { generator, payload } = props
         await targetClass(props)
-        await existingProtocol(props)
+        await getCommunityProtocol(props)
     },
 
     writing: async (props) => {

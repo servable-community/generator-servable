@@ -16,16 +16,15 @@ export default async (props) => {
     const { generator, payload } = props
     // const u = process.env.PROTOCOL_API_URI
 
-    const existingProtocolId = await askForGeneric({
+    const communityProtocolIdToImport = await askForGeneric({
         ...props, options: {
             ...props.options,
             type: 'autocomplete',
-            name: 'existingProtocolId',
+            name: 'communityProtocolIdToImport',
             suggestOnly: false,
-            message: 'Existing protocol?',
+            message: 'Community protocol to import',
             searchText: 'Searching...',
             emptyText: 'Nothing found!',
-            // default: 'Banana',
             source: search,
             pageSize: 4,
             validate(val) {
@@ -38,10 +37,9 @@ export default async (props) => {
 
                 return name
             }
-
         }
     })
 
-    const item = await getById({ id: existingProtocolId })
+    const item = await getById({ id: communityProtocolIdToImport })
     payload.existingProtocol = item
 }

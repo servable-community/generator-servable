@@ -100,6 +100,35 @@
             "internalConsoleOptions": "neverOpen"
         },
         {
+            // make sure to have this generator npm-linked:
+            // $ git clone https://github.com/Anak/vscode-generator-code
+            // $ cd vscode-generator-code
+            // $ npm link
+            //
+            "type": "node",
+            "request": "launch",
+            "name": "Help",
+            "program": "${workspaceFolder}/node_modules/yeoman-environment/cli/index.js",
+            "args": [
+                "run",
+                "servable",
+                "--help"
+                // "/Users/anak/YourouNak/development/servable/_lab/lambda10",
+            ],
+            "runtimeArgs": [
+                "--require=dotenv/config",
+                "--nolazy",
+                "--expose-gc",
+                "--experimental-modules",
+                "--es-module-specifier-resolution=node",
+                "--experimental-specifier-resolution=node"
+                //"--unhandled-rejections=strict"
+            ],
+            "cwd": "${workspaceFolder}",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen"
+        },
+        {
             "type": "node",
             "request": "launch",
             "name": "Mocha Tests",

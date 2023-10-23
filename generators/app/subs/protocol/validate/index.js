@@ -3,7 +3,7 @@
  *--------------------------------------------------------*/
 
 import drawEnd from "../../../lib/draw/drawEnd.js"
-import existingProtocol from "../../../prompts/existingProtocol/index.js"
+import existingProtocol from "../../../prompts/getCommunityProtocol/index.js"
 import targetApp from "../../../prompts/targetApp/index.js"
 import validateConfig from "../../../actions/validateConfig/index.js"
 

@@ -5,7 +5,7 @@
 import updateClassForEjectedProtocol from "../../../actions/updateClassForEjectedProtocol/index.js"
 import updatePackageForAddedProtocol from "../../../actions/updatePackageForAddedProtocol/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
-import existingProtocol from "../../../prompts/existingProtocol/index.js"
+import existingProtocol from "../../../prompts/getCommunityProtocol/index.js"
 import targetClass from "../../../prompts/targetClass/index.js"
 
 export default {

@@ -69,10 +69,11 @@ export default [
                         "name": "API Key",
                         "message": "API Key",
                         "default": "",
-                        "validate": {
+                        "vacuity": "mandatory",
+                        "validators": [{
                             "type": "",
                             "params": {}
-                        }
+                        }]
                     }
                 },
             ]
@@ -145,11 +146,12 @@ export default [
                         "type": "input",
                         "name": "API Key",
                         "message": "API Key",
-                        "default": "",
-                        "validate": {
+                        "vacuity": "optional",
+                        "validators": [{
                             "type": "",
                             "params": {}
-                        }
+                        }],
+                        "transformer": a => a
                     }
                 },
                 {
@@ -157,47 +159,49 @@ export default [
                     "prompt": {
                         "type": "input",
                         "message": "Front Web Url",
-                        "default": "",
-                        "validate": {
+                        "default": "https://localhost:3000",
+                        "vacuity": "mandatory",
+                        "validators": [{
                             "type": "",
                             "params": {}
-                        }
+                        }]
                     }
                 },
                 {
                     "id": "restrictSend",
                     "prompt": {
                         "type": "input",
-                        "message": "Restrict send",
-                        "default": "",
-                        "validate": {
+                        "message": "Restrict sending emails",
+                        "default": false,
+                        "vacuity": "mandatory",
+                        "validators": [{
                             "type": "",
                             "params": {}
-                        }
+                        }]
                     }
                 },
                 {
                     "id": "restrictTo",
                     "prompt": {
                         "type": "input",
-                        "message": "Restrict to",
-                        "default": "",
-                        "validate": {
+                        "message": "Restrict sending emails to",
+                        "vacuity": "optional",
+                        "validators": [{
                             "type": "",
                             "params": {}
-                        }
+                        }]
                     }
                 },
                 {
                     "id": "restrictToRegex",
                     "prompt": {
                         "type": "input",
-                        "message": "Restrict to Regex",
-                        "default": "",
-                        "validate": {
+                        "message": "Restrict sending emails to regex",
+                        "vacuity": "optional",
+                        "validators": [{
                             "type": "",
                             "params": {}
-                        }
+                        }]
                     }
                 }
             ]

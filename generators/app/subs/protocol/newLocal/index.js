@@ -2,10 +2,12 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
+import protocolManifestAsk from "../../../fractions/protocol/manifest/ask/index.js"
+import protocolManifestWrite from "../../../fractions/protocol/manifest/write/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
+
+
 import targetApp from "../../../prompts/targetApp/index.js"
-import askForProtocolId from "../../../prompts/transverse/askForProtocolId.js"
-import askForGeneric from "../../../prompts/utils/askForGeneric.js"
 
 export default {
     id: 'newlocalprotocol',
@@ -14,28 +16,20 @@ export default {
     name: 'Protocol → Local → New ✨',
     version: '0.1.0',
     prompting: async (props) => {
-        const { generator, payload } = props
-
-        // await askForAppId(props)
         await targetApp(props)
-
-        await askForProtocolId(props)
-        await askForGeneric({
-            ...props, options: {
-                ...props.options,
-                name: 'protocolDescription',
-            }
-        })
+        await protocolManifestAsk(props)
     },
 
-    writing: (props) => {
+    writing: async (props) => {
         const { generator, payload } = props
         const targetPath = `${payload.desiredWriteDestinationPathAbsolute}/lib/protocols/${payload.protocolId}`
         generator.destinationRoot(targetPath)
 
         generator.fs.copy(generator.templatePath('**/*'), generator.destinationPath(''))
-        generator.fs.copyTpl(generator.templatePath('manifest.json'), generator.destinationPath(`manifest.json`), payload);
+        // generator.fs.copyTpl(generator.templatePath('manifest.json'), generator.destinationPath(`manifest.json`), payload);
         generator.fs.copyTpl(generator.templatePath('README.md'), generator.destinationPath(`README.md`), payload);
+        await protocolManifestWrite(props)
+
     },
     end: async (props) => {
         const { generator, payload } = props
