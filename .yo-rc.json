@@ -11,14 +11,14 @@
     "newprotocol": {
       "installDependencies": false,
       "type": "newprotocol",
-      "protocolName": "Passage",
-      "protocolId": "passage",
-      "completedProtocolId": "servable-passage",
-      "protocolDescription": "A servable app",
-      "targetFolder": "/Users/anak/YourouNak/development/servable/_lab",
+      "protocolName": "No name",
+      "protocolId": "no-name",
+      "completedProtocolId": "servable-no-name",
+      "protocolDescription": "A servable protocol",
+      "targetFolder": "/Users/anak/YourouNak/development/servable/core/generator",
       "githubUsername": "servable-community",
-      "repositoryUrl": "https://github.com/servable-community/servable-passage",
-      "license": "standalone",
+      "repositoryUrl": "https://github.com/servable-community/servable-no-name",
+      "license": "Apache 2.0",
       "pkgManager": "yarn",
       "gitInit": true,
       "author": "",
@@ -26,8 +26,17 @@
       "doubleDestination": "/Users/anak/YourouNak/development/servable/_lab/passage",
       "metadata": {
         "version": "0.1.0",
-        "updatedAt": "2023-10-19T16:03:16.398Z"
-      }
+        "updatedAt": "2023-10-23T15:31:48.825Z"
+      },
+      "protocolHomepageUrl": "",
+      "protocolHowTo": "",
+      "protocolDefaultSlug": "",
+      "protocolIconUrl": "",
+      "protocolServableEngineVersion": "latest",
+      "authorName": "",
+      "authorEmail": "",
+      "authorUrl": "",
+      "authorGithubUrl": ""
     }
   }
 }

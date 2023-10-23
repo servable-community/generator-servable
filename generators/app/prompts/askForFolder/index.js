@@ -8,10 +8,10 @@ export default async (props) => {
     const { generator, payload,
     } = props
 
-    if (generator._destinationRoot) {
-        payload.targetFolder = generator._destinationRoot
-        return
-    }
+    // if (generator._destinationRoot) {
+    //     payload.targetFolder = generator._destinationRoot
+    //     return
+    // }
 
     drawSectionHeader({
         generator,

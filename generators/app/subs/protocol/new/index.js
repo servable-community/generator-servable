@@ -4,7 +4,8 @@
 
 import bootGit from "../../../actions/bootGit/index.js"
 import bootPackageManager from "../../../actions/bootPackageManager/index.js"
-import copyProtocolShell from "../../../actions/copyProtocolShell/index.js"
+import askForProtocolShell from "../../../fractions/protocol/shell/ask/index.js"
+import writeProtocolShell from "../../../fractions/protocol/shell/ask/index.js"
 import openProject from "../../../actions/openProject/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
 
@@ -15,12 +16,14 @@ import askForGithubRepository from "../../../prompts/transverse/askForGithubRepo
 import askForLicense from "../../../prompts/license/index.js"
 import askForProtocolId from "../../../prompts/transverse/askForProtocolId.js"
 import askForGeneric from "../../../prompts/utils/askForGeneric.js"
+import askForProtocolManifest from "../../../fractions/protocol/manifest/ask/index.js"
+import writeProtocolManifest from "../../../fractions/protocol/manifest/write/index.js"
 
 export default {
     id: 'newprotocol',
     path: 'protocol/new',
     aliases: ['protocol'],
-    name: 'Protocol → New 🚀',
+    name: 'Protocol → New standalone project 🚀',
     version: '0.1.0',
     prompting: async (props) => {
         await askForGeneric({
@@ -38,7 +41,8 @@ export default {
                 name: 'protocolDescription',
             }
         })
-
+        await askForProtocolManifest(props)
+        await askForProtocolShell(props)
         await askForFolder(props)
         await askForGithubRepository(props)
         await askForLicense(props)
@@ -53,7 +57,8 @@ export default {
         // const targetPathSrc = `${targetPath}/src`
 
         generator.fs.copy(generator.templatePath('src/**/*'), `${targetPath}/src`)
-        await copyProtocolShell(props)
+        await writeProtocolShell(props)
+        await writeProtocolManifest({ ...props, targetRootPath: `${targetPath}/src` })
 
         // generator.fs.copy(sourcePath, targetPathSrc)
         generator.fs.copyTpl(generator.templatePath('src/manifest.json'), `${targetPath}/src/manifest.json`, payload);
