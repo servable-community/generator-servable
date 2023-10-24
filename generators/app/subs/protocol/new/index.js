@@ -5,7 +5,7 @@
 import bootGit from "../../../actions/bootGit/index.js"
 import bootPackageManager from "../../../actions/bootPackageManager/index.js"
 import askForProtocolShell from "../../../fractions/protocol/shell/ask/index.js"
-import writeProtocolShell from "../../../fractions/protocol/shell/ask/index.js"
+import writeProtocolShell from "../../../fractions/protocol/shell/write/index.js"
 import openProject from "../../../actions/openProject/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
 
@@ -14,8 +14,6 @@ import askForPackageManager from "../../../prompts/packageManager/index.js"
 import askForGit from "../../../prompts/transverse/askForGit.js"
 import askForGithubRepository from "../../../prompts/transverse/askForGithubRepository.js"
 import askForLicense from "../../../prompts/license/index.js"
-import askForProtocolId from "../../../prompts/transverse/askForProtocolId.js"
-import askForGeneric from "../../../prompts/utils/askForGeneric.js"
 import askForProtocolManifest from "../../../fractions/protocol/manifest/ask/index.js"
 import writeProtocolManifest from "../../../fractions/protocol/manifest/write/index.js"
 
@@ -26,21 +24,6 @@ export default {
     name: 'Protocol → New standalone project 🚀',
     version: '0.1.0',
     prompting: async (props) => {
-        await askForGeneric({
-            ...props, options: {
-                ...props.options,
-                name: 'protocolName',
-            }
-        })
-
-        await askForProtocolId(props)
-
-        await askForGeneric({
-            ...props, options: {
-                ...props.options,
-                name: 'protocolDescription',
-            }
-        })
         await askForProtocolManifest(props)
         await askForProtocolShell(props)
         await askForFolder(props)

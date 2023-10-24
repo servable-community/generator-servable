@@ -2,6 +2,7 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
+import capitalizeFirstLetter from "../../../../lib/capitalizeFirstLetter.js"
 import drawSectionHeader from "../../../../lib/draw/drawSectionHeader.js"
 import validateNonMandatory from "../../../../lib/validateNonMandatory.js"
 import license from "../../../../prompts/license/index.js"
@@ -21,12 +22,15 @@ export default async (props) => {
     })
 
     await askForProtocolId(props)
+    const name = capitalizeFirstLetter(payload.protocolId)
+    payload.protocolName = name
+
     await askForGenericBulk({
         ...props, items: [
-            {
-                name: 'protocolName',
-                validate: validateNonMandatory
-            },
+            // {
+            //     name: 'protocolName',
+            //     validate: validateNonMandatory
+            // },
             {
                 name: 'protocolDescription',
                 validate: validateNonMandatory

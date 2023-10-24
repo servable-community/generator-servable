@@ -204,12 +204,11 @@ export default {
     },
     'protocolName': {
         type: String,
-        default: 'No name',
         description: 'Protocol name'
     },
     'protocolId': {
         type: String,
-        default: 'no-name',
+        default: 'protocolable',
         description: 'Protocol ID'
     },
     'protocolDescription': {
