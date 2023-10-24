@@ -3,6 +3,7 @@
  *--------------------------------------------------------*/
 import { fileURLToPath } from "url"
 import { dirname } from "path"
+import writeReleaseType from "../../releaseType/write/index.js"
 
 export default async (props) => {
 
@@ -28,11 +29,12 @@ export default async (props) => {
     generator.fs.copy(localPath('prettierrc'), targetPather(`.prettierrc`,))
     // generator.fs.copy(localPath('yarnrc'), targetPather(`.yarnrc`,)
     generator.fs.copy(localPath('eslintignore'), targetPather(`.eslintignore`,))
-    generator.fs.copy(localPath('github/workflows/release.yml'), targetPather(`.github/workflows/release.yml`,))
     // generator.fs.copy(localPath('npmrc-pnpm'), targetPather(`.npmrc-pnpm`,)
     generator.fs.copy(localPath('releaserc'), targetPather(`.releaserc`,))
     generator.fs.copy(localPath('LICENSE'), targetPather(`LICENSE`,))
     generator.fs.copy(localPath('jest.config.json'), targetPather(`jest.config.json`,))
     generator.fs.copy(localPath('static/img/icon.png'), targetPather(`static/img/icon.png`,))
     generator.fs.copyTpl(localPath('README.md'), targetPather(`README.md`), payload)
+
+    await writeReleaseType(props)
 }

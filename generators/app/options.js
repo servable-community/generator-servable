@@ -269,4 +269,9 @@ export default {
         type: String,
         description: 'Author github'
     },
+    'releaseType': {
+        type: String,
+        default: 'none',
+        description: 'Continuous release type'
+    },
 }

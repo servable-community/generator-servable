@@ -13,11 +13,11 @@ import askForPackageManager from "../../../../prompts/packageManager/index.js"
 import bootPackageManager from "../../../../actions/bootPackageManager/index.js"
 import openProject from "../../../../actions/openProject/index.js"
 import askForGithubRepository from "../../../../prompts/transverse/askForGithubRepository.js"
-import checkFileExists from "../../../../lib/checkFileExists.js"
 import askForProtocolShell from "../../../../fractions/protocol/shell/ask/index.js"
 import writeProtocolShell from "../../../../fractions/protocol/shell/write/index.js"
 import askForProtocolManifest from "../../../../fractions/protocol/manifest/ask/index.js"
 import writeProtocolManifest from "../../../../fractions/protocol/manifest/write/index.js"
+// import checkFileExists from "../../../../lib/checkFileExists.js"
 
 export default {
     id: 'ejectprotocol',
@@ -47,11 +47,13 @@ export default {
 
         await writeProtocolShell(props)
         await writeProtocolManifest({ ...props, targetRootPath: `${targetPath}/src` })
-        if (await checkFileExists(`${sourcePath}/.yo-rc.json`)) {
-            generator.fs.copy(`${sourcePath}/.yo-rc.json`, `${targetPath} /.prettierrc`,)
-        }
+
 
         generator.fs.copy(sourcePath, targetPathSrc)
+
+        // if (await checkFileExists(`${sourcePath}/.yo-rc.json`)) {
+        //     generator.fs.copy(`${sourcePath}/.yo-rc.json`, `${targetPath} /.yo-rc.json`,)
+        // }
 
         await updatePackageForEjectedProtocol(props)
         await removeEjectedProtocol(props)
