@@ -8,7 +8,6 @@ import askForProtocolShell from "../../../fractions/protocol/shell/ask/index.js"
 import writeProtocolShell from "../../../fractions/protocol/shell/write/index.js"
 import openProject from "../../../actions/openProject/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
-
 import askForFolder from "../../../prompts/askForFolder/index.js"
 import askForPackageManager from "../../../prompts/packageManager/index.js"
 import askForGit from "../../../prompts/transverse/askForGit.js"
@@ -35,19 +34,14 @@ export default {
 
     writing: async (props) => {
         const { generator, payload, } = props
-        // const sourcePath = payload.targetProtocolPath
         const targetPath = `${payload.targetFolder}/${payload.protocolId}`
-        // const targetPathSrc = `${targetPath}/src`
+        generator.destinationRoot(targetPath)
 
-        generator.fs.copy(generator.templatePath('src/**/*'), `${targetPath}/src`)
         await writeProtocolShell(props)
+        generator.fs.copy(generator.templatePath('src/**/*'), `${targetPath}/src`)
         await writeProtocolManifest({ ...props, targetRootPath: `${targetPath}/src` })
 
-        // generator.fs.copy(sourcePath, targetPathSrc)
-        generator.fs.copyTpl(generator.templatePath('src/manifest.json'), `${targetPath}/src/manifest.json`, payload);
-        generator.fs.copyTpl(generator.templatePath('src/README.md'), `${targetPath}/src/README.md`, payload);
-
-        // await bootGit(props)
+        generator.fs.copyTpl(generator.templatePath('src/README.md'), `${targetPath}/src/README.md`, payload)
 
         await bootPackageManager({
             ...props,

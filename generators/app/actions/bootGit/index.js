@@ -12,6 +12,8 @@ export default async (props) => {
         cwd: location
     } : {}
 
-    generator.fs.copy(generator.templatePath('gitignore'), generator.destinationPath('.gitignore'));
+    const targetPather = location ? v => `${location}/${v}` : generator.destinationPath.bind(generator)
+
+    generator.fs.copy(generator.templatePath('gitignore'), targetPather('.gitignore'))
     generator.spawnCommand('git', ['init', '--quiet', '--initial-branch=main'], options)
 }

@@ -27,6 +27,7 @@ export default {
         const { existingProtocol } = payload
         const targetPath = `${payload.desiredWriteDestinationPathAbsolute}/lib/protocols/${existingProtocol.id}`
         generator.destinationRoot(targetPath)
+
         const location = targetPath
         const _package = existingProtocol.packages.filter(a => a.type === 'main')[0]
         const { url } = _package
