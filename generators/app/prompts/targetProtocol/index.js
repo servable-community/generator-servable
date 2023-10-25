@@ -10,6 +10,9 @@ import path from "path"
 import isFolderProtocolSync from "./lib/isFolderProtocolSync.js"
 import askForGeneric from "../utils/askForGeneric.js"
 import capitalizeFirstLetter from "../../lib/capitalizeFirstLetter.js"
+import protocolsInFolder from "./lib/protocolsInFolder.js"
+
+
 
 export default async (props) => {
     const { generator, payload,
@@ -21,14 +24,15 @@ export default async (props) => {
     if (value) {
         payload.targetProtocol = value
         payload.targetProtocolPath = null
-        return
+        return true
     }
 
     if (generator.options['quick']) {
-        return
+        return true
     }
 
     const originalDestinationPath = generator.originalDestinationPath
+
 
     if (await isFolderProtocol(originalDestinationPath)) {
         payload.targetProtocolPath = originalDestinationPath
@@ -37,7 +41,7 @@ export default async (props) => {
         // const config = await getServablePackage(originalDestinationPath)
         // payload.desiredWriteDestinationPath = ''
         generator.log(chalk.italic(`→ The class will be added to the protocol in the current folder.\n`))
-        return
+        return true
     }
 
     await targetApp(props)
@@ -51,7 +55,7 @@ export default async (props) => {
     if (includeAppProtocol) {
         await askForGeneric({
             ...props, options: {
-                ...props.options,
+                ...(props.options ? props.options : {}),
                 type: 'confirm',
                 name: 'useAppProtocol',
                 message: appProtocolMessage,
@@ -63,9 +67,16 @@ export default async (props) => {
         if (payload.useAppProtocol) {
             payload.targetProtocolPath = `${payload.desiredWriteDestinationPathAbsolute}/lib/app`
             payload.targetProtocol = payload.targetProtocolPath.split(path.sep).pop()
-            return
+            return true
         }
 
+    }
+
+    const root = `${payload.desiredWriteDestinationPathAbsolute}/lib/protocols`
+    const items = await protocolsInFolder(root)
+    if (!items || !items.length) {
+        generator.log('No protocols found in this app')
+        return false
     }
 
     await askForGeneric({
@@ -75,7 +86,7 @@ export default async (props) => {
             name: "targetProtocolPath",
             // message: "Choose a local protocol",
             onlyShowDir: true,
-            root: `${payload.desiredWriteDestinationPathAbsolute}/lib/protocols`,
+            root,
             onlyShowValid: true,
             hideRoot: true,
             validate: (name,) => {
@@ -90,4 +101,5 @@ export default async (props) => {
 
     payload.targetProtocol = payload.targetProtocolPath.split(path.sep).pop()
     payload.protocolName = capitalizeFirstLetter(payload.targetProtocol)
+    return true
 }

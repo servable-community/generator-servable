@@ -28,7 +28,11 @@ export default {
     prompting: async (props) => {
         const { generator, payload } = props
 
-        await targetProtocol({ ...props, includeAppProtocol: false })
+        const hasProtocol = await targetProtocol({ ...props, includeAppProtocol: false })
+        if (!hasProtocol) {
+            generator.abort = true
+            return
+        }
         payload.protocolId = payload.targetProtocol
 
         await askForProtocolManifest(props)

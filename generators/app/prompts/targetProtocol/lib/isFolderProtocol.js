@@ -1,10 +1,11 @@
 import checkFileExists from '../../../lib/checkFileExists.js'
 import fs from 'fs'
-// import existsAsync from './existsAsync.js'
+import existsAsync from './existsAsync.js'
 
 export default async (folder) => {
     try {
-        if (!(fs.exists(folder))) {
+        // if (!(fs.exists(folder))) {
+        if (!(await existsAsync(folder))) {
             return false
         }
 
