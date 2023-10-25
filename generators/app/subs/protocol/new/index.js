@@ -58,7 +58,7 @@ export default {
         drawEnd({
             generator,
             title: "Protocol created successfully",
-            subTitle: `For more information, also visit https://servablecommunity.com and follow us @servable.`
+            subTitle: `For more information, also visit https://servablecommunity.com and follow us @servablecom.`
         })
         await openProject(props)
     }
