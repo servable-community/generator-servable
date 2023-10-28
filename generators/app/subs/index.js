@@ -8,7 +8,7 @@ import generateClass from "./class/new/index.js"
 import generateProtocolLocal from "./protocol/local/new/index.js"
 import generateProtocol from "./protocol/new/index.js"
 import ejectProtocol from "./protocol/local/eject/index.js"
-import addProtocol from "./protocol/community/import/index.js"
+import useCommunityProtocol from "./protocol/community/use/index.js"
 // import forkProtocol from "./protocol/community/fork/index.js"
 // import overrideProtocol from "./protocol/override/index.js"
 // import validateProtocol from "./protocol/validate/index.js"
@@ -26,7 +26,7 @@ export default [
     ejectProtocol,
     // injectProtocol,
     // validateProtocol,
-    addProtocol,
+    useCommunityProtocol,
     // forkProtocol,
 
     // overrideProtocol,

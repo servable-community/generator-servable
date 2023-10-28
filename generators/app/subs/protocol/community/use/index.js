@@ -9,10 +9,10 @@ import getCommunityProtocol from "../../../../prompts/getCommunityProtocol/index
 import targetClass from "../../../../prompts/targetClass/index.js"
 
 export default {
-    id: 'addprotocol',
-    path: 'protocol/community/add',
-    aliases: ['communityprotocol'],
-    name: 'Protocol → Community → Import ↓',
+    id: 'useCommunityProtocol',
+    path: 'protocol/community/use',
+    aliases: ['usecommunityprotocol'],
+    name: 'Protocol → Community → Use ↓',
     version: '0.1.0',
     prompting: async (props) => {
         await targetClass(props)
