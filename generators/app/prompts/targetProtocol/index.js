@@ -12,8 +12,6 @@ import askForGeneric from "../utils/askForGeneric.js"
 import capitalizeFirstLetter from "../../lib/capitalizeFirstLetter.js"
 import protocolsInFolder from "./lib/protocolsInFolder.js"
 
-
-
 export default async (props) => {
     const { generator, payload,
         includeAppProtocol = true,
@@ -32,7 +30,6 @@ export default async (props) => {
     }
 
     const originalDestinationPath = generator.originalDestinationPath
-
 
     if (await isFolderProtocol(originalDestinationPath)) {
         payload.targetProtocolPath = originalDestinationPath

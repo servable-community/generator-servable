@@ -12,7 +12,6 @@ export default async (props) => askForGeneric({
         ...props.options,
         type: 'list',
         name: 'pkgManager',
-        message: 'Which package manager to use?',
         choices: [{
             name: 'yarn',
             value: 'yarn'

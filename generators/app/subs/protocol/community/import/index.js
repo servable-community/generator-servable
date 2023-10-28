@@ -11,7 +11,7 @@ import targetClass from "../../../../prompts/targetClass/index.js"
 export default {
     id: 'addprotocol',
     path: 'protocol/community/add',
-    aliases: ['protocol'],
+    aliases: ['communityprotocol'],
     name: 'Protocol → Community → Import ↓',
     version: '0.1.0',
     prompting: async (props) => {

@@ -12,7 +12,7 @@ import targetApp from "../../../../prompts/targetApp/index.js"
 export default {
     id: 'newlocalprotocol',
     path: 'protocol/local/new',
-    aliases: ['newlocalprotocol'],
+    aliases: ['protocol'],
     name: 'Protocol → Local → New ✨',
     version: '0.1.0',
     prompting: async (props) => {

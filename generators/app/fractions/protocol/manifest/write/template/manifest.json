@@ -1,5 +1,6 @@
 {
     "type": "protocol",
+    "mode": "original",
     "version": "1.0.0",
     "id": "<%= protocolId %>",
     "name": "<%= protocolName %>",
