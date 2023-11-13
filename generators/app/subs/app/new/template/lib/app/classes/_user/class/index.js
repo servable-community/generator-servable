@@ -1,2 +1,2 @@
-export default class _User extends Parse.Object {
+export default class _User extends Servable.App.Object {
 }

@@ -6,26 +6,38 @@
 * @param {Object} payload
 */
 
-import fuzzy from 'fuzzy';
-import * as dotenv from 'dotenv';
+import * as dotenv from 'dotenv'
+import axios from "axios"
 dotenv.config()
 
-import data from './data.js';
 
 export default async (answers, input = '') => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            const options = {
-                pre: '<'
-                , post: '>'
-                , extract: (el) => {
-                    return el.id
-                }
-            };
-            const i = fuzzy.filter(input, data, options).map((el) => {
-                return el.original
-            })
-            resolve(i)
-        }, Math.random() * 470 + 30);
-    });
+    const searchTerm = input
+    const page = 0
+
+    // const baseUrl = 'http://localhost:1387'
+    const baseUrl = 'https://api.registry.servablecommunity.com'
+    // const url = `${baseUrl}/searchProtocol?searchTerm=${searchTerm}&page=${page}`
+    const url = `${baseUrl}/searchProtocol`
+
+    try {
+        const result = await axios({
+            method: "GET",
+            url,
+            headers: {
+                "content-type": "application/json"
+            },
+            params: {
+                searchTerm,
+                page
+                // Where: JSON.stringify({ "post": { "$inQuery": { "where": { "image": { "$exists": true } }, "className": "Post" } } })
+            }
+        })
+
+        return result.data
+    } catch (e) {
+        console.error(e)
+    }
+
+    return null
 }

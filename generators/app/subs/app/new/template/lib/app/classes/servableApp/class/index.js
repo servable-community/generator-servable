@@ -1,4 +1,4 @@
 
-export default class ServableApp extends Parse.Object {
+export default class ServableApp extends Servable.App.Object {
 
 }
