@@ -15480,10 +15480,10 @@ serialize-javascript@^4.0.0:
   dependencies:
     randombytes "^2.1.0"
 
-servable-engine@^1.2.12:
-  version "1.2.12"
-  resolved "https://registry.yarnpkg.com/servable-engine/-/servable-engine-1.2.12.tgz#dc8c44fd9cce366bacefd3ffe22f18d46a1fcb3b"
-  integrity sha512-JvT4mXsJ9ZPD8x4ny2G5UWXVidvZsHFM+jbzC6BbFZJ1KceRDcqHmoYIb7qq+zYIStBozsvzIt6kA5HHaIM/tA==
+servable-engine@^1.4.2:
+  version "1.4.2"
+  resolved "https://registry.yarnpkg.com/servable-engine/-/servable-engine-1.4.2.tgz#09267d542259c231615c18b3f111ff66e83d7751"
+  integrity sha512-ugH6n+G0AbV9SyTXMTpPtUzIZqyYVk7G36+1iCgkiVSQA2Pk1TVUQTj9AP4q6ksmpQrqM5/XJQEji7E67CXLxg==
   dependencies:
     agenda "*"
     axios "^0.27.2"

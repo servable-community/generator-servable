@@ -3,7 +3,8 @@
  *--------------------------------------------------------*/
 import { fileURLToPath } from "url"
 import { dirname } from "path"
-import writeReleaseType from "../../releaseType/write/index.js"
+
+import writeProtocolManifest from "../../manifest/write/index.js"
 
 export default async (props) => {
 
@@ -14,27 +15,9 @@ export default async (props) => {
     payload.protocolDescription = payload.protocolDescription ? payload.protocolDescription : ''
     payload.author = payload.author ? payload.author : ''
 
-    const defaultTargetPath = `${payload.targetFolder}/${payload.protocolId}`
-    const targetPather = targetRootPath ? v => `${targetRootPath}/${v}` : v => `${defaultTargetPath}/${v}`
+    const targetPather = v => `${targetRootPath}/${v}`
 
-    payload.protocolTargetFolder = targetRootPath
-    payload.doubleDestination = targetRootPath
-    // updateDestination(targetPath)
-    const localPath = v => `${__dirname}/template/${v}`
-    generator.fs.copyTpl(localPath('package.json'), targetPather(`package.json`), payload)
-    generator.fs.copy(localPath('gitignore'), targetPather(`.gitignore`))
-    generator.fs.copy(localPath('npmignore'), targetPather(`.npmignore`))
-    generator.fs.copy(localPath('editorconfig'), targetPather(`.editorconfig`,))
-    generator.fs.copy(localPath('eslintrc'), targetPather(`.eslintrc`,))
-    generator.fs.copy(localPath('prettierrc'), targetPather(`.prettierrc`,))
-    // generator.fs.copy(localPath('yarnrc'), targetPather(`.yarnrc`,)
-    generator.fs.copy(localPath('eslintignore'), targetPather(`.eslintignore`,))
-    // generator.fs.copy(localPath('npmrc-pnpm'), targetPather(`.npmrc-pnpm`,)
-    generator.fs.copy(localPath('releaserc'), targetPather(`.releaserc`,))
-    generator.fs.copy(localPath('LICENSE'), targetPather(`LICENSE`,))
-    generator.fs.copy(localPath('jest.config.json'), targetPather(`jest.config.json`,))
-    generator.fs.copy(localPath('static/img/icon.png'), targetPather(`static/img/icon.png`,))
-    generator.fs.copyTpl(localPath('README.md'), targetPather(`README.md`), payload)
-
-    await writeReleaseType(props)
+    generator.fs.copy(`${__dirname}/template/**/*`, generator.destinationPath(''))
+    generator.fs.copyTpl(`${__dirname}/template/README.md`, targetPather(`README.md`), payload)
+    await writeProtocolManifest({ ...props, targetPather })
 }

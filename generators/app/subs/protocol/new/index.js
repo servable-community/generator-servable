@@ -31,7 +31,6 @@ export default {
         await askForPackageManager(props)
         await askForGit(props)
     },
-
     writing: async (props) => {
         const { generator, payload, } = props
         const targetPath = `${payload.targetFolder}/${payload.protocolId}`

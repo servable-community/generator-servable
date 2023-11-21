@@ -10,7 +10,7 @@ export default async (props) => {
 
     drawTitle({
         generator,
-        title: `WELCOME TO THE SERVABLE GENERATOR 🚀 🐻`,
+        title: `WELCOME TO THE SERVABLE GENERATOR 🚀 🐻🚀 🐻🚀 🐻🚀 🐻🚀 🐻`,
         // subTitle: `Il n'y a pas de hasard. Il n'y a que des rendez-vous. Paul Éluard`
         // subTitle: quote()
     })

@@ -1,13 +1,9 @@
-/*---------------------------------------------------------
- * Copyright (C) Servable Community. All rights reserved.
- *--------------------------------------------------------*/
-
-import protocolManifestAsk from "../../../../fractions/protocol/manifest/ask/index.js"
-import protocolManifestWrite from "../../../../fractions/protocol/manifest/write/index.js"
-import drawEnd from "../../../../lib/draw/drawEnd.js"
+import drawEnd from "../../../../lib/draw/drawEnd.js";
 
 
-import targetApp from "../../../../prompts/targetApp/index.js"
+import targetApp from "../../../../prompts/targetApp/index.js";
+import askProtocolContent from '../../../../fractions/protocol/content/ask/index.js';
+import writeProtocolContent from '../../../../fractions/protocol/content/write/index.js';
 
 export default {
     id: 'newlocalprotocol',
@@ -16,8 +12,9 @@ export default {
     name: 'Protocol → Local → New ✨',
     version: '0.1.0',
     prompting: async (props) => {
+        console.log(0 / 1)
         await targetApp(props)
-        await protocolManifestAsk(props)
+        await askProtocolContent(props)
     },
 
     writing: async (props) => {
@@ -25,10 +22,10 @@ export default {
         const targetPath = `${payload.desiredWriteDestinationPathAbsolute}/lib/protocols/${payload.protocolId}`
         generator.destinationRoot(targetPath)
 
-        generator.fs.copy(generator.templatePath('**/*'), generator.destinationPath(''))
+        // generator.fs.copy(generator.templatePath('**/*'), generator.destinationPath(''))
         // generator.fs.copyTpl(generator.templatePath('manifest.json'), generator.destinationPath(`manifest.json`), payload);
-        generator.fs.copyTpl(generator.templatePath('README.md'), generator.destinationPath(`README.md`), payload);
-        await protocolManifestWrite(props)
+        // generator.fs.copyTpl(generator.templatePath('README.md'), generator.destinationPath(`README.md`), payload);
+        await writeProtocolContent({ ...props, targetPath, targetRootPath: targetPath })
 
     },
     end: async (props) => {
