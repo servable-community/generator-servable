@@ -2,8 +2,8 @@ import drawEnd from "../../../../lib/draw/drawEnd.js";
 
 
 import targetApp from "../../../../prompts/targetApp/index.js";
-import askProtocolContent from '../../../../fractions/protocol/content/ask/index.js';
-import writeProtocolContent from '../../../../fractions/protocol/content/write/index.js';
+import askProtocolContent from '../../../../fractions/protocol/content/generic/ask/index.js';
+import writeProtocolContent from '../../../../fractions/protocol/content/generic/write/index.js';
 
 export default {
     id: 'newlocalprotocol',

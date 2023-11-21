@@ -15,5 +15,6 @@ export default async (props) => {
         targetPather = targetRootPath ? v => `${targetRootPath}/${v}` : generator.destinationPath.bind(generator)
     }
 
+    payload.protocolCategories = payload.protocolCategories ? payload.protocolCategories : ''
     generator.fs.copyTpl(`${__dirname}/template/manifest.json`, targetPather(`manifest.json`), payload)
 }

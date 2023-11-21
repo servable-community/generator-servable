@@ -2,12 +2,12 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import capitalizeFirstLetter from "../../../../lib/capitalizeFirstLetter.js"
-import drawSectionHeader from "../../../../lib/draw/drawSectionHeader.js"
-import validateNonMandatory from "../../../../lib/validateNonMandatory.js"
-import license from "../../../../prompts/license/index.js"
-import askForProtocolId from "../../../../prompts/transverse/askForProtocolId.js"
-import askForGenericBulk from "../../../../prompts/utils/askForGenericBulk.js"
+import capitalizeFirstLetter from "../../../../../lib/capitalizeFirstLetter.js"
+import drawSectionHeader from "../../../../../lib/draw/drawSectionHeader.js"
+import validateNonMandatory from "../../../../../lib/validateNonMandatory.js"
+import license from "../../../../../prompts/license/index.js"
+import askForProtocolId from "../../../../../prompts/transverse/askForProtocolId.js"
+import askForGenericBulk from "../../../../../prompts/utils/askForGenericBulk.js"
 
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props

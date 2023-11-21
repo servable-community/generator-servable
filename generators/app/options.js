@@ -216,6 +216,11 @@ export default {
         default: 'A servable protocol',
         description: 'Protocol description'
     },
+    'protocolCategories': {
+        type: String,
+        default: '',
+        description: 'Protocol categories'
+    },
     'targetClassPath': {
         type: String,
         description: 'The path of the class to add a protocol to'

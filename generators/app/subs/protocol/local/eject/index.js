@@ -15,8 +15,8 @@ import openProject from "../../../../actions/openProject/index.js"
 import askForGithubRepository from "../../../../prompts/transverse/askForGithubRepository.js"
 import askForProtocolShell from "../../../../fractions/protocol/shell/ask/index.js"
 import writeProtocolShell from "../../../../fractions/protocol/shell/write/index.js"
-import askForProtocolManifest from "../../../../fractions/protocol/manifest/ask/index.js"
-import writeProtocolManifest from "../../../../fractions/protocol/manifest/write/index.js"
+import askForProtocolManifest from "../../../../fractions/protocol/content/manifest/ask/index.js"
+import writeProtocolManifest from "../../../../fractions/protocol/content/manifest/write/index.js"
 // import checkFileExists from "../../../../lib/checkFileExists.js"
 
 export default {

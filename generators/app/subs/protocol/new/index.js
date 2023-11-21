@@ -13,8 +13,8 @@ import askForPackageManager from "../../../prompts/packageManager/index.js"
 import askForGit from "../../../prompts/transverse/askForGit.js"
 import askForGithubRepository from "../../../prompts/transverse/askForGithubRepository.js"
 import askForLicense from "../../../prompts/license/index.js"
-import askForProtocolManifest from "../../../fractions/protocol/manifest/ask/index.js"
-import writeProtocolManifest from "../../../fractions/protocol/manifest/write/index.js"
+import askForProtocolManifest from "../../../fractions/protocol/content/manifest/ask/index.js"
+import writeProtocolManifest from "../../../fractions/protocol/content/manifest/write/index.js"
 
 export default {
     id: 'newprotocol',

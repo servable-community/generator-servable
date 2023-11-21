@@ -5,7 +5,7 @@ import { fileURLToPath } from "url"
 import { dirname } from "path"
 
 import writeProtocolManifest from "../../manifest/write/index.js"
-import writeForTriggers from "../../../shared/triggers/write/index.js"
+import writeForTriggers from "../../../../shared/triggers/write/index.js"
 
 export default async (props) => {
 
