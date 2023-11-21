@@ -10,11 +10,11 @@ export default async (props) => {
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)
 
-    let targetPather = props.targetPather
-    if (!targetPather) {
-        targetPather = targetRootPath ? v => `${targetRootPath}/${v}` : generator.destinationPath.bind(generator)
+    let destinator = props.destinator
+    if (!destinator) {
+        destinator = targetRootPath ? v => `${targetRootPath}/${v}` : generator.destinationPath.bind(generator)
     }
 
     payload.protocolCategories = payload.protocolCategories ? payload.protocolCategories : ''
-    generator.fs.copyTpl(`${__dirname}/template/manifest.json`, targetPather(`manifest.json`), payload)
+    generator.fs.copyTpl(`${__dirname}/template/manifest.json`, destinator(`manifest.json`), payload)
 }

@@ -11,15 +11,15 @@ export default async (props) => {
     const __dirname = dirname(__filename)
 
     const defaultTargetPath = `${payload.targetFolder}/${payload.protocolId}`
-    const targetPather = targetRootPath ? v => `${targetRootPath}/${v}` : v => `${defaultTargetPath}/${v}`
+    const destinator = targetRootPath ? v => `${targetRootPath}/${v}` : v => `${defaultTargetPath}/${v}`
 
     const localPath = v => `${__dirname}/template/${v}`
     switch (payload.releaseType) {
         case 'github': {
-            generator.fs.copy(localPath('github/workflows/release.yml'), targetPather(`.github/workflows/release.yml`,), payload)
+            generator.fs.copy(localPath('github/workflows/release.yml'), destinator(`.github/workflows/release.yml`,), payload)
         } break
         case 'gitlab': {
-            generator.fs.copy(localPath('gitlab-ci.yml'), targetPather(`.gitlab-ci.yml`,), payload)
+            generator.fs.copy(localPath('gitlab-ci.yml'), destinator(`.gitlab-ci.yml`,), payload)
         } break
         default: {
 

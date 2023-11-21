@@ -4,7 +4,6 @@
 import { fileURLToPath } from "url"
 import { dirname } from "path"
 
-import writeProtocolManifest from "../../manifest/write/index.js"
 import writeForTriggers from "../../../../shared/triggers/write/index.js"
 
 export default async (props) => {
@@ -13,13 +12,15 @@ export default async (props) => {
     const __filename = fileURLToPath(import.meta.url)
     const __dirname = dirname(__filename)
 
-    payload.protocolDescription = payload.protocolDescription ? payload.protocolDescription : ''
-    payload.author = payload.author ? payload.author : ''
-
     const destinator = v => `${targetRootPath}/${v}`
+    const originator = v => `${__dirname}/template/${v}`
 
-    generator.fs.copy(`${__dirname}/template/**/*`, destinator(''))
-    generator.fs.copyTpl(`${__dirname}/template/README.md`, destinator(`README.md`), payload)
-    await writeProtocolManifest({ ...props, destinator })
+    if (payload.classBootstrapFiles) {
+        generator.fs.copy(originator('**/*'), destinator(''))
+        generator.fs.copyTpl(originator('class/index.js'), destinator(`class/index.js`), payload)
+        generator.fs.copyTpl(originator('manifest.json'), destinator(`manifest.json`), payload)
+        generator.fs.copyTpl(originator('README.md'), destinator(`README.md`), payload)
+    }
+
     await writeForTriggers({ ...props })
 }

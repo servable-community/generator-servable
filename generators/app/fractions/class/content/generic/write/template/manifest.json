@@ -1,0 +1,5 @@
+{
+    "type": "class",
+    "id": "<%= className %>",
+    "description": "<%= classDescription %>"
+}

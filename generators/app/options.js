@@ -221,6 +221,16 @@ export default {
         default: '',
         description: 'Protocol categories'
     },
+    'protocolSampleClassShouldAdd': {
+        type: Boolean,
+        default: true,
+        description: 'Add a sample class'
+    },
+    'protocolSampleClassName': {
+        type: String,
+        default: 'ClassA',
+        description: 'Sample class name to add'
+    },
     'targetClassPath': {
         type: String,
         description: 'The path of the class to add a protocol to'
