@@ -5,6 +5,7 @@ import { fileURLToPath } from "url"
 import { dirname } from "path"
 
 import writeProtocolManifest from "../../manifest/write/index.js"
+import writeForTriggers from "../../../shared/triggers/write/index.js"
 
 export default async (props) => {
 
@@ -17,7 +18,8 @@ export default async (props) => {
 
     const targetPather = v => `${targetRootPath}/${v}`
 
-    generator.fs.copy(`${__dirname}/template/**/*`, generator.destinationPath(''))
+    generator.fs.copy(`${__dirname}/template/**/*`, targetPather(''))
     generator.fs.copyTpl(`${__dirname}/template/README.md`, targetPather(`README.md`), payload)
     await writeProtocolManifest({ ...props, targetPather })
+    await writeForTriggers({ ...props })
 }
