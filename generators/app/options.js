@@ -228,7 +228,7 @@ export default {
     },
     'protocolSampleClassName': {
         type: String,
-        default: 'ClassA',
+        default: 'SampleClass',
         description: 'Sample class name to add'
     },
     'targetClassPath': {

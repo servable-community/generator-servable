@@ -21,12 +21,7 @@ export default {
         const { generator, payload } = props
         const targetPath = `${payload.desiredWriteDestinationPathAbsolute}/lib/protocols/${payload.protocolId}`
         generator.destinationRoot(targetPath)
-
-        // generator.fs.copy(generator.templatePath('**/*'), generator.destinationPath(''))
-        // generator.fs.copyTpl(generator.templatePath('manifest.json'), generator.destinationPath(`manifest.json`), payload);
-        // generator.fs.copyTpl(generator.templatePath('README.md'), generator.destinationPath(`README.md`), payload);
         await writeProtocolContent({ ...props, targetPath, targetRootPath: targetPath })
-
     },
     end: async (props) => {
         const { generator, payload } = props

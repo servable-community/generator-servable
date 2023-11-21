@@ -14,6 +14,7 @@ export default async (props) => {
 
     const destinator = v => `${targetRootPath}/${v}`
     const originator = v => `${__dirname}/template/${v}`
+    generator.log('oureClass', targetRootPath, __dirname)
 
     if (payload.classBootstrapFiles) {
         generator.fs.copy(originator('**/*'), destinator(''))

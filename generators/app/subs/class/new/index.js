@@ -14,13 +14,17 @@ export default {
     name: 'Class → Local → New ✨',
     prompting: async (props) => {
         const { generator, payload } = props
-
         await targetProtocol(props)
         await askClassContent(props)
     },
     writing: async (props) => {
         const { generator, payload } = props
-        await writeClassContent(props)
+        await writeClassContent({
+            ...props,
+            targetProtocolPath: payload.targetProtocolPath,
+            className: payload.className,
+            upgradeProtocolSchemaVersion: true
+        })
     },
     end: async (props) => {
         const { generator, payload } = props

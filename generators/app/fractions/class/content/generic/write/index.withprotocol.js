@@ -8,13 +8,17 @@ import pureClass from './index.js'
 
 export default async (props) => {
 
-    const { generator, payload } = props
-
-    const targetRootPath = `${payload.targetProtocolPath}/classes/${payload.className.toLowerCase()}`
-    await updateProtocolClasses(props)
+    const { generator, payload, targetProtocolPath, className, upgradeProtocolSchemaVersion = false } = props
+    generator.log('index.withprotocol', targetProtocolPath, className, upgradeProtocolSchemaVersion)
+    const targetRootPath = `${targetProtocolPath}/classes/${className.toLowerCase()}`
+    const schema = await updateProtocolClasses({ className, targetProtocolPath })
     await pureClass({ ...props, targetRootPath })
 
-    const version = await protocolSchemaVersion(payload.targetProtocolPath)
-    const targetSchemaPath = `${payload.targetProtocolPath}/schema/${version}/index.json`
-    generator.fs.writeJSON(generator.destinationPath(targetSchemaPath), payload.targetSchema)
+    if (upgradeProtocolSchemaVersion) {
+        const version = await protocolSchemaVersion(targetProtocolPath)
+        if (version) {
+            const targetSchemaPath = `${targetProtocolPath}/schema/${version}/index.json`
+            generator.fs.writeJSON(generator.destinationPath(targetSchemaPath), schema)
+        }
+    }
 }

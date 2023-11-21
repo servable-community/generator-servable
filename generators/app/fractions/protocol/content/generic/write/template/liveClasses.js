@@ -3,5 +3,5 @@
 */
 
 export default async () => {
-    return ["ClassA"]
+    return []
 }
