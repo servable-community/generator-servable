@@ -15,8 +15,8 @@ export default async (answers, input = '') => {
     const searchTerm = input
     const page = 0
 
-    const baseUrl = 'http://localhost:1387'
-    // const baseUrl = 'https://api.registry.servablecommunity.com'
+    // const baseUrl = 'http://localhost:1387'
+    const baseUrl = 'https://api.registry.servablecommunity.com'
     // const url = `${baseUrl}/searchProtocol?searchTerm=${searchTerm}&page=${page}`
     const url = `${baseUrl}/searchprotocol`
 
