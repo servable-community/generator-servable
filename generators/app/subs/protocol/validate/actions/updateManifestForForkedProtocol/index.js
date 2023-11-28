@@ -2,18 +2,18 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import protocolManifest from "../../../../../lib/protocolManifest.js"
+import protocolIndex from "../../../../../lib/protocolIndex.js"
 
 export default async (props) => {
     const { generator, payload, targetPath, origin, originPackageJSON } = props
 
-    let manifest = await protocolManifest(targetPath)
-    if (!manifest) {
+    let index = await protocolIndex(targetPath)
+    if (!index) {
         return
     }
-    manifest =
+    index =
     {
-        ...manifest,
+        ...index,
         dependencies: originPackageJSON.dependencies,
         devDependencies: originPackageJSON.devDependencies,
         peerDependencies: originPackageJSON.peerDependencies,
@@ -24,5 +24,5 @@ export default async (props) => {
         }
     }
 
-    generator.fs.writeJSON(`${targetPath}/manifest.json`, manifest)
+    generator.fs.writeJSON(`${targetPath}/index.json`, index)
 }

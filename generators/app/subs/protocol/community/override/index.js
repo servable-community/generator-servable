@@ -7,7 +7,7 @@ import drawEnd from "../../../../lib/draw/drawEnd.js"
 import existingProtocol from "../../../../prompts/getCommunityProtocol/index.js"
 import targetApp from "../../../../prompts/targetApp/index.js"
 import updateDependenciesForForkedProtocol from "./actions/updateDependenciesForForkedProtocol/index.js"
-import updateManifestForForkedProtocol from "./actions/updateManifestForForkedProtocol/index.js"
+import updateIndexForForkedProtocol from "./actions/updateIndexForForkedProtocol/index.js"
 
 export default {
     id: 'overrideprotocol',
@@ -37,7 +37,7 @@ export default {
             url
         })
 
-        await updateManifestForForkedProtocol({
+        await updateIndexForForkedProtocol({
             ...props,
             targetPath,
             origin: existingProtocol,

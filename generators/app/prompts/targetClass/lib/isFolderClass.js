@@ -18,7 +18,7 @@ export default async (folder) => {
 
         let content = await fileContent(`${folder}/module.json`)
         if (!content) {
-            content = await fileContent(`${folder}/manifest.json`)
+            content = await fileContent(`${folder}/index.json`)
         }
         if (!content) {
             return false

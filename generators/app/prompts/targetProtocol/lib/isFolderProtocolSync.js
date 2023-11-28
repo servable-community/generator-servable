@@ -13,7 +13,7 @@ export default (folder) => {
 
         let content = fileContent(`${folder}/module.json`)
         if (!content) {
-            content = fileContent(`${folder}/manifest.json`)
+            content = fileContent(`${folder}/index.json`)
         }
         if (!content || !content.type) {
             return false

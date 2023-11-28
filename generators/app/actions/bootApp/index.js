@@ -12,7 +12,7 @@ export default async (props) => {
 
     generator.fs.copyTpl(generator.templatePath('README.md'), generator.destinationPath('README.md'), payload)
     generator.fs.copyTpl(generator.templatePath('package.json'), generator.destinationPath('package.json'), payload)
-    generator.fs.copyTpl(generator.templatePath('lib/app/manifest.json'), generator.destinationPath('lib/app/manifest.json'), payload)
+    generator.fs.copyTpl(generator.templatePath('lib/app/index.json'), generator.destinationPath('lib/app/index.json'), payload)
     generator.fs.copyTpl(generator.templatePath('servable.config.js'), generator.destinationPath('servable.config.js'), payload)
     generator.fs.copyTpl(generator.templatePath('env'), generator.destinationPath('.env'), payload)
     generator.fs.copyTpl(generator.templatePath('Dockerfile'), generator.destinationPath('Dockerfile'), payload)

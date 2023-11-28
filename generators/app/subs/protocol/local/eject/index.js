@@ -15,8 +15,8 @@ import openProject from "../../../../actions/openProject/index.js"
 import askForGithubRepository from "../../../../prompts/transverse/askForGithubRepository.js"
 import askForProtocolShell from "../../../../fractions/protocol/shell/ask/index.js"
 import writeProtocolShell from "../../../../fractions/protocol/shell/write/index.js"
-import askForProtocolManifest from "../../../../fractions/protocol/content/manifest/ask/index.js"
-import writeProtocolManifest from "../../../../fractions/protocol/content/manifest/write/index.js"
+import askForProtocolIndex from "../../../../fractions/protocol/content/index/ask/index.js"
+import writeProtocolIndex from "../../../../fractions/protocol/content/index/write/index.js"
 // import checkFileExists from "../../../../lib/checkFileExists.js"
 
 export default {
@@ -35,7 +35,7 @@ export default {
         }
         payload.protocolId = payload.targetProtocol
 
-        await askForProtocolManifest(props)
+        await askForProtocolIndex(props)
         await askForGithubRepository(props)
         await askForFolder(props)
         await askForPackageManager(props)
@@ -50,7 +50,7 @@ export default {
         generator.destinationRoot(targetPath)
 
         await writeProtocolShell(props)
-        await writeProtocolManifest({ ...props, targetRootPath: `${targetPath}/src` })
+        await writeProtocolIndex({ ...props, targetRootPath: `${targetPath}/src` })
 
 
         generator.fs.copy(sourcePath, targetPathSrc)

@@ -11,13 +11,13 @@ import askForGenericBulk from "../../../../../prompts/utils/askForGenericBulk.js
 
 export default async (props) => {
     const { generator, payload, options: { force = false } = {} } = props
-    if (!force && payload.promptGroupsPassed.protocolManifest) {
+    if (!force && payload.promptGroupsPassed.protocolIndex) {
         return
     }
 
     drawSectionHeader({
         generator,
-        title: `Protocol manifest`,
+        title: `Protocol index`,
         subTitle: ``
     })
 
@@ -76,5 +76,5 @@ export default async (props) => {
 
     await license(props)
 
-    payload.promptGroupsPassed.protocolManifest = true
+    payload.promptGroupsPassed.protocolIndex = true
 }

@@ -14,12 +14,11 @@ export default async (props) => {
 
     const destinator = v => `${targetRootPath}/${v}`
     const originator = v => `${__dirname}/template/${v}`
-    generator.log('oureClass', targetRootPath, __dirname)
 
     if (payload.classBootstrapFiles) {
         generator.fs.copy(originator('**/*'), destinator(''))
         generator.fs.copyTpl(originator('class/index.js'), destinator(`class/index.js`), payload)
-        generator.fs.copyTpl(originator('manifest.json'), destinator(`manifest.json`), payload)
+        generator.fs.copyTpl(originator('index.json'), destinator(`index.json`), payload)
         generator.fs.copyTpl(originator('README.md'), destinator(`README.md`), payload)
     }
 

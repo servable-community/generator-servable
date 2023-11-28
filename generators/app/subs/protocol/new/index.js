@@ -13,8 +13,8 @@ import askForPackageManager from "../../../prompts/packageManager/index.js"
 import askForGit from "../../../prompts/transverse/askForGit.js"
 import askForGithubRepository from "../../../prompts/transverse/askForGithubRepository.js"
 import askForLicense from "../../../prompts/license/index.js"
-import askForProtocolManifest from "../../../fractions/protocol/content/manifest/ask/index.js"
-import writeProtocolManifest from "../../../fractions/protocol/content/manifest/write/index.js"
+import askForProtocolIndex from "../../../fractions/protocol/content/index/ask/index.js"
+import writeProtocolIndex from "../../../fractions/protocol/content/index/write/index.js"
 
 export default {
     id: 'newprotocol',
@@ -23,7 +23,7 @@ export default {
     name: 'Protocol → New standalone project 🚀',
     version: '0.1.0',
     prompting: async (props) => {
-        await askForProtocolManifest(props)
+        await askForProtocolIndex(props)
         await askForProtocolShell(props)
         await askForFolder(props)
         await askForGithubRepository(props)
@@ -38,7 +38,7 @@ export default {
 
         await writeProtocolShell(props)
         generator.fs.copy(generator.templatePath('src/**/*'), `${targetPath}/src`)
-        await writeProtocolManifest({ ...props, targetRootPath: `${targetPath}/src` })
+        await writeProtocolIndex({ ...props, targetRootPath: `${targetPath}/src` })
 
         generator.fs.copyTpl(generator.templatePath('src/README.md'), `${targetPath}/src/README.md`, payload)
 

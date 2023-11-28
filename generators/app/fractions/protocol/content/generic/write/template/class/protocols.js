@@ -1,5 +1,5 @@
 /**
-* @description Export the protocols that will apply to the class.
+* Protocols that will apply to the protocol class.
 */
 export default [
 ]

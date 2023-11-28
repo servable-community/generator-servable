@@ -16,5 +16,5 @@ export default async (props) => {
     }
 
     payload.protocolCategories = payload.protocolCategories ? payload.protocolCategories : ''
-    generator.fs.copyTpl(`${__dirname}/template/manifest.json`, destinator(`manifest.json`), payload)
+    generator.fs.copyTpl(`${__dirname}/template/index.json`, destinator(`index.json`), payload)
 }
