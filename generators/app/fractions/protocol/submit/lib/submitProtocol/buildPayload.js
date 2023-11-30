@@ -2,7 +2,7 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 import { documentProtocol, extractProtocol, ManifestEnums } from 'servable-engine'
-import protocolIndex from '../../lib/protocolIndex.js'
+import protocolIndex from '../../../../../lib/protocolIndex.js'
 
 export default async (props) => {
     const { path, } = props

@@ -2,24 +2,21 @@ import * as dotenv from 'dotenv';
 import axios from "axios";
 dotenv.config()
 
-export default async ({ payload, username, password, }) => {
+export default async ({ protocolId, }) => {
     const baseUrl = 'http://localhost:1387'
     // const baseUrl = 'https://api.registry.servablecommunity.com'
     // const url = `${baseUrl}/searchProtocol?searchTerm=${searchTerm}&page=${page}`
-    const url = `${baseUrl}/submitprotocol`
-    // const params = JSON.parse(JSON.stringify(payload))
+    const url = `${baseUrl}/protocolbyuniqueref`
 
     try {
         const result = await axios({
-            method: "POST",
+            method: "GET",
             url,
             headers: {
                 "content-type": "application/json",
             },
-            data: {
-                ...payload,
-                username,
-                password
+            params: {
+                protocolId,
             }
         })
 

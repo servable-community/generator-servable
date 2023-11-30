@@ -2,41 +2,32 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-import submitProtocol from "../../../actions/submitProtocol/index.js"
 import drawEnd from "../../../lib/draw/drawEnd.js"
 import targetProtocol from "../../../prompts/targetProtocol/index.noapp.js"
-import askForGenericBulk from "../../../prompts/utils/askForGenericBulk.js"
+import askForSubmitProtocol from "../../../fractions/protocol/submit/ask/index.js"
+import writeForSubmitProtocol from "../../../fractions/protocol/submit/write/index.js"
 
 export default {
     id: 'submitprotocol',
     path: 'protocol/submit',
     aliases: ['submitprotocol'],
-    name: 'Protocol → Community → Submit ↑',
+    name: 'Protocol → Community → Submit (create or update) ↑',
     version: '0.1.0',
     prompting: async (props) => {
         const { generator, payload } = props
         await targetProtocol(props)
-        await askForGenericBulk({
-            ...props, items: [
-                {
-                    name: 'registryUsername',
-                },
-                {
-                    name: 'registryPassword',
-                    type: 'password'
-                },
-            ]
-        })
-
+        const shouldWrite = await askForSubmitProtocol(props)
+        if (!shouldWrite) {
+            generator.abort = true
+        }
     },
     writing: async (props) => {
         const { generator, payload } = props
 
         const path = payload.targetProtocolPath
-        generator.log("targetProtocolPath", path)
 
-        await submitProtocol({
-            path,
+        await writeForSubmitProtocol({
+            targetRootPath: path,
             generator,
             payload
         })

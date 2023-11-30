@@ -293,8 +293,22 @@ export default {
         type: String,
         description: 'Registry username'
     },
+    'registrySubmitMode': {
+        type: String,
+        default: 'create',
+        description: 'Registry submit mode (create or update)'
+    },
+    'registryUniqueRef': {
+        type: String,
+        description: 'Registry unique ref'
+    },
     'registryPassword': {
         type: String,
         description: 'Registry password'
+    },
+    'registryUpdate': {
+        type: Boolean,
+        default: true,
+        description: 'Update the protocol on the registry'
     },
 }
