@@ -10,7 +10,7 @@ export default {
     id: 'protocoldocument',
     path: 'protocol/document',
     aliases: ['documentprotocol',],
-    name: 'Protocol → Local → Document 📚',
+    name: 'Protocol → Local → Generate documentation 📚',
     prompting: async (props) => {
         const { generator, payload } = props
         await targetProtocol(props)

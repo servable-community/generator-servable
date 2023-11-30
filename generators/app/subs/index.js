@@ -8,6 +8,7 @@ import generateClass from "./class/new/index.js"
 import generateProtocolLocal from "./protocol/local/new/index.js"
 import generateProtocol from "./protocol/new/index.js"
 import documentProtocol from "./protocol/document/index.js"
+import submitProtocol from "./protocol/submit/index.js"
 import ejectProtocol from "./protocol/local/eject/index.js"
 import useCommunityProtocol from "./protocol/community/use/index.js"
 // import forkProtocol from "./protocol/community/fork/index.js"
@@ -22,13 +23,15 @@ export default [
     // (new inquirer.Separator()),
     generateClass,
     // (new inquirer.Separator()),
-    generateProtocol,
+
     generateProtocolLocal,
     documentProtocol,
     ejectProtocol,
     // injectProtocol,
     // validateProtocol,
+    generateProtocol,
     useCommunityProtocol,
+    submitProtocol,
 
     // forkProtocol,
 

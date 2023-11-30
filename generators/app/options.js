@@ -289,4 +289,12 @@ export default {
         default: 'none',
         description: 'Continuous release type'
     },
+    'registryUsername': {
+        type: String,
+        description: 'Registry username'
+    },
+    'registryPassword': {
+        type: String,
+        description: 'Registry password'
+    },
 }

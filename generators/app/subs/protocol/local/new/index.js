@@ -12,7 +12,6 @@ export default {
     name: 'Protocol → Local → New ✨',
     version: '0.1.0',
     prompting: async (props) => {
-        console.log(0 / 1)
         await targetApp(props)
         await askProtocolContent(props)
     },
