@@ -3,7 +3,7 @@
  *--------------------------------------------------------*/
 
 import drawEnd from "../../../lib/draw/drawEnd.js"
-import targetProtocol from "../../../prompts/targetProtocol/index.noapp.js"
+import targetProtocol from "../../../prompts/targetProtocol/index.js"
 import askForSubmitProtocol from "../../../fractions/protocol/submit/ask/index.js"
 import writeForSubmitProtocol from "../../../fractions/protocol/submit/write/index.js"
 
@@ -11,7 +11,7 @@ export default {
     id: 'submitprotocol',
     path: 'protocol/submit',
     aliases: ['submitprotocol'],
-    name: 'Protocol → Community → Submit (create or update) ↑',
+    name: 'Protocol 🐝 → Community → Submit (create or update) ↑',
     version: '0.1.0',
     prompting: async (props) => {
         const { generator, payload } = props

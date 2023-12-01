@@ -3,7 +3,7 @@
  *--------------------------------------------------------*/
 
 import askForFolder from "../../../../prompts/askForFolder/index.js"
-import targetProtocol from "../../../../prompts/targetProtocol/index.js"
+import targetProtocol from "../../../../prompts/targetProtocol/index.withinapp.js"
 import updatePackageForEjectedProtocol from "../../../../actions/updatePackageForEjectedProtocol/index.js"
 import removeEjectedProtocol from "../../../../actions/removeEjectedProtocol/index.js"
 import bootGit from "../../../../actions/bootGit/index.js"
@@ -23,7 +23,7 @@ export default {
     id: 'ejectprotocol',
     path: 'protocol/local/eject',
     aliases: ['ejectprotocol',],
-    name: 'Protocol → Local → Eject ↳',
+    name: 'Protocol 🐝 → Local → Eject ↳',
     version: '0.1.0',
     prompting: async (props) => {
         const { generator, payload } = props

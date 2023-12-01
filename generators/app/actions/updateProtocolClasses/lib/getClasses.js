@@ -1,5 +1,5 @@
 import fs from 'fs'
-import isFolderProtocol from '../../../prompts/targetProtocol/lib/isFolderProtocol'
+import isFolderProtocol from '../../../prompts/targetProtocol/lib/isFolderProtocol.js'
 
 export default async (folder) => {
 

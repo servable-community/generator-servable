@@ -11,7 +11,7 @@ export default {
     id: 'validateprotocol',
     path: 'protocol/validate',
     aliases: ['validate'],
-    name: 'Protocol → Local → Validate (static check) 🚦 [#TODO]',
+    name: 'Protocol 🐝 → Local → Validate (static check) 🚦 [#TODO]',
     version: '0.1.0',
     prompting: async (props) => {
         return

@@ -59,20 +59,8 @@ export default async (props) => {
                 if (!name || !name.length) {
                     return false
                 }
-                // return name[0] === '.'
-
-                // generator.log(name)
                 const isServable = isFolderServableAppSync(name)
-                // generator.log(name)
                 return isServable
-
-                const _name = name.split(path.sep).pop()
-                const exclusions = ['node_modules', '.git', '.github', '.vscode', '__tests__']
-                if (exclusions.includes(_name.toLowerCase())) {
-                    return false
-                }
-
-                return (_name && _name.length && !['.'].includes(_name[0]))
             },
             transformer: (name,) => {
                 if (!name || !name.length) {

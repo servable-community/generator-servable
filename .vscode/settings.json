@@ -9,5 +9,10 @@
     "git.branchProtectionPrompt": "alwaysCommitToNewBranch",
     "git.branchRandomName.enable": true,
     "githubPullRequests.assignCreated": "${user}",
-    "githubPullRequests.defaultMergeMethod": "squash"
+    "githubPullRequests.defaultMergeMethod": "squash",
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#5C1108",
+        "titleBar.activeBackground": "#80180B",
+        "titleBar.activeForeground": "#FFFCFC"
+    }
 }

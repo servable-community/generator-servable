@@ -13,7 +13,7 @@ export default {
     id: 'injectprotocol',
     path: 'protocol/local/inject',
     aliases: ['protocol'],
-    name: 'Protocol → Local → Inject ↲',
+    name: 'Protocol 🐝 → Local → Inject ↲',
     version: '0.1.0',
     prompting: async (props) => {
         const { generator, payload } = props

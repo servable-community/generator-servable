@@ -90,7 +90,6 @@ export default async (props) => {
                 if (!name || !name.length) {
                     return false
                 }
-                // return true
                 return isFolderProtocolSync(name)
             },
         }

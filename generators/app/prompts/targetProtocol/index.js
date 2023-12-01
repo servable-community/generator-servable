@@ -5,76 +5,39 @@ import chalk from "chalk"
 import isFolderProtocol from "./lib/isFolderProtocol.js"
 // import getServablePackage from "./lib/getServablePackage.js"
 import drawSectionHeader from "../../lib/draw/drawSectionHeader.js"
-import targetApp from "../targetApp/index.js"
-import path from "path"
 import isFolderProtocolSync from "./lib/isFolderProtocolSync.js"
 import askForGeneric from "../utils/askForGeneric.js"
-import capitalizeFirstLetter from "../../lib/capitalizeFirstLetter.js"
-import protocolsInFolder from "./lib/protocolsInFolder.js"
+import updateTargetProtocolFromPath from "./updateTargetProtocolFromPath.js"
+import path from "path"
 
 export default async (props) => {
     const { generator, payload,
-        includeAppProtocol = true,
-        appProtocolMessage = `Use app protocol?`
     } = props
 
-    let value = generator.options['targetProtocol']
-    if (value) {
-        payload.targetProtocol = value
-        payload.targetProtocolPath = null
+    if (generator.options['targetProtocolPath']) {
+        updateTargetProtocolFromPath({ payload, path: generator.options['targetProtocolPath'] })
         return true
     }
 
     if (generator.options['quick']) {
-        return true
+        // return true
     }
 
     const originalDestinationPath = generator.originalDestinationPath
 
     if (await isFolderProtocol(originalDestinationPath)) {
-        payload.targetProtocolPath = originalDestinationPath
-        payload.targetProtocol = payload.targetProtocolPath.split(path.sep).pop()
-
-        // const config = await getServablePackage(originalDestinationPath)
-        // payload.desiredWriteDestinationPath = ''
-        generator.log(chalk.italic(`→ The class will be added to the protocol in the current folder.\n`))
+        updateTargetProtocolFromPath({ payload, path: originalDestinationPath })
+        generator.log(chalk.italic(`→ The target protocol is the current folder.\n`))
         return true
     }
 
-    await targetApp(props)
-
     drawSectionHeader({
         generator,
-        title: `Protocol choice 🚀`,
+        title: `Protocol choice 🐝`,
         subTitle: `Choose a protocol`
     })
 
-    if (includeAppProtocol) {
-        await askForGeneric({
-            ...props, options: {
-                ...(props.options ? props.options : {}),
-                type: 'confirm',
-                name: 'useAppProtocol',
-                message: appProtocolMessage,
-                // message: `Add class to ${payload.targetApp} app protocol?`,
-                defaultValue: true
-            }
-        })
-
-        if (payload.useAppProtocol) {
-            payload.targetProtocolPath = `${payload.desiredWriteDestinationPathAbsolute}/lib/app`
-            payload.targetProtocol = payload.targetProtocolPath.split(path.sep).pop()
-            return true
-        }
-
-    }
-
-    const root = `${payload.desiredWriteDestinationPathAbsolute}/lib/protocols`
-    const items = await protocolsInFolder(root)
-    if (!items || !items.length) {
-        generator.log('No protocols found in this app')
-        return false
-    }
+    const root = `${originalDestinationPath}`
 
     await askForGeneric({
         ...props, options: {
@@ -84,8 +47,11 @@ export default async (props) => {
             // message: "Choose a local protocol",
             onlyShowDir: true,
             root,
-            onlyShowValid: true,
-            hideRoot: true,
+            onlyShowValid: false,
+            // hideRoot: true,
+            enableGoUpperDirectory: true,
+            hideRoot: false,
+            hideChildrenOfValid: true,
             validate: (name,) => {
                 if (!name || !name.length) {
                     return false
@@ -93,10 +59,18 @@ export default async (props) => {
                 // return true
                 return isFolderProtocolSync(name)
             },
+            transformer: (name,) => {
+                if (!name || !name.length) {
+                    return name
+                }
+
+                const _name = name.split(path.sep).pop()
+                const isServable = isFolderProtocolSync(name)
+                return isServable ? `${chalk.underline(_name)} 🐝 ` : `${_name}`
+            }
         }
     })
 
-    payload.targetProtocol = payload.targetProtocolPath.split(path.sep).pop()
-    payload.protocolName = capitalizeFirstLetter(payload.targetProtocol)
+    updateTargetProtocolFromPath({ payload, path: payload.targetProtocolPath })
     return true
 }

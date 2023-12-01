@@ -9,7 +9,7 @@ export default {
     id: 'newlocalprotocol',
     path: 'protocol/local/new',
     aliases: ['protocol'],
-    name: 'Protocol → Local → New ✨',
+    name: 'Protocol 🐝 → Local → New ✨',
     version: '0.1.0',
     prompting: async (props) => {
         await targetApp(props)

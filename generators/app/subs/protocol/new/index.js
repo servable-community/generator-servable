@@ -20,7 +20,7 @@ export default {
     id: 'newprotocol',
     path: 'protocol/new',
     aliases: ['protocol'],
-    name: 'Protocol → New standalone project 🚀',
+    name: 'Protocol 🐝 → New standalone project 🚀',
     version: '0.1.0',
     prompting: async (props) => {
         await askForProtocolIndex(props)

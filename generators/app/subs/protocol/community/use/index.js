@@ -12,7 +12,7 @@ export default {
     id: 'useCommunityProtocol',
     path: 'protocol/community/use',
     aliases: ['usecommunityprotocol'],
-    name: 'Protocol → Community → Use ↓',
+    name: 'Protocol 🐝 → Community → Use ↓',
     version: '0.1.0',
     prompting: async (props) => {
         await targetClass(props)

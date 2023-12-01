@@ -3,14 +3,14 @@
  *--------------------------------------------------------*/
 
 import drawEnd from "../../../lib/draw/drawEnd.js"
-import targetProtocol from "../../../prompts/targetProtocol/index.noapp.js"
+import targetProtocol from "../../../prompts/targetProtocol/index.js"
 import { documentProtocol } from 'servable-engine'
 
 export default {
     id: 'protocoldocument',
     path: 'protocol/document',
     aliases: ['documentprotocol',],
-    name: 'Protocol → Local → Generate documentation 📚',
+    name: 'Protocol 🐝 → Local → Generate documentation 📚',
     prompting: async (props) => {
         const { generator, payload } = props
         await targetProtocol(props)

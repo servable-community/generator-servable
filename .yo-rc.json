@@ -1,0 +1,21 @@
+{
+  "generator-servable": {
+    "submitprotocol": {
+      "installDependencies": false,
+      "type": "submitprotocol",
+      "targetProtocolPath": "/Users/anak/YourouNak/development/servable/core/generator/Reason/lib/protocols/hitable",
+      "targetProtocol": "hitable",
+      "protocolName": "Hitable",
+      "registryUpdate": true,
+      "registrySubmitMode": "update",
+      "registryUniqueRef": "hitable",
+      "registryUsername": "doucoure@me.com",
+      "registryPassword": "loukhouss",
+      "sessionToken": "r:2ec5005153597730b43708c40485a6c1",
+      "metadata": {
+        "version": "0.1.0",
+        "updatedAt": "2023-12-01T09:25:59.806Z"
+      }
+    }
+  }
+}
