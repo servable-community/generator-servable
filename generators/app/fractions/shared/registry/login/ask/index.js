@@ -29,30 +29,29 @@ export default async (props) => {
         payload.registryUsername = username
         payload.registryPassword = password
         payload.sessionToken = sessionToken
-    } else {
-        const hasValues = await askForGenericBulk({
-            ...props, items: [
-                {
-                    name: 'registryUsername',
-                    defaultValue: username
-                },
-                {
-                    name: 'registryPassword',
-                    type: 'password',
-                    defaultValue: password
-                },
-            ]
-        })
+        return true
+    }
 
-        if (!hasValues) {
-            return false
-        }
+    const hasValues = await askForGenericBulk({
+        ...props, items: [
+            {
+                name: 'registryUsername',
+                defaultValue: username
+            },
+            {
+                name: 'registryPassword',
+                type: 'password',
+                defaultValue: password
+            },
+        ]
+    })
 
-
+    if (!hasValues) {
+        return false
     }
 
     if (!initiate) {
-        return
+        return true
     }
 
     const result = await login({
