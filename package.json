@@ -75,7 +75,7 @@
         "underscore": "1.13.6",
         "update-notifier": "^6.0.2",
         "which": "^3.0.0",
-        "yeoman-generator": "^5.9.0",
+        "yeoman-generator": "^5.0.0",
         "yosay": "^2.0.2"
     },
     "devDependencies": {

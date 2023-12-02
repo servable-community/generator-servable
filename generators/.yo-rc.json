@@ -6,15 +6,14 @@
       "targetProtocolPath": "/Users/anak/YourouNak/development/servable/core/generator/samples/Reason/lib/protocols/cassable",
       "targetProtocol": "cassable",
       "protocolName": "Cassable",
-      "registryUpdate": true,
-      "registrySubmitMode": "update",
+      "registrySubmitMode": "create",
       "registryUniqueRef": "cassable",
       "registryUsername": "doucoure@me.com",
       "registryPassword": "loukhouss",
-      "sessionToken": "r:f6fd96b13babff55ca2f6431a8b3ebf3",
+      "sessionToken": "r:9141e2c3eb84d9b3811a5086eabac688",
       "metadata": {
         "version": "0.1.0",
-        "updatedAt": "2023-12-02T11:09:53.152Z"
+        "updatedAt": "2023-12-02T09:53:23.636Z"
       }
     }
   }

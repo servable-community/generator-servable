@@ -26,7 +26,7 @@ export default {
     id: 'appnew',
     path: 'app/new',
     aliases: ['app', 'appnew', 'new', 'newapp'],
-    name: 'App 🐻 → New 🚀',
+    name: 'App 🐻🐝 → New 🚀',
     version: '0.1.0',
     prompting: async (props) => {
         await askForAppInfos(props)

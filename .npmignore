@@ -12,3 +12,4 @@
 /Dockerfile
 .npmrc
 ./logs
+./samples

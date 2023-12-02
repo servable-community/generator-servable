@@ -5,19 +5,51 @@
 import askForGenericBulk from "../../../../../prompts/utils/askForGenericBulk.js"
 import login from "../lib/login.js"
 
+import getValueFromStore from "../../../../../lib/store/get.js"
+import saveValueToStore from "../../../../../lib/store/save.js"
+
 export default async (props) => {
     const { generator, payload, initiate = true } = props
-    await askForGenericBulk({
-        ...props, items: [
-            {
-                name: 'registryUsername',
-            },
-            {
-                name: 'registryPassword',
-                type: 'password'
-            },
-        ]
+    const domain = "registry.servablecommunity.com"
+    generator.log('domain', domain)
+    const username = await getValueFromStore({
+        key: 'username',
+        domain
     })
+    const password = await getValueFromStore({
+        key: 'password',
+        domain
+    })
+    let sessionToken = await getValueFromStore({
+        key: 'sessionToken',
+        domain
+    })
+    generator.log('username', username, password)
+    if (username && password && sessionToken) {
+        payload.registryUsername = username
+        payload.registryPassword = password
+        payload.sessionToken = sessionToken
+    } else {
+        const hasValues = await askForGenericBulk({
+            ...props, items: [
+                {
+                    name: 'registryUsername',
+                    defaultValue: username
+                },
+                {
+                    name: 'registryPassword',
+                    type: 'password',
+                    defaultValue: password
+                },
+            ]
+        })
+
+        if (!hasValues) {
+            return false
+        }
+
+
+    }
 
     if (!initiate) {
         return
@@ -33,8 +65,25 @@ export default async (props) => {
         return false
     }
 
-    const { sessionToken } = result
-    payload.sessionToken = sessionToken
+    payload.sessionToken = result.sessionToken
+
+    await saveValueToStore({
+        key: 'username',
+        domain,
+        value: payload.registryUsername
+    })
+
+    await saveValueToStore({
+        key: 'password',
+        domain,
+        value: payload.registryPassword
+    })
+    await saveValueToStore({
+        key: 'sessionToken',
+        domain,
+        value: payload.sessionToken
+    })
+
     return true
 }
 

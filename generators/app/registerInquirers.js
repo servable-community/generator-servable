@@ -7,11 +7,12 @@ import inquirerFileTreeSelection from 'inquirer-file-tree-selection-prompt'
 // import inquirerCheckboxPlus from 'inquirer-checkbox-plus-prompt'
 import inquirerParseJsonFile from 'inquirer-parse-json-file'
 
-
 export default (generator) => {
-    generator.env.adapter.promptModule.registerPrompt('autocomplete', inquirerPromptAutocomplete)
-    generator.env.adapter.promptModule.registerPrompt('file-tree-selection', inquirerFileTreeSelection)
+    const promptModule = generator.env.adapter.promptModule ? generator.env.adapter.promptModule :
+        generator.env.adapter.actualAdapter.promptModule
+    promptModule.registerPrompt('autocomplete', inquirerPromptAutocomplete)
+    promptModule.registerPrompt('file-tree-selection', inquirerFileTreeSelection)
     // generator.env.adapter.promptModule.registerPrompt('checkbox-plus', inquirerCheckboxPlus)
-    generator.env.adapter.promptModule.registerPrompt('json-file', inquirerParseJsonFile)
+    promptModule.registerPrompt('json-file', inquirerParseJsonFile)
     // generator.env.adapter.promptModule.registerPrompt('password', inquirerPassword)
 }

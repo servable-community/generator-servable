@@ -18,7 +18,5 @@ package.dist.json
 .npmrc
 dist
 
-Mala
-Baby
-Reason
+samples
 .yo-repository
