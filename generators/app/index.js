@@ -92,8 +92,6 @@ export default class extends Generator {
         this._updateDestination()
         this._updateSource()
 
-
-
         this.log()
         this.log(`Writing in ${this.destinationPath()}`)
 
@@ -146,12 +144,12 @@ export default class extends Generator {
                 updatedAt: (new Date())
             }
         })
-        const n = this.payload.doubleDestination
+        const _doubleDestination = this.payload.doubleDestination
             ? `${this.payload.doubleDestination}/.yo-rc.json`
             : this.destinationPath('.yo-rc.json')
         // _.set(this.config._store, path);
 
-        this.config.path = n
+        this.config.path = _doubleDestination
         // console.log(this.config.path)
     }
     // _updateConfig() {
