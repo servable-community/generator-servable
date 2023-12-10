@@ -14238,10 +14238,10 @@ serialize-javascript@^4.0.0:
   dependencies:
     randombytes "^2.1.0"
 
-servable-manifest@^1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/servable-manifest/-/servable-manifest-1.6.0.tgz#0558080adb78ad2f14ec18117c47f506cf3622bc"
-  integrity sha512-9Io1aNHOvTa9MH8HmvJTwTB7Yx11tHAdtZjKW587Iyc2gQTYSMu0gjbwX/DhxDveSQvWHxYCfMXRfPKBRTqRlA==
+servable-manifest@^1.7.0:
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/servable-manifest/-/servable-manifest-1.7.0.tgz#ff2589d24e277076fe8be002b1cd86e1e5472db5"
+  integrity sha512-dTHlZkR2AJ8/3wDWCFckqw7DeETZ68oTGr+hLfrvgsOxGKeQ65yemoEy5apL/BI8AguBJXAgquBzalNWiYH6tA==
   dependencies:
     bluebird "^3.7.2"
     fs-extra "^11.2.0"
@@ -14263,7 +14263,6 @@ servable-manifest@^1.6.0:
     underscore "^1.13.3"
     url-parse "*"
     winston "^3.7.2"
-    yaml "^2.3.0"
 
 serve-static@1.15.0:
   version "1.15.0"
@@ -16705,7 +16704,7 @@ yaml@^1.10.2:
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-1.10.2.tgz#2301c5ffbf12b467de8da2333a459e29e7920e4b"
   integrity sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==
 
-yaml@^2.2.2, yaml@^2.3.0:
+yaml@^2.2.2:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/yaml/-/yaml-2.3.4.tgz#53fc1d514be80aabf386dc6001eb29bf3b7523b2"
   integrity sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==
