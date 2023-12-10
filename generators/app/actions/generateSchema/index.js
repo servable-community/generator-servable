@@ -1,7 +1,7 @@
 /*---------------------------------------------------------
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
-import { computeSchema } from 'servable-engine'
+import { computeSchema } from 'servable-manifest'
 
 
 export default async (props) => {

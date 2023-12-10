@@ -1,6 +1,6 @@
 
 import ejs from 'ejs'
-import { cleanProtocols } from 'servable-engine'
+import { cleanProtocols } from 'servable-manifest'
 
 export default async (props) => {
     const {
