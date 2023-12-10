@@ -10,7 +10,7 @@ export default async (props) => {
     const { generator, payload } = props
 
     const domain = "registry.servablecommunity.com"
-    generator.log('domain', domain)
+
     const username = await getValueFromStore({
         key: 'username',
         domain
@@ -19,7 +19,10 @@ export default async (props) => {
         key: 'username',
         domain
     })
-    generator.log('username', username, password)
+
+    generator.log('domain', domain)
+    generator.log('username', username,)
+
     if (username && password) {
         payload.registryUsername = username
         payload.registryPassword = password

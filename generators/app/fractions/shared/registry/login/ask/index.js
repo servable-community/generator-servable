@@ -24,7 +24,7 @@ export default async (props) => {
         key: 'sessionToken',
         domain
     })
-    generator.log('username', username, password)
+    generator.log('username', username,)
     if (username && password && sessionToken) {
         payload.registryUsername = username
         payload.registryPassword = password
