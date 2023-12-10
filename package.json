@@ -53,7 +53,8 @@
         "acp": "git add . && npm run commit && git push",
         "commit": "git-cz",
         "size": "size-limit",
-        "analyze": "size-limit --why"
+        "analyze": "size-limit --why",
+        "postinstall": "patch-package"
     },
     "dependencies": {
         "axios": "^1.6.1",
