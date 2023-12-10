@@ -3,9 +3,7 @@ import axios from "axios";
 dotenv.config()
 
 export default async ({ username, password, }) => {
-    const baseUrl = 'http://localhost:1387'
-    //   const baseUrl = 'https://api.registry.servablecommunity.com'
-    // const url = `${baseUrl}/searchProtocol?searchTerm=${searchTerm}&page=${page}`
+    const baseUrl = "https://api.registry.servablecommunity.com"
     const url = `${baseUrl}/userlogin`
 
     try {

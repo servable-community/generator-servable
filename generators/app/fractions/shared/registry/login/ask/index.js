@@ -29,6 +29,13 @@ export default async (props) => {
         payload.registryUsername = username
         payload.registryPassword = password
         payload.sessionToken = sessionToken
+
+        // await login({
+        //     username: payload.registryUsername,
+        //     password: payload.registryPassword
+        // })
+
+
         return true
     }
 

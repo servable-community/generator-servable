@@ -14,7 +14,7 @@ dotenv.config()
 
 export default async (props) => {
     const { generator, payload } = props
-    // const u = process.env.PROTOCOL_API_URI
+    // const u = "https://api.registry.servablecommunity.com"
 
     const communityProtocolIdToImport = await askForGeneric({
         ...props, options: {
