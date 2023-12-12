@@ -34,7 +34,7 @@ export default async (props) => {
     generator.fs.copy(localPath('LICENSE'), destinator(`LICENSE`,))
     generator.fs.copy(localPath('jest.config.json'), destinator(`jest.config.json`,))
     generator.fs.copy(localPath('static/img/icon.png'), destinator(`static/img/icon.png`,))
-    generator.fs.copyTpl(localPath('README.md'), destinator(`README.md`), payload)
+    // generator.fs.copyTpl(localPath('README.md'), destinator(`README.md`), payload)
 
     await writeReleaseType(props)
 }

@@ -20,7 +20,7 @@ export default async (props) => {
     const destinator = v => `${targetRootPath}/${v}`
 
     generator.fs.copy(`${__dirname}/template/**/*`, destinator(''))
-    generator.fs.copyTpl(`${__dirname}/template/README.md`, destinator(`README.md`), payload)
+
 
     await writeProtocolIndex({ ...props, destinator })
     await writeForTriggers({ ...props })

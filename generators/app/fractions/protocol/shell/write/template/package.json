@@ -46,7 +46,10 @@
         "test:build": "run-s build",
         "test:lint": "eslint .",
         "test:unit": "yarn node --require=dotenv/config --experimental-vm-modules --experimental-specifier-resolution=node $(yarn bin jest) --config ./jest.config.json",
-        "test:watch": "react-scripts test --env=jsdom"
+        "test:watch": "react-scripts test --env=jsdom",
+        "prepare": "husky install",
+        "servable:document": "node -e 'import(\"../../../core/manifest/src/index.js\").then(m => m.documentProtocol({path: (process.cwd() + \"/src\"), write: true}))'",
+        "servable:readme": "node -e 'import(\"../../../core/manifest/src/index.js\").then(m => m.generateGithubReadme({path: (process.cwd() + \"/src\"), write: true, targetPath: (process.cwd() + \"/README.md\" )}))'"
     },
     "prettier": {
         "printWidth": 80,
@@ -80,11 +83,12 @@
         "eslint-plugin-prettier": "^3.1.1",
         "eslint-plugin-promise": "^4.2.1",
         "eslint-plugin-standard": "^4.0.1",
-        "husky": "^6.0.0",
         "jest": "^29.7.0",
         "npm-run-all": "^4.1.5",
         "prettier": "^2.0.4",
         "semantic-release": "^22.0.5",
-        "size-limit": "^4.10.2"
+        "size-limit": "^4.10.2",
+        "servable-manifest": "^1",
+        "husky": "^8.0.3"
     }
 }
