@@ -1,3 +1,3 @@
 /**
-* @description This is where the protocol own funtions can be placed.
+* @description This is where the protocol managed funtions can be placed.
 */

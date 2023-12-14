@@ -20,7 +20,11 @@
     "packages": [
         {
             "id": "<%= protocolId %>",
-            "description": "",
+            "description": "<%= protocolDescription %>",
+            "version": "1.0.0",
+            "github": {
+                "id": "<%= protocolGithubId %>"
+            },
             "type": "main",
             "components": [
                 "server"

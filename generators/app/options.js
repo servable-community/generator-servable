@@ -211,6 +211,11 @@ export default {
         default: 'protocolable',
         description: 'Protocol ID'
     },
+    'protocolGithubId': {
+        type: String,
+        default: '',
+        description: 'Protocol Github ID'
+    },
     'protocolDescription': {
         type: String,
         default: 'A servable protocol',
@@ -267,6 +272,10 @@ export default {
     'protocolTemplateParametersDefinition': {
         type: String,
         description: 'Protocol template parameters definition'
+    },
+    'repositoryUrl': {
+        type: String,
+        description: 'Git repository url'
     },
     'authorName': {
         type: String,

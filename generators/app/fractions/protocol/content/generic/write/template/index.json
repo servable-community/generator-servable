@@ -24,8 +24,11 @@
             "components": [
                 "server"
             ],
-            "url": "",
-            "dependencies": {},
+            "repository": {
+                "type": "git",
+                "url": "<%= repositoryUrl %>"
+            },
+            "dependencies": [],
             "forks": {},
             "usage": {
                 "howto": "<%= protocolHowTo %>",
@@ -41,5 +44,6 @@
                 "servable-engine": "<%= protocolServableEngineVersion %>"
             }
         }
-    ]
+    ],
+    "registry": {}
 }

@@ -15,7 +15,7 @@ export default async (props) => {
     const ownClasses = await protocolSchemaOwnClasses(targetProtocolPath) || []
     const classesWithoutTargetClass = ownClasses.filter(a => a.className !== targetClass.className)
     classesWithoutTargetClass.push(targetClass)
-    schema.own.classes = classesWithoutTargetClass
+    schema.managed.classes = classesWithoutTargetClass
 
     return schema
 }

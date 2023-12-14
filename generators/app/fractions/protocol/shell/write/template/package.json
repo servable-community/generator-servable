@@ -24,7 +24,9 @@
     },
     "keywords": [
         "servable",
-        "protocol"
+        "protocol",
+        "parse-server",
+        "expressjs"
     ],
     "author": "<%= author %>",
     "license": "ISC",
@@ -48,8 +50,9 @@
         "test:unit": "yarn node --require=dotenv/config --experimental-vm-modules --experimental-specifier-resolution=node $(yarn bin jest) --config ./jest.config.json",
         "test:watch": "react-scripts test --env=jsdom",
         "prepare": "husky install",
-        "servable:document": "node -e 'import(\"../../../core/manifest/src/index.js\").then(m => m.documentProtocol({path: (process.cwd() + \"/src\"), write: true}))'",
-        "servable:readme": "node -e 'import(\"../../../core/manifest/src/index.js\").then(m => m.generateGithubReadme({path: (process.cwd() + \"/src\"), write: true, targetPath: (process.cwd() + \"/README.md\" )}))'"
+        "servable:license": "cp ./src/LICENSE ./LICENSE 2>/dev/null || :",
+        "servable:readme": "node -e 'import(\"./node_modules/servable-manifest/src/index.js\").then(m => m.generateGithubReadme({path: (process.cwd() + \"/src\"), write: true, targetPath: (process.cwd() + \"/README.md\" )}))'",
+        "servable:document": "node -e 'import(\"./node_modules/servable-manifest/src/index.js\").then(m => m.documentProtocol({path: (process.cwd() + \"/src\"), write: true}))'"
     },
     "prettier": {
         "printWidth": 80,

@@ -52,6 +52,10 @@ export default async (props) => {
                 validate: validateNonMandatory
             },
             {
+                name: 'protocolGithubId',
+                validate: validateNonMandatory
+            },
+            {
                 name: 'protocolServableEngineVersion',
                 validate: validateNonMandatory
             },
