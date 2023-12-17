@@ -108,7 +108,7 @@ export default [
                 "components": ["server"],
                 "url": "https://github.com/servable-community/servable-publishable.git",
                 "engines": {
-                    "servable-engine": ">=1.0"
+                    "@servable/engine": ">=1.0"
                 },
                 "usage": {
                     "howto": "Fill the API key",

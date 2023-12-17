@@ -2,7 +2,7 @@
  * Copyright (C) Servable Community. All rights reserved.
  *--------------------------------------------------------*/
 
-// import { validateProtocol } from 'servable-manifest'
+// import { validateProtocol } from '@servable/manifest'
 
 export default async (props) => {
     const { generator, payload } = props

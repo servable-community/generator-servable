@@ -4,7 +4,7 @@
 
 import drawEnd from "../../../lib/draw/drawEnd.js"
 import targetProtocol from "../../../prompts/targetProtocol/index.js"
-import { documentProtocol } from 'servable-manifest'
+import { documentProtocol } from '@servable/manifest'
 
 export default {
     id: 'protocoldocument',

@@ -39,7 +39,7 @@
                 "parameters": []
             },
             "engines": {
-                "servable-engine": "<%= protocolServableEngineVersion %>"
+                "@servable/engine": "<%= protocolServableEngineVersion %>"
             }
         }
     ]

@@ -76,7 +76,7 @@
         "which": "^3.0.0",
         "yeoman-generator": "^5.0.0",
         "yosay": "^2.0.2",
-        "servable-manifest": "^1.7.0"
+        "@servable/manifest": "1.15.0"
     },
     "devDependencies": {
         "@babel/eslint-parser": "^7.22.15",
